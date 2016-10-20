@@ -2,8 +2,127 @@ body{
 
 }
 
-.game
-{
-  margin: 0 auto;
+.game-container{
+  display: flex;
+}
+
+.game{
   width: 20px;
+}
+
+.game-controllers{
+  display: flex;
+}
+.piece-box, .piece-container{
+  width: 30vw;
+  height: 60vh;
+  border: 2px solid;
+}
+.piece-box{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.piece-box .piece{
+  margin: 0;
+}
+.piece-container{
+  z-index: 100;
+}
+
+.piece {
+ font-size: 12px;
+  width: 12em;
+  height: 3em;
+  margin: 50px;
+  position: relative;
+  -webkit-border-radius: .5em;
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  text-align: center;
+  cursor: move;
+}
+
+
+.piece{
+ background-color: blue;
+}
+.piece span {
+ background-color: inherit;
+}
+
+
+.piece .t {
+ width: 2em;
+  height: 2em;
+  position: absolute;
+  top: -1.3em;
+  left: 2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.piece .r {
+ width: 2em;
+  height: 2em;
+  position: absolute;
+  top: 2em;
+  left: 10em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+}
+
+.piece .b {
+ width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 1.8em;
+  left: 2em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: #fff;
+}
+
+.piece .l {
+ width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  top: 2.2em;
+  left: -.4em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  border-radius: 4em;
+  background-color: #fff;
+}
+
+
+.piece-up{
+
+}
+.piece-down{
+
+  background-size: 5em 15em;
+  background-image: url(./img/long-arrow-down.svg);
+}
+.piece-left{
+
+  background-size: cover;
+  background-image: url(./img/long-arrow-left.svg);
+}
+.piece-right{
+
+  background-size: cover;
+  background-image: url(./img/long-arrow-right.svg);
+}
+
+.piece-img{
+  width: 3em;
+  height: 3em;
+}
+#compile{
+  width: 8em;
+  height: 4em;
 }

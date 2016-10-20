@@ -8,12 +8,12 @@ $(document).on('ready', function() {
 	var height = $("#snake").height();
 
 	//Definimos algunas variables para configurar nuestro juego
-	var cellWidth = 10;
+	var cellWidth = 50;
 	var d;
 	var food;
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
-	var background = 'white';
+	var background = '#27ae60';
 	var border = 'black';
 	var snakeColor = 'black';
 
@@ -24,7 +24,7 @@ $(document).on('ready', function() {
 	//dependiendo el nivel que hayas configurado arriba
 	function init()
 	{
-		d = "right";
+		d = "down";
 		createSnake();
 		createFood();
 		score = 0;
@@ -32,8 +32,11 @@ $(document).on('ready', function() {
 		if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
 		}
+		right();
+		down();
 
-		gameLoop = setInterval(paint, 1000 / level);
+
+	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
 	init();
@@ -46,7 +49,7 @@ $(document).on('ready', function() {
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ x: i, y: 0 });
+			snake.push({ x: 0, y: i });
 		}
 	}
 
@@ -80,7 +83,8 @@ $(document).on('ready', function() {
 			ny++;
 		}
 
-		if (nx == -1 || nx == width / cellWidth || ny == -1 || ny == height / cellWidth || checkCollision(nx, ny, snake)) {
+		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
+			ny == height / cellWidth || checkCollision(nx, ny, snake)) {
 			init();
 
 			return;
@@ -112,7 +116,7 @@ $(document).on('ready', function() {
 
 		paintCell(food.x, food.y);
 
-		var scoreText = "www.codejobs.biz - Score: " + score;
+		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
 	}
@@ -139,10 +143,25 @@ $(document).on('ready', function() {
 		return false;
 	}
 
+	function down(){
+		d="down";
+		paint();
+	}
+	function up(){
+		d="up";
+		paint();
+	}
+	function left(){
+		d="left";
+		paint();
+	}
+	function right(){
+		d="right";
+		paint();
+	}
 	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
 	$(document).on('keydown', function(e) {
 		var key = e.which;
-
 		if (key == "37" && d != "right") {
 			d = "left";
 		} else if (key == "38" && d != "down") {
@@ -153,4 +172,24 @@ $(document).on('ready', function() {
 			d = "down";
 		}
 	});
+	var btnCompile=$('#compile');
+	console.log(btnCompile);
+	btnCompile.on('click',recyclerPiece);
+
+	function recyclerPiece(){
+		var pieceBox=document.querySelector('.piece-box');
+		var pieces=pieceBox.getElementsByClassName('.piece');
+		var piece;
+		var array=[];
+		for(i in pieces){
+      var piece=pieces[i];
+      if(typeof piece.style != 'undefined')
+      {
+				array[i]=piece.getAttribute('class');
+			}
+
+    }
+		console.log(array);
+	}
+
 });
