@@ -16,7 +16,7 @@ $(document).on('ready',function (){
     }
 
     function alzarpieza(e){
-      this.style.backgroundColor='red';
+      this.style.backgroundColor='#e74c3c';
       //Creamos un padre
       var padre=document.createElement('div');
       //creamos un clon de la pieza
@@ -32,13 +32,13 @@ $(document).on('ready',function (){
 
     function recogerpieza(e){
       e.preventDefault();
-      
+
       var datoclon=e.dataTransfer.getData('text');
       console.log(datoclon);
       this.innerHTML += datoclon;
     }
     function soltarpieza(e){
-      this.style.backgroundColor='blue';
+      this.style.backgroundColor='#3498db';
     }
 
     function piezasobre(e){

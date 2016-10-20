@@ -172,24 +172,43 @@ $(document).on('ready', function() {
 			d = "down";
 		}
 	});
+
 	var btnCompile=$('#compile');
-	console.log(btnCompile);
-	btnCompile.on('click',recyclerPiece);
+	btnCompile.click(recyclerPiece);
 
 	function recyclerPiece(){
-		var pieceBox=document.querySelector('.piece-box');
-		var pieces=pieceBox.getElementsByClassName('.piece');
+		var pieceBox=document.getElementsByClassName('piece-box');
+		var pieces=document.getElementById('piece-box').getElementsByClassName('piece');
 		var piece;
-		var array=[];
+		var instruction;
 		for(i in pieces){
       var piece=pieces[i];
       if(typeof piece.style != 'undefined')
       {
-				array[i]=piece.getAttribute('class');
+				instruction=piece.dataset.instruction;
+				execInstruction(instruction);
+				console.log(instruction);
 			}
 
     }
-		console.log(array);
+
+	}
+	function execInstruction(instruction){
+		if (instruction == "left" && d != "right") {
+			left();
+		} else if (instruction == "up" && d != "down") {
+			up();
+		} else if (instruction == "right" && d != "left") {
+			right();
+		} else if (instruction == "down" && d != "up") {
+			down();
+		}
 	}
 
+	var btnReset=$('#reset');
+	btnReset.click(reset);
+
+	function reset(){
+		document.getElementById('piece-box').innerHTML= "";
+	}
 });

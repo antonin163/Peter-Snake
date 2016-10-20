@@ -1,27 +1,43 @@
-body{
 
+
+*{
+  box-sizing: border-box;
 }
 
 .game-container{
   display: flex;
+  background-color: #34495e;
+  height: 100vh;
+  width: 100vw;
 }
 
 .game{
   width: 20px;
 }
-
+.game-container{
+  padding: 3em;
+}
 .game-controllers{
   display: flex;
+  height: 70vh;
+  width: 50vw;
 }
 .piece-box, .piece-container{
-  width: 30vw;
-  height: 60vh;
+  width: 18vw;
+  height: 70vh;
   border: 2px solid;
 }
+.piece-container{
+  padding-top: 2em;
+  width: 18vw;
+  height: 50vh;
+}
+
 .piece-box{
 display: flex;
 flex-direction: column;
 align-items: center;
+padding-top: 2em;
 }
 .piece-box .piece{
   margin: 0;
@@ -34,7 +50,7 @@ align-items: center;
  font-size: 12px;
   width: 12em;
   height: 3em;
-  margin: 50px;
+  margin: 1.5em 4em 1.5em 4em;
   position: relative;
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;
@@ -45,7 +61,7 @@ align-items: center;
 
 
 .piece{
- background-color: blue;
+ background-color: #3498db;
 }
 .piece span {
  background-color: inherit;
@@ -83,7 +99,7 @@ align-items: center;
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
   border-radius: 4em;
-  background-color: #fff;
+  background-color: #34495e;
 }
 
 .piece .l {
@@ -122,7 +138,85 @@ align-items: center;
   width: 3em;
   height: 3em;
 }
-#compile{
-  width: 8em;
-  height: 4em;
+
+.game-buttons{
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+}
+
+button{
+  width: 12em;
+  height: 2.5em;
+  font-weight: bold !important;
+  font-size: 0.8em;
+  margin: .4em !important;
+  border: solid white 2px;
+
+}
+
+.btn-first{
+  background-color: #2ecc71;
+  color: white;
+}
+.btn-second{
+  background-color: #e74c3c;
+  color: white;
+}
+.btn-first:hover{
+  color: white;
+  background-color:#27ae60;
+}
+
+.btn-second:hover{
+  color: white;
+  background-color:#c0392b;
+}
+
+.colu {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.colu-center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.rowu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.rowu-left{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.rowu-right{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rowu-wrap{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.colu-wrap{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.rowu-center{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
