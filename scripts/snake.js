@@ -16,6 +16,7 @@ $(document).on('ready', function() {
 	var background = '#27ae60';
 	var border = 'black';
 	var snakeColor = 'black';
+	var array;
 
 	//Creamos nuestra víbora
 	var snake;
@@ -34,8 +35,6 @@ $(document).on('ready', function() {
 		}
 		right();
 		down();
-
-
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -181,16 +180,34 @@ $(document).on('ready', function() {
 		var pieces=document.getElementById('piece-box').getElementsByClassName('piece');
 		var piece;
 		var instruction;
-		for(i in pieces){
-      var piece=pieces[i];
-      if(typeof piece.style != 'undefined')
-      {
-				instruction=piece.dataset.instruction;
-				execInstruction(instruction);
-				console.log(instruction);
-			}
+		var length=pieces.length;
+		var i=0;
+		var array=[];
+		console.log(length);
+		//for(var i = 0; i <= length-1; i++)
+		while (i<=length-1)
+		{
+				var piece=pieces[i];
+				if(typeof piece.style != 'undefined')
+	      {
+					instruction=piece.dataset.instruction;
+					setTimeout(function(){},i*2000);
+					execInstruction(instruction);
+					array[i]=instruction;
+					console.log(instruction);
+				}
+				i++;
+		}
+		// for(i in pieces){
+    //   var piece=pieces[i];
+    //   if(typeof piece.style != 'undefined')
+    //   {
+		// 		instruction=piece.dataset.instruction;
+		// 		setTimeout(function(){execInstruction(instruction)},2000);
+		// 		console.log(instruction);
+		// 	}
 
-    }
+    //}
 
 	}
 	function execInstruction(instruction){
@@ -210,5 +227,6 @@ $(document).on('ready', function() {
 
 	function reset(){
 		document.getElementById('piece-box').innerHTML= "";
+		init();
 	}
 });
