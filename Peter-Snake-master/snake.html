@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./styles/main.css" media="screen" title="no title" charset="utf-8">
+	</head>
+
+	<body>
+		<div class="game-container">
+			<div class="game-controllers colu-center">
+				<div class="piece-container" >
+						<div class="piece piece-up" data-instruction="up"  draggable="true" >
+							<span class="t" ></span>
+							<span class="b"></span>
+							<img class="piece-img" src="./styles/img/long-arrow-up.svg" alt="" />
+						</div>
+						<div class="piece piece-down" data-instruction="down"  draggable="true">
+							<span class="t"></span>
+							<span class="b"></span>
+							<img class="piece-img" src="./styles/img/long-arrow-down.svg" alt="" />
+						</div>
+						<div class="piece piece-left" data-instruction="left"  draggable="true">
+							<span class="t"></span>
+							<span class="b"></span>
+							<img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" />
+						</div>
+						<div class="piece piece-right" data-instruction="right"  draggable="true">
+							<span class="t"></span>
+							<span class="b"></span>
+							<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
+						</div>
+				</div>
+				<div class="game-buttons">
+					<button class="btn-first" id="compile" type="button" name="compile" >COMPILAR</button>
+					<button class="btn-second" id="reset" type="button" name="reset" >RESET</button>
+				</div>
+				<div id="piece-box" class="piece-box">
+
+				</div>
+
+
+			</div>
+			<div class="game">
+				<canvas id="snake" width="450" height="450"></canvas>
+			</div>
+		</div>
+
+		<script src="./scripts/jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script src="./scripts/snake.js" type="text/javascript"></script>
+		<script src="./scripts/drawndrop.js" type="text/javascript"></script>
+
+	</body>
+</html>
