@@ -222,11 +222,12 @@ $(document).on('ready', function() {
 		}
 	}
 
-	var btnReset=$('#reset');
-	btnReset.click(reset);
+	var btnEmpty=$('#empty');
+	btnEmpty.click(emptyContainer);
 
-	function reset(){
+	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
-		init();
 	}
+
+
 });
