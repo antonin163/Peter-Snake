@@ -194,7 +194,7 @@ $(document).on('ready', function() {
 					setTimeout(function(){},i*2000);
 					execInstruction(instruction);
 					array[i]=instruction;
-					console.log(instruction);
+					console.log(array);
 				}
 				i++;
 		}
@@ -209,6 +209,12 @@ $(document).on('ready', function() {
 
     //}
 
+	}
+
+	function setInstructionModal(arrayInstructions){
+
+		var modalInstruction=document.getElementById('modal-instructions');
+		console.log(modalInstruction);
 	}
 	function execInstruction(instruction){
 		if (instruction == "left" && d != "right") {
