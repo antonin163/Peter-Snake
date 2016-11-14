@@ -17,12 +17,21 @@ $(document).on('ready', function() {
 	var border = 'black';
 	var snakeColor = 'black';
 	var array;
-
+	// var iBody = new Image();
+	// var iFood = new Image();
+	var aEat = new Audio();
+	var aDie = new Audio();
+	
 	//Creamos nuestra víbora
 	var snake;
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
+	// function BtnAbrir()
+	// {
+		
+	// 	finestraModalObrir = document.getElementById("finestra-modal-obrir");
+	// }
 	function init()
 	{
 		d = "down";
@@ -35,6 +44,11 @@ $(document).on('ready', function() {
 		}
 		right();
 		down();
+		/*agregacion de imagenes*/
+		// iBody.src = 'assets/body.png';
+		// iFood.src = 'assets/fruit.png';
+		aEat.src = 'assets/chomp.oga';
+		aDie.src = 'assets/dies.oga';
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -58,6 +72,7 @@ $(document).on('ready', function() {
 		food = {
 			x: Math.round(Math.random() * (width - cellWidth) / cellWidth),
 			y: Math.round(Math.random() * (height - cellWidth) / cellWidth),
+			
 		};
 	}
 
@@ -85,7 +100,7 @@ $(document).on('ready', function() {
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
 			ny == height / cellWidth || checkCollision(nx, ny, snake)) {
 			init();
-
+			aDie.play();
 			return;
 		}
 
@@ -96,7 +111,10 @@ $(document).on('ready', function() {
 			};
 
 			score++;
-
+			aEat.play();
+			// BtnAbrir();
+			//console.log(finestra_modal_obrir);
+			//console.log(modalInstruction);
 			createFood();
 		} else {
 			var tail = snake.pop();
@@ -109,17 +127,21 @@ $(document).on('ready', function() {
 
 		for(var i = 0; i < snake.length; i++) {
 			var c = snake[i];
-
+		//	ctx.drawImage(iBody, snake[i].x, snake[i].y);
 			paintCell(c.x, c.y);
 		}
 
 		paintCell(food.x, food.y);
+		//ctx.drawImage(iBody, snake[i].x, snake[i].y);
 
 		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
 	}
-
+// function run() {
+// setTimeout(run, 50);
+// paintCell();
+// }
 	//Pintamos la celda
 	function paintCell(x, y)
 	{
@@ -127,6 +149,7 @@ $(document).on('ready', function() {
 		context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		context.strokeStyle = background;
 		context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+
 	}
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
@@ -136,6 +159,8 @@ $(document).on('ready', function() {
 		{
 			if(array[i].x == x && array[i].y == y) {
 				return true;
+				// aDie.play();
+				// finestraModal.classList.add("js-mostrar");
 			}
 		}
 
@@ -211,11 +236,20 @@ $(document).on('ready', function() {
 
 	}
 
-	function setInstructionModal(arrayInstructions){
+	//var myTimer = setTimeout(recyclerPiece(), 5000);
+	//var myTimer = setTimeout(paintCell(), 5000);
+	//var myTimer = setTimeout(paint(), 5000);
+	//setInterval(recyclerPiece, 8000);
+	//var timeoutId = setTimeout("recyclerPiece()", 6000);
+	//var timeoutId = setTimeout(paintCell, 6000);
+	//var timeoutId = setTimeout("paint()", 2000);
+	//setInterval("reloj()",1000);
 
-		var modalInstruction=document.getElementById('modal-instructions');
-		console.log(modalInstruction);
-	}
+	// function setInstructionModal(arrayInstructions){
+
+	// 	var finestra_modal_obrir=document.getElementById('finestra-modal-obrir');
+	// 	console.log(finestra_modal_obrir);
+	// }
 	function execInstruction(instruction){
 		if (instruction == "left" && d != "right") {
 			left();
@@ -234,6 +268,8 @@ $(document).on('ready', function() {
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
+	/*agregar imagen y sonido*/
+	
 
 
 });
