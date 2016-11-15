@@ -1,14 +1,50 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./styles/main.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./styles/estjuego.css">
+
 		<link rel="stylesheet" href="./styles/modal.css">
 	</head>
 
 	<body>
+		<header>
+			<div class="contenedor">
+				
+				<nav class="menu">
+					<ul>
+						<a><img src="img/img_logo.png"></a>
+						<li><a href="#">Salir</a></li>
+						<li><a href="#">Contacto</a></li>
+						<li><a href="#">Como Usar</a></li>
+					</ul>
+				</nav>
+			</div>
+		 </header>
 		<div class="game-container">
-			<div class="game-controllers colu-center">
+
+			
+
+
+			</div>
+<!--			+++++++++++++++++-->
+			<div class="central">
+		       	 	<div class="game">
+		       	 		<p> PETER SNAKE</p>
+		       	 		<section class="view_game">
+			       	 		<div class="game">
+								<canvas id="snake" width="450" height="450"></canvas>
+							</div>
+	       	 			</section>
+	       	 			<!--<p><input type="submit"  value="EJECUTAR"></p>-->
+	       	 		
+	       	 		</div>
+       	 	
+	       	 	<div class="instrucciones">
+	       	 	<div class="game-controllers colu-center">
 				<div class="piece-container" >
 						<div class="piece piece-up" data-instruction="up"  draggable="true" >
 							<span class="t" ></span>
@@ -38,13 +74,12 @@
 				</div>
 				<div id="piece-box" class="piece-box">
 
-				</div>
-
-
-			</div>
-			<div class="game">
-				<canvas id="snake" width="450" height="450"></canvas>
-			</div>
+				</div>	
+	       	 	</div>
+       	 	
+       	 	</div>
+			<!--++++++++++-->
+			
 		</div>
 
 		  
@@ -55,6 +90,13 @@
 						<p id="modal-instructions">
 							Al colocar los bloques de este rompecabezas, has creado una serie de instrucciones en un lenguaje informático llamado JavaScript. Este código le dice al ordenador lo que debe mostrar en la pantalla. 
 						</p>
+						<div class="ins">
+							<p class="instruction" id="modal-instructions">
+								 moveForward();<br>
+								 moveForward();<br>
+								 moveForward();
+							</p>
+						<div>
 						<img src="./styles/img/snake.png">
 
 			    <div id="finestra-modal-tancar" class="finestra-modal-tancar boto">×</div>

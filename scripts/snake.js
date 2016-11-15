@@ -2,6 +2,15 @@ $(document).on('ready', function() {
 	//Vamos a crear un contexto 2d de nuestro canvas.
 	var canvas = $("#snake")[0];
 	var context = canvas.getContext("2d");
+	
+/*
+	var img = new Image();
+	img.src = "assets/pasto.jpg";
+img.onload = function(){
+	context.drawImage(img, 0, 0);
+	paint();
+}*/
+
 
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
@@ -17,11 +26,13 @@ $(document).on('ready', function() {
 	var border = 'black';
 	var snakeColor = 'black';
 	var array;
-	// var iBody = new Image();
-	// var iFood = new Image();
+	var iBody = new Image();
+	var iFood = new Image();
 	var aEat = new Audio();
 	var aDie = new Audio();
-	
+	var iBackground = new Image();
+	//var iBrick = new Image();
+	//var relleno=context.createPattern(iFood, "no-repeat")
 	//Creamos nuestra víbora
 	var snake;
 
@@ -34,6 +45,7 @@ $(document).on('ready', function() {
 	// }
 	function init()
 	{
+		
 		d = "down";
 		createSnake();
 		createFood();
@@ -45,19 +57,23 @@ $(document).on('ready', function() {
 		right();
 		down();
 		/*agregacion de imagenes*/
-		// iBody.src = 'assets/body.png';
-		// iFood.src = 'assets/fruit.png';
+		iBody.src = 'assets/body.png';
+		iFood.src = 'assets/fruit.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
+		iBackground.src = 'assets/flat-texture.png';
+
+		//iBrick.src = 'assets/brick.png';
+		
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
 	init();
-
+	
 	//Creamos la víbora
 	function createSnake()
 	{
-		var length = 5;
+		var length = 3;
 		snake = [];
 
 		for(var i = length - 1; i >= 0; i--)
@@ -70,8 +86,8 @@ $(document).on('ready', function() {
 	function createFood()
 	{
 		food = {
-			x: Math.round(Math.random() * (width - cellWidth) / cellWidth),
-			y: Math.round(Math.random() * (height - cellWidth) / cellWidth),
+			x: Math.round(0.1 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 			
 		};
 	}
@@ -79,8 +95,9 @@ $(document).on('ready', function() {
 	//Dibujamos la víbora
 	function paint()
 	{
-		context.fillStyle = background;
-		context.fillRect(0, 0, width, height);
+		context.drawImage( iBackground, 0, 0, width, height );
+		//context.fillStyle = background;
+		//context.fillRect(0, 0, width, height);
 		context.strokeStyle = border;
 		context.strokeRect(0, 0, width, height);
 
@@ -89,11 +106,14 @@ $(document).on('ready', function() {
 
 		if (d == "right") {
 			nx++;
-		} else if (d == "left") {
+		} 
+		else if (d == "left") {
 			nx--;
-		} else if (d == "up") {
+		} 
+		else if (d == "up") {
 			ny--;
-		} else if (d == "down") {
+		} 
+		else if (d == "down") {
 			ny++;
 		}
 
@@ -112,6 +132,13 @@ $(document).on('ready', function() {
 
 			score++;
 			aEat.play();
+			
+			//finestraModalObrir = document.getElementById("finestra-modal-obrir");
+			//FinestraModal();
+			//console.log('from modal.js');
+			finestraModalObrir.addEventListener("click",function() {
+		finestraModal.classList.add("js-mostrar");
+	});
 			// BtnAbrir();
 			//console.log(finestra_modal_obrir);
 			//console.log(modalInstruction);
@@ -127,21 +154,27 @@ $(document).on('ready', function() {
 
 		for(var i = 0; i < snake.length; i++) {
 			var c = snake[i];
-		//	ctx.drawImage(iBody, snake[i].x, snake[i].y);
+		//context.drawImage(iBody, snake[i].x, snake[i].y);
+
 			paintCell(c.x, c.y);
 		}
 
 		paintCell(food.x, food.y);
-		//ctx.drawImage(iBody, snake[i].x, snake[i].y);
-
+		context.drawImage(iFood,  food.x, food.y);
+		//agregando fondo
+		
+	//	img.onload = function(){
+	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );		
+	//	}
 		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
+
 	}
-// function run() {
-// setTimeout(run, 50);
-// paintCell();
-// }
+ function run() {
+ setTimeout(run, 500);
+ paint();
+ }
 	//Pintamos la celda
 	function paintCell(x, y)
 	{

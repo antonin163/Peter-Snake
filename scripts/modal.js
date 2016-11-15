@@ -17,3 +17,5 @@ function FinestraModal(){
 		finestraModal.classList.remove("js-mostrar");
 	});
 }
+
+//console.log('from modal.js');
