@@ -2,7 +2,9 @@ $(document).on('ready', function() {
 	//Vamos a crear un contexto 2d de nuestro canvas.
 	var canvas = $("#snake")[0];
 	var context = canvas.getContext("2d");
-	
+	var finestraModal = document.getElementById("finestra-modal"),
+			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
+			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 /*
 	var img = new Image();
 	img.src = "assets/pasto.jpg";
@@ -136,9 +138,9 @@ img.onload = function(){
 			//finestraModalObrir = document.getElementById("finestra-modal-obrir");
 			//FinestraModal();
 			//console.log('from modal.js');
-			finestraModalObrir.addEventListener("click",function() {
-		finestraModal.classList.add("js-mostrar");
-	});
+			
+			finestraModal.classList.add("js-mostrar");
+	
 			// BtnAbrir();
 			//console.log(finestra_modal_obrir);
 			//console.log(modalInstruction);
