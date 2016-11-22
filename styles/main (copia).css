@@ -1,11 +1,13 @@
-
+body{
+  font-family: sans-serif;
+}
 
 *{
   box-sizing: border-box;
 }
 /*
 .game-container{
-  
+
   display: flex;
   background-color: #2c3e50;
   height: 100vh;
@@ -20,7 +22,7 @@
 }
 .game-controllers{
   display: flex;
-  height: 70vh;
+  height: 80vh;
   width: 50vw;
 }
 .piece-box, .piece-container{
@@ -32,16 +34,37 @@
 .piece-container{
   padding-top: 2em;
   width: 18vw;
-  height: 50vh;
+  height: 60vh;
+}
+.piece-for{
+  height: auto;
+}
+.piece-box, .piece-for{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  z-index: 0;
 }
 
-.piece-box{
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-top: 2em;
+.piece-for{
+  height: auto !important;
+  z-index: 999;
+  color: white;
+  font-weight: bold;
+}
+.piece-for p{
+  padding: 0;
+  margin: 0 0 .5em 0;
+}
+.piece-for .b{
+  background-color: rgb(52, 152, 219) !important;
 }
 .piece-box .piece{
+  margin: 0;
+}
+.piece-for .piece{
   margin: 0;
 }
 .piece-container{

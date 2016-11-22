@@ -75,12 +75,12 @@ img.onload = function(){
 	//Creamos la víbora
 	function createSnake()
 	{
-		var length = 3;
+		var length = 5;
 		snake = [];
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ x: 0, y: i });
+			snake.push({ x: 2, y: i });
 		}
 	}
 
@@ -88,18 +88,18 @@ img.onload = function(){
 	function createFood()
 	{
 		food = {
-			x: Math.round(0.1 * (width - cellWidth) / cellWidth),
+			x: Math.round(0.6 * (width - cellWidth) / cellWidth),
 			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
-			
+
 		};
 	}
 
 	//Dibujamos la víbora
 	function paint()
 	{
-		context.drawImage( iBackground, 0, 0, width, height );
-		//context.fillStyle = background;
-		//context.fillRect(0, 0, width, height);
+		//context.drawImage( iBackground, 0, 0, width, height );
+		context.fillStyle = background;
+		context.fillRect(0, 0, width, height);
 		context.strokeStyle = border;
 		context.strokeRect(0, 0, width, height);
 

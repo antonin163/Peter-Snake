@@ -70,30 +70,33 @@
 									       	 	<div class="instrucciones">
 									       	 	<div class="game-controllers colu-center">
 												<div class="piece-container" >
-														<div class="piece piece-up" data-instruction="up"  draggable="true" >
-															<span class="t" ></span>
-															<span class="b"></span>
-															<img class="piece-img" src="./styles/img/long-arrow-up.svg" alt="" />
-														</div>
-														<div class="piece piece-down" data-instruction="down"  draggable="true">
-															<span class="t"></span>
-															<span class="b"></span>
-															<img class="piece-img" src="./styles/img/long-arrow-down.svg" alt="" />
-														</div>
-														<div class="piece piece-left" data-instruction="left"  draggable="true">
-															<span class="t"></span>
-															<span class="b"></span>
-															<img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" />
-														</div>
-														<div class="piece piece-right" data-instruction="right"  draggable="true">
-															<span class="t"></span>
-															<span class="b"></span>
-															<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
-														</div>
-												</div>
+													<div class="piece piece-up" data-instruction="up"  draggable="true" >
+														<span class="t" ></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-up.svg" alt="" />
+													</div>
+													<div class="piece piece-down" data-instruction="down"  draggable="true">
+														<span class="t"></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-down.svg" alt="" />
+													</div>
+													<div class="piece piece-left" data-instruction="left"  draggable="true">
+														<span class="t"></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" />
+													</div>
+													<div class="piece piece-right" data-instruction="right"  draggable="true">
+														<span class="t"></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
+													</div>
+													<div id="piece-for"class="piece piece-for" draggable="true" data-instruction="for">
+														<p> Repetir 2 veces	</p><br>
+													</div>
+											</div>
 												<div class="game-buttons">
 													<button class="btn-first" id="compile" type="button" name="compile" >COMPILAR</button>
-													<button class="btn-second" id="empty" type="button" name="empty" >VACIAR CONTENEDORAAAAA</button>
+													<button class="btn-second" id="empty" type="button" name="empty" >VACIAR CONTENEDORA</button>
 													<a title="legalDescripcio" id="finestra-modal-obrir" ><button class="btn-first" id="abrir" type="button" name="abrir" >MOSTRAR CODIGO</button></a>
 												</div>
 												<div id="piece-box" class="piece-box">
@@ -116,9 +119,11 @@
 														</p>
 														<div class="ins">
 															<p class="instruction" id="modal-instructions">
-																 moveForward();<br>
-																 moveForward();<br>
-																 moveForward();
+																 for(i=1;i<=2,i++)<br>
+																 {<br>
+																 	moveRight();<br>
+																 }<br>
+																 moveDown();
 															</p>
 														<div>
 														<img src="./styles/img/snake.png">
