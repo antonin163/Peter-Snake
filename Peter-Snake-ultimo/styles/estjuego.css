@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+	background: #F2F2F2;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 1.5px;
+	text-align: center;
+}
+p{
+	text-align: center;
+}
+
+.contenedor {
+	width: 100%;
+	max-width:3000px;
+	/*margin-bottom: 3%;*/
+
+}
+
+.contenedor p {
+	margin-bottom:40px;
+}
+/* cabecera del nivel 1 modificada a verde*/
+header nav {
+	background:#0da144;
+	/*margin-bottom:10px;*/
+}
+
+header nav ul {
+	list-style: none;
+	overflow: hidden;
+	margin-right: 2.5%;
+	margin-top: -15px;
+	font-size: 20px;
+	margin-bottom: 0px;
+}
+
+header nav ul li {
+	float: right;
+
+}
+
+header nav ul li a {
+	display: block;
+	padding:20px;
+	color:#fff;
+	text-decoration: none;
+}
+
+header nav ul li a:hover {
+	background:#2980b9;
+}
+
+
+/* ---Scroll --- */
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	max-width:1000px;
+	width:100%;
+	box-shadow:0px 4px 3px rgba(0,0,0,.5);
+}
+
+.central{
+	display: flex;
+	background: #0d5196;
+	width: 100%vh;
+	height: 100%;
+	padding: 2%;
+	/*margin-top: -60px;
+	margin-bottom: 300px;*/
+
+}
+.game{
+  /* aqui hay error en ese cuadro de alfondo*/
+  /*cambia el cuadro de fondo de canvas*/
+  border-radius: 30px 0px 0px 30px;
+  -moz-border-radius: 30px 0px 0px 30px;
+  -webkit-border-radius: 30px 0px 0px 30px;
+	padding: 4.5%;
+	background: #526487;
+	width: 45%;
+	height: 100%;
+	float: left;
+  border-style: double; border-width: 8px;
+	/*margin-left: 25px;*/
+}
+/* La letra Peter Snake cambia*/
+.game p{
+  border-style: dashed; border-width: 4px	text-align: center;
+	font-size: 40px;
+  font-family: cursive;
+	color: #0c130c;
+	margin-top: -40px;
+}
+.view_game{
+	background: #34495E;
+	width: 100%vh;
+	height: 50%;
+	margin-bottom: 7%;
+}
+.central input[type="submit"] {
+      background: #303F9F;
+      border-radius: 1px;
+      border: 0.5px solid #f2f2f2;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Roboto";
+      font-size: 16px;
+      padding: 15px;
+      width: 50%;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+.central input[type="submit"]:hover {
+        background: #1976D2; }
+.instrucciones{
+
+  border-radius: 0px 30px 30px 0px;
+  -moz-border-radius: 0px 30px 30px 0px;
+  -webkit-border-radius: 0px 30px 30px 0px;
+	padding: 0.5%;
+  /* Color plomo al cuadro del primer juego*/
+	background: #46484a;
+	width: 55%;
+	/*height: 100%;*/
+	float: right;
+	padding-top: 50px;
+  border-style: double; border-width: 8px;
+}
+.menu img {
+    margin-top: 10px;
+}

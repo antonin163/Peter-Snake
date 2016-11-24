@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./styles/main (copia).css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./styles/estjuego (copia).css">
+		<link rel="stylesheet" href="./styles/modal (copia).css">
+		<script src="./scripts/jquery-1.4.2.min.js"></script>
+
+	</head>
+
+	<body>
+		<script >
+  $(function(){
+  $('ul.tabs li:first').addClass('active');
+  $('.block article').hide();
+  $('.block article:first').show();
+  $('ul.tabs li').on('click',function(){
+  $('ul.tabs li').removeClass('active');
+  $(this).addClass('active')
+  $('.block article').hide();
+  var activeTab = $(this).find('a').attr('href');
+  $(activeTab).show();
+  return false;
+  });
+ })
+</script>
+		<header>
+			<div class="contenedor">
+
+				<nav class="menu">
+					<ul>
+						<a><img src="img/img_logo.png"></a>
+						<font color="Olive" face="Comic Sans MS,arial" size= 5>
+						<li><a href="#">Salir</a></li>
+					</font>
+						<font color="Olive" face="Comic Sans MS,arial" size= 5>
+						<li><a href="#">Contacto</a></li>
+					</font>
+						<font color="Olive" face="Comic Sans MS,arial" size= 5>
+						<li><a href="#">Como Usar</a></li>
+					</font>
+					</ul>
+				</nav>
+			</div>
+		 </header>
+
+		 <section class="wrapper">
+						    <ul class="tabs">
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
+						      <li><a href="./snake.html">NIVEL1</a></li>
+								</font>
+								<font color="Olive" face="Comic Sans MS,arial" size= 6>
+						      <li><a href="./snake2.html">NIVEL2</a></li>
+								</font>
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
+						      <li><a href="#">NIVEL3</a></li>
+								</font>
+						    </ul>
+							<div class="clr"></div>
+							    <section class="block">
+							      <article class="tab_1" id="tab1">
+
+
+										<div class="game-container">
+
+
+											</div>
+								<!--			+++++++++++++++++-->
+											<div class="central">
+										       	 	<div class="game">
+										       	 		<p> PETER SNAKE</p>
+										       	 		<section class="view_game">
+											       	 		<div class="game1">
+																<canvas id="snake" width="450" height="450" style="border:8px solid black"></canvas>
+															</div>
+									       	 			</section>
+									       	 			<!--<p><input type="submit"  value="EJECUTAR"></p>-->
+
+									       	 		</div>
+
+									       	 	<div class="instrucciones">
+									       	 	<div class="game-controllers colu-center">
+												<div class="piece-container" >
+													<div class="piece piece-up" data-instruction="up"  draggable="true" >
+														<span class="t" ></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-up.svg" alt="" />
+													</div>
+													<div class="piece piece-down" data-instruction="down"  draggable="true">
+														<span class="t"></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-down.svg" alt="" />
+													</div>
+													<div class="piece piece-left" data-instruction="left"  draggable="true">
+														<span class="t"></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" />
+													</div>
+													<div class="piece piece-right" data-instruction="right"  draggable="true">
+														<span class="t"></span>
+														<span class="b"></span>
+														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
+													</div>
+													<div id="piece-for"class="piece piece-for" draggable="true" data-instruction="for" >
+													<font color="#181518" face="Comic Sans MS,arial" size= 3>
+														<p> Repetir 2 veces 	</p><br>
+													</font>
+													</div>
+											</div>
+												<div class="game-buttons">
+													<button class="btn-first" id="compile" type="button" name="compile" >COMPILAR</button>
+													<button class="btn-second" id="empty" type="button" name="empty" >VACIAR CONTENEDORA</button>
+													<a title="legalDescripcio" id="finestra-modal-obrir" ><button class="btn-first" id="abrir" type="button" name="abrir" >MOSTRAR CODIGO</button></a>
+												</div>
+												<div id="piece-box" class="piece-box">
+
+												</div>
+									       	 	</div>
+
+								       	 	</div>
+											<!--++++++++++-->
+
+										</div>
+
+
+											<div id="finestra-modal" class="finestra-modal">
+											  <div class="finestra-modal__contingut">
+													<font color="Green" face="Comic Sans MS,arial" size= 5>
+											    <h2>JUEGO COMPLETADO</h2>
+												</font>
+													<font color="Green" face="Comic Sans MS,arial" size= 3>
+														<h3>¡FELICITACIONES! PASASTES EL PRIMER NIVEL!</h3>
+													</font>
+													<font color="Olive" face="Comic Sans MS,arial" size= 2>
+														<p id="modal-instructions">
+															Al colocar los bloques de este rompecabezas, has creado una serie de instrucciones en un lenguaje informático llamado JavaScript. Este código le dice al ordenador lo que debe mostrar en la pantalla.
+														</p>
+													</font>
+														<div class="ins">
+															<p class="instruction" id="modal-instructions">
+																 for(i=1;i<=2,i++)<br>
+																 {<br>
+																 	moveRight();<br>
+																 }<br>
+																 moveDown();
+															</p>
+														<div>
+														<img src="./styles/img/snake.png">
+
+											    <div id="finestra-modal-tancar" class="finestra-modal-tancar boto">×</div>
+											  </div>
+											</div>
+							      </article>
+							      <article class="tab_2" id="tab2">
+
+
+							      </article>
+								 </section>
+  		</section>
+
+
+		<script src="./scripts/jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script src="./scripts/snake (copia).js" type="text/javascript"></script>
+		<script src="./scripts/drawndrop (copia).js" type="text/javascript"></script>
+		<script src="./scripts/modal (copia).js"></script>
+
+
+
+	</body>
+</html>
