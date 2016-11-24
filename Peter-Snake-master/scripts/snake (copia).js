@@ -42,12 +42,12 @@ img.onload = function(){
 	//dependiendo el nivel que hayas configurado arriba
 	// function BtnAbrir()
 	// {
-		
+
 	// 	finestraModalObrir = document.getElementById("finestra-modal-obrir");
 	// }
 	function init()
 	{
-		
+
 		d = "down";
 		createSnake();
 		createFood();
@@ -58,6 +58,7 @@ img.onload = function(){
 		}
 		right();
 		down();
+			
 		/*agregacion de imagenes*/
 		iBody.src = 'assets/body.png';
 		iFood.src = 'assets/fruit.png';
@@ -66,12 +67,12 @@ img.onload = function(){
 		iBackground.src = 'assets/flat-texture.png';
 
 		//iBrick.src = 'assets/brick.png';
-		
+
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
 	init();
-	
+
 	//Creamos la víbora
 	function createSnake()
 	{
@@ -108,13 +109,13 @@ img.onload = function(){
 
 		if (d == "right") {
 			nx++;
-		} 
+		}
 		else if (d == "left") {
 			nx--;
-		} 
+		}
 		else if (d == "up") {
 			ny--;
-		} 
+		}
 		else if (d == "down") {
 			ny++;
 		}
@@ -134,13 +135,13 @@ img.onload = function(){
 
 			score++;
 			aEat.play();
-			
+
 			//finestraModalObrir = document.getElementById("finestra-modal-obrir");
 			//FinestraModal();
 			//console.log('from modal.js');
-			
+
 			finestraModal.classList.add("js-mostrar");
-	
+
 			// BtnAbrir();
 			//console.log(finestra_modal_obrir);
 			//console.log(modalInstruction);
@@ -164,9 +165,9 @@ img.onload = function(){
 		paintCell(food.x, food.y);
 		context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
-		
+
 	//	img.onload = function(){
-	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );		
+	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
 	//	}
 		var scoreText = "Score: " + score;
 
@@ -242,22 +243,31 @@ img.onload = function(){
 		var instruction;
 		var length=pieces.length;
 		var i=0;
+		var iFor=0;
 		var array=[];
 		console.log(length);
 		//for(var i = 0; i <= length-1; i++)
 		while (i<=length-1)
 		{
 				var piece=pieces[i];
+				var pieceSiguiente=pieces[i+1]
 				if(typeof piece.style != 'undefined')
 	      {
 					instruction=piece.dataset.instruction;
+					if(instruction=='for')
+					{
+						execInstruction(pieceSiguiente.dataset.instruction);
+					}
 					setTimeout(function(){},i*2000);
-					execInstruction(instruction);
-					array[i]=instruction;
-					console.log(array);
+						execInstruction(instruction);
+						array[i]=instruction;
+						console.log(array);
+
 				}
 				i++;
 		}
+		console.log(array);
+
 		// for(i in pieces){
     //   var piece=pieces[i];
     //   if(typeof piece.style != 'undefined')
@@ -295,6 +305,7 @@ img.onload = function(){
 		} else if (instruction == "down" && d != "up") {
 			down();
 		}
+
 	}
 
 	var btnEmpty=$('#empty');
@@ -304,7 +315,7 @@ img.onload = function(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
 	/*agregar imagen y sonido*/
-	
+
 
 
 });
