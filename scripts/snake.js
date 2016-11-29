@@ -46,27 +46,26 @@ img.onload = function(){
 	//dependiendo el nivel que hayas configurado arriba
 	// function BtnAbrir()
 	// {
-		
+
 	// 	finestraModalObrir = document.getElementById("finestra-modal-obrir");
 	// }
 	//window.addEventListener('load',init);
 	function init()
 	{
-		
+
 		d = "down";
 		createFood();
 		createSnake();
 
-		
+
 
 		//score = 0;
-		
+
 
 		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
 		}*/
-		right();
-		down();
+
 		/*agregacion de imagenes*/
 		iBody.src = 'assets/body.png';
 		iFood.src = 'assets/fruit.png';
@@ -74,10 +73,10 @@ img.onload = function(){
 		aDie.src = 'assets/dies.oga';
 		iBackground.src = 'assets/flat-texture.png';
 		//rr.src= 'assets/.png';
-		
+
 
 		//iBrick.src = 'assets/brick.png';
-		
+
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -93,15 +92,15 @@ img.onload = function(){
 	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	//context.drawImage(iBackground);
    // context.drawImage(iBackground,tiempo-800,0);
-		 
+
          // tiempo--;
          // if(tiempo<0){
-         //      tiempo = tiempo + 800;	
+         //      tiempo = tiempo + 800;
        //   }
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	paint();
-	
-	}	
+
+	}
 
   //   function comenzar(){
     //      clearTimeout(stop);
@@ -109,7 +108,7 @@ img.onload = function(){
         //  ee(context);
      //}
 
-	
+
 	//Creamos la víbora
 	function createSnake()
 	{
@@ -148,13 +147,13 @@ img.onload = function(){
 
 		if (d == "right") {
 			nx++;
-		} 
+		}
 		else if (d == "left") {
 			nx--;
-		} 
+		}
 		else if (d == "up") {
 			ny--;
-		} 
+		}
 		else if (d == "down") {
 			ny++;
 		}
@@ -172,17 +171,17 @@ img.onload = function(){
 				x: nx,
 				y: ny
 			};
-			
-			
+
+
 			score++;
 			aEat.play();
-			
+
 			//finestraModalObrir = document.getElementById("finestra-modal-obrir");
 			//FinestraModal();
 			//console.log('from modal.js');
-			
+
 			finestraModal.classList.add("js-mostrar");
-	
+
 			// BtnAbrir();
 			//console.log(finestra_modal_obrir);
 			//console.log(modalInstruction);
@@ -193,25 +192,30 @@ img.onload = function(){
 			var tail = snake.pop();
 
 			tail.x = nx;
-			tail.y = ny;			
-			
+			tail.y = ny;
+
 		}
 
 		snake.unshift(tail);
+		//Pintar cabeza
+		var typeCell="head";
+		var c = snake[0];
+		paintCell(c.x, c.y, typeCell);
 
-		for(var i = 0; i < snake.length; i++) {
-			var c = snake[i];
+		//Pintar Cuerpo
+		typeCell='body';
+		for(var i = 1; i < snake.length; i++) {
+			c = snake[i];
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
-
-			paintCell1(c.x, c.y);
+			paintCell(c.x, c.y, typeCell);
 		}
-
-		paintCell(food.x, food.y);
+		typeCell='food';
+		paintCell(food.x, food.y,typeCell);
 		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
-		
+
 	//	img.onload = function(){
-	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );		
+	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
 	//	}
 		var scoreText = "Score: " + score;
 
@@ -228,33 +232,46 @@ function muertes(){
 }*/
 
  /*function run() {
- setTimeout(, 1000);  
+ setTimeout(, 1000);
  }*/
  /*
- window.requestAnimationFrame = (function () { 
- 	return window.requestAnimationFrame || 
- 	window.mozRequestAnimationFrame || 
- 	window.webkitRequestAnimationFrame || 
+ window.requestAnimationFrame = (function () {
+ 	return window.requestAnimationFrame ||
+ 	window.mozRequestAnimationFrame ||
+ 	window.webkitRequestAnimationFrame ||
  	function (callback) {
  	window.setTimeout(callback, 5); }; }());*/
- 
 
 
-	//Pintamos la celda
-	function paintCell(x, y)
+	//
+	// //Pintamos la celda
+	// function paintCell(x, y)
+	// {
+	//
+	// 	context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	// 	//context.fillStyle = snakeColor;
+	// 	//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	// 	//context.strokeStyle = background;
+	// 	//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	//
+	// }
+
+	function paintCell(x, y, type)
 	{
-
-		context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		//context.fillStyle = snakeColor;
-		//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		//context.strokeStyle = background;
-		//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-
-	}
-
-	function paintCell1(x, y)
-	{		
-		context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		var t=type;
+		console.log(t);
+		if (t=="body") {
+			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		}
+		else if (t=="head"){
+			context.fillStyle = snakeColor;
+			context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			context.strokeStyle = background;
+			context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		}
+		else if (t=="food"){
+			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		}
 	}
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
@@ -311,7 +328,7 @@ function muertes(){
 	function reiniciarDenuevo(){
 		//aDie.play();
 		init();
-		return;	
+		return;
 		//btnReiniciar.style.visibility  = 'hidden';
         //btnReiniciar.style.display = 'none';
         /*btnCompile.style.visibility  = 'visible';
@@ -335,7 +352,7 @@ function muertes(){
 	btnContinuar.click(continuarDenuevo);
 
 	function continuarDenuevo(){
-		btnNivel2;	
+		btnNivel2;
 	}
 
 	var btnNivel2=$('#nivel2');
@@ -371,7 +388,7 @@ function muertes(){
         //btnCompile.style.display = 'none';
 /*                btnReiniciar.style.visibility  = 'visible';
                 btnReiniciar.style.display = '';*/
-    }         
+    }
 		//btnCompile.click(reiniciarDenuevo);
 		//btnCompile.click(recyclerPiece);
 		//if (true) {}
@@ -427,7 +444,7 @@ function muertes(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
 	/*agregar imagen y sonido*/
-	
+
 
 
 });
