@@ -76,7 +76,7 @@ img.onload = function(){
 
 
 		//iBrick.src = 'assets/brick.png';
-
+		paint(d);
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -98,7 +98,7 @@ img.onload = function(){
          //      tiempo = tiempo + 800;
        //   }
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	paint();
+	paint(d);
 
 	}
 
@@ -134,8 +134,9 @@ img.onload = function(){
 	}
 
 	//Dibujamos la víbora
-	function paint()
+	function paint(direccion)
 	{
+		var dir=direccion;
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -145,16 +146,16 @@ img.onload = function(){
 		var nx = snake[0].x;
 		var ny = snake[0].y;
 
-		if (d == "right") {
+		if (dir == "right") {
 			nx++;
 		}
-		else if (d == "left") {
+		else if (dir == "left") {
 			nx--;
 		}
-		else if (d == "up") {
+		else if (dir == "up") {
 			ny--;
 		}
-		else if (d == "down") {
+		else if (dir == "down") {
 			ny++;
 		}
 
@@ -259,7 +260,6 @@ function muertes(){
 	function paintCell(x, y, type)
 	{
 		var t=type;
-		console.log(t);
 		if (t=="body") {
 			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
@@ -369,19 +369,16 @@ function muertes(){
 		var i=0;
 		var array=[];
 		console.log(length);
-		//for(var i = 0; i <= length-1; i++)
-		while (i<=length-1)
+		for(var i = 0; i <= length-1; i++)
 		{
 				var piece=pieces[i];
 				if(typeof piece.style != 'undefined')
 	      {
 					instruction=piece.dataset.instruction;
-					setTimeout(function(){},i*2000);
-					execInstruction(instruction);
+					setTimeout(function(){	paint(instruction);	},i*1000);
 					array[i]=instruction;
 					console.log(array);
 				}
-				i++;
 		}
 
 		//btnCompile.style.visibility  = 'hidden';
@@ -419,23 +416,23 @@ function muertes(){
 	// 	var finestra_modal_obrir=document.getElementById('finestra-modal-obrir');
 	// 	console.log(finestra_modal_obrir);
 	// }
-	function execInstruction(instruction){
-		if (instruction == "left" && d != "right") {
-			left();
-			//run();
-
-		} else if (instruction == "up" && d != "down") {
-			up();
-			//run();
-		} else if (instruction == "right" && d != "left") {
-			right();
-			//run();
-		} else if (instruction == "down" && d != "up") {
-			down();
-			//run();
-		}
-		//window.requestAnimationFrame(execInstruction(instruction));
-	}
+	// function execInstruction(instruction){
+	// 	if (instruction == "left" && d != "right") {
+	// 		left();
+	// 		//run();
+	//
+	// 	} else if (instruction == "up" && d != "down") {
+	// 		up();
+	// 		//run();
+	// 	} else if (instruction == "right" && d != "left") {
+	// 		right();
+	// 		//run();
+	// 	} else if (instruction == "down" && d != "up") {
+	// 		down();
+	// 		//run();
+	// 	}
+	// 	//window.requestAnimationFrame(execInstruction(instruction));
+	// }
 
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
