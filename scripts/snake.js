@@ -141,7 +141,9 @@ img.onload = function(){
 	//Dibujamos la víbora
 	function paint(direccion)
 	{
+		console.log(direccion);
 		var dir=direccion;
+		console.log(dir);
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -356,14 +358,13 @@ function muertes(){
 		console.log(length);
 		for(var i = 0; i <= length-1; i++)
 		{
-				var piece=pieces[i];
-				if(typeof piece.style != 'undefined')
-	      {
-					instruction=piece.dataset.instruction;
-					setTimeout(function(){	paint(instruction);	},i*1000);
-					array[i]=instruction;
-					console.log(array);
-				}
+				instruction=pieces[i].dataset.instruction;
+				console.log(instruction);
+				// setTimeout(function(){	paint(instruction);	},i*1000);
+				setTimeout(paint,i*1000,instruction);
+				array[i]=instruction;
+				console.log(array);
+
 		}
 
 

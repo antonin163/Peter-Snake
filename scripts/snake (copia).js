@@ -58,7 +58,7 @@ img.onload = function(){
 		}*/
 		right();
 		down();
-			
+
 		/*agregacion de imagenes*/
 		iBody.src = 'assets/46body.png';
 		iFood.src = 'assets/apple_green.png';
@@ -79,15 +79,15 @@ img.onload = function(){
 	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	//context.drawImage(iBackground);
    // context.drawImage(iBackground,tiempo-800,0);
-		 
+
          // tiempo--;
          // if(tiempo<0){
-         //      tiempo = tiempo + 800;	
+         //      tiempo = tiempo + 800;
        //   }
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	paint();
-	
-	}	
+	paint(d);
+
+	}
 
 	//Creamos la víbora
 	function createSnake()
@@ -112,8 +112,11 @@ img.onload = function(){
 	}
 
 	//Dibujamos la víbora
-	function paint()
+	function paint(direccion)
 	{
+		console.log(direccion);
+		var dir=direccion;
+		console.log(dir);
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -207,7 +210,7 @@ img.onload = function(){
 	}
 
 	function paintCell1(x, y)
-	{		
+	{
 		context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	}
 
@@ -261,7 +264,7 @@ img.onload = function(){
 	function reiniciarDenuevo(){
 		//aDie.play();
 		init();
-		return;	
+		return;
 		//btnReiniciar.style.visibility  = 'hidden';
         //btnReiniciar.style.display = 'none';
         /*btnCompile.style.visibility  = 'visible';
@@ -289,24 +292,15 @@ img.onload = function(){
 		var array=[];
 		console.log(length);
 		//for(var i = 0; i <= length-1; i++)
-		while (i<=length-1)
+		for(var i = 0; i <= length-1; i++)
 		{
-				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
-				if(typeof piece.style != 'undefined')
-	      {
-					instruction=piece.dataset.instruction;
-					if(instruction=='for')
-					{
-						execInstruction(pieceSiguiente.dataset.instruction);
-					}
-					setTimeout(function(){},i*2000);
-						execInstruction(instruction);
-						array[i]=instruction;
-						console.log(array);
+				instruction=pieces[i].dataset.instruction;
+				console.log(instruction);
+				// setTimeout(function(){	paint(instruction);	},i*1000);
+				setTimeout(paint,i*1000,instruction);
+				array[i]=instruction;
+				console.log(array);
 
-				}
-				i++;
 		}
 		console.log(array);
 
