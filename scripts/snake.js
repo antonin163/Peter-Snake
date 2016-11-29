@@ -74,7 +74,7 @@ img.onload = function(){
 		aDie.src = 'assets/dies.oga';
 		iBackground.src = 'assets/flat-texture.png';
 		//rr.src= 'assets/.png';
-		//ee();
+		
 
 		//iBrick.src = 'assets/brick.png';
 		
@@ -86,7 +86,7 @@ img.onload = function(){
 
 
 
-//function ee(){
+
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
@@ -102,7 +102,7 @@ img.onload = function(){
 	paint();
 	
 	}	
-//}
+
   //   function comenzar(){
     //      clearTimeout(stop);
       //    stop = setTimeout(comenzar,1);
