@@ -32,11 +32,7 @@ img.onload = function(){
 	var iFood = new Image();
 	var aEat = new Audio();
 	var aDie = new Audio();
-	var run;
 	var iBackground = new Image();
-	//var rr;
-	//var tiempo = 0;
-	//var stop;
 	//var iBrick = new Image();
 	//var relleno=context.createPattern(iFood, "no-repeat")
 	//Creamos nuestra víbora
@@ -46,46 +42,36 @@ img.onload = function(){
 	//dependiendo el nivel que hayas configurado arriba
 	// function BtnAbrir()
 	// {
-		
+
 	// 	finestraModalObrir = document.getElementById("finestra-modal-obrir");
 	// }
-	//window.addEventListener('load',init);
 	function init()
 	{
-		
+
 		d = "down";
-		createFood();
 		createSnake();
-
-		
-
-		//score = 0;
-		
+		createFood();
+		score = 0;
 
 		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
 		}*/
 		right();
 		down();
+			
 		/*agregacion de imagenes*/
-		iBody.src = 'assets/body.png';
+		iBody.src = 'assets/body3.png';
 		iFood.src = 'assets/fruit.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture.png';
-		//rr.src= 'assets/.png';
-		
+		iBackground.src = 'assets/flat-texture3.png';
 
 		//iBrick.src = 'assets/brick.png';
-		
+
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
-
 	init();
-
-
-
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
@@ -103,13 +89,6 @@ img.onload = function(){
 	
 	}	
 
-  //   function comenzar(){
-    //      clearTimeout(stop);
-      //    stop = setTimeout(comenzar,1);
-        //  ee(context);
-     //}
-
-	
 	//Creamos la víbora
 	function createSnake()
 	{
@@ -122,7 +101,6 @@ img.onload = function(){
 		}
 	}
 
-
 	//Creamos la comida de la víbora de manera aleatoria
 	function createFood()
 	{
@@ -131,7 +109,6 @@ img.onload = function(){
 			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
 		};
-
 	}
 
 	//Dibujamos la víbora
@@ -148,47 +125,44 @@ img.onload = function(){
 
 		if (d == "right") {
 			nx++;
-		} 
+		}
 		else if (d == "left") {
 			nx--;
-		} 
+		}
 		else if (d == "up") {
 			ny--;
-		} 
+		}
 		else if (d == "down") {
 			ny++;
 		}
 
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
-			ny == height / cellWidth || checkCollision(nx, ny, snake) ) {
+			ny == height / cellWidth || checkCollision(nx, ny, snake)) {
 			init();
 			aDie.play();
 			return;
 		}
 
 		if(nx == food.x && ny == food.y) {
-
 			var tail = {
 				x: nx,
 				y: ny
 			};
-			
-			
+
 			score++;
-			aEat.play();			
-			
+			aEat.play();
+
+
 			finestraModal.classList.add("js-mostrar");
-	
+
 			// BtnAbrir();
+
 			//createFood();
 		} else {
-
-			//aDie.play();
 			var tail = snake.pop();
 
 			tail.x = nx;
-			tail.y = ny;			
-			
+			tail.y = ny;
 		}
 
 		snake.unshift(tail);
@@ -203,38 +177,19 @@ img.onload = function(){
 		paintCell(food.x, food.y);
 		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
-		
+
 	//	img.onload = function(){
-	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );		
+	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
 	//	}
 		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
 
 	}
-
-/*
-function muertes(){
-	if(nx != food.x && ny != food.y)
-	{
-		aDie.play();
-	};
-}*/
-
  /*function run() {
- setTimeout(, 1000);  
+ setTimeout(run, 500);
+ paint();
  }*/
-
- /*
- window.requestAnimationFrame = (function () { 
- 	return window.requestAnimationFrame || 
- 	window.mozRequestAnimationFrame || 
- 	window.webkitRequestAnimationFrame || 
- 	function (callback) {
- 	window.setTimeout(callback, 5); }; }());*/
- 
-
-
 	//Pintamos la celda
 	function paintCell(x, y)
 	{
@@ -259,8 +214,8 @@ function muertes(){
 		{
 			if(array[i].x == x && array[i].y == y) {
 				return true;
-				 //aDie.play();
-				 //finestraModal.classList.add("js-mostrar");
+				// aDie.play();
+				// finestraModal.classList.add("js-mostrar");
 			}
 		}
 
@@ -284,35 +239,28 @@ function muertes(){
 		paint();
 	}
 	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
-	//$(document).on('keydown', function(e) {
-	//	var key = e.which;
-	//	if (key == "37" && d != "right") {
-	//		d = "left";
-	//	} else if (key == "38" && d != "down") {
-	//		d = "up";
-	//	} else if (key == "39" && d != "left") {
-	//		d = "right";
-	//	} else if (key == "40" && d != "up") {
-	//		d = "down";
-	//	}
-	//});
-
-	var btnCompile=$('#compile');
-	btnCompile.click(recyclerPiece);
-
-	var btnReiniciar=$('#reiniciar');
+	/*$(document).on('keydown', function(e) {
+		var key = e.which;
+		if (key == "37" && d != "right") {
+			d = "left";
+		} else if (key == "38" && d != "down") {
+			d = "up";
+		} else if (key == "39" && d != "left") {
+			d = "right";
+		} else if (key == "40" && d != "up") {
+			d = "down";
+		}
+	});*/
+		var btnReiniciar=$('#reiniciar');
 	btnReiniciar.click(reiniciarDenuevo);
 
 	function reiniciarDenuevo(){
 		//aDie.play();
 		document.getElementById('compile').style.display = 'block';
 		init();
-		return;	        
-        //document.getElementById('piece-box').innerHTML= "";
-        
+		return;	
+
 	}
-
-
 
 	var btnRepetir=$('#repetir');
 	btnRepetir.click(repetirDenuevo);
@@ -320,8 +268,10 @@ function muertes(){
 	function repetirDenuevo(){
 		finestraModal.classList.remove("js-mostrar");
 	}
-	
-	
+
+	var btnCompile=$('#compile');
+	btnCompile.click(recyclerPiece);
+
 	function recyclerPiece(){
 		document.getElementById('compile').style.display = 'none';
 		var pieceBox=document.getElementsByClassName('piece-box');
@@ -330,27 +280,31 @@ function muertes(){
 		var instruction;
 		var length=pieces.length;
 		var i=0;
+		var iFor=0;
 		var array=[];
 		console.log(length);
 		//for(var i = 0; i <= length-1; i++)
 		while (i<=length-1)
 		{
 				var piece=pieces[i];
+				var pieceSiguiente=pieces[i+1]
 				if(typeof piece.style != 'undefined')
 	      {
 					instruction=piece.dataset.instruction;
+					if(instruction=='for')
+					{
+						execInstruction(pieceSiguiente.dataset.instruction);
+					}
 					setTimeout(function(){},i*2000);
-					execInstruction(instruction);
-					array[i]=instruction;
-					console.log(array);
+						execInstruction(instruction);
+						array[i]=instruction;
+						console.log(array);
+
 				}
 				i++;
 		}
+		console.log(array);
 
-    }         
-		//btnCompile.click(reiniciarDenuevo);
-		//btnCompile.click(recyclerPiece);
-		//if (true) {}
 		// for(i in pieces){
     //   var piece=pieces[i];
     //   if(typeof piece.style != 'undefined')
@@ -362,7 +316,7 @@ function muertes(){
 
     //}
 
-
+	}
 
 	//var myTimer = setTimeout(recyclerPiece(), 5000);
 	//var myTimer = setTimeout(paintCell(), 5000);
@@ -375,23 +329,20 @@ function muertes(){
 
 	// function setInstructionModal(arrayInstructions){
 
-
+	// 	var finestra_modal_obrir=document.getElementById('finestra-modal-obrir');
+	// 	console.log(finestra_modal_obrir);
+	// }
 	function execInstruction(instruction){
 		if (instruction == "left" && d != "right") {
 			left();
-			//run();
-
 		} else if (instruction == "up" && d != "down") {
 			up();
-			//run();
 		} else if (instruction == "right" && d != "left") {
 			right();
-			//run();
 		} else if (instruction == "down" && d != "up") {
 			down();
-			//run();
 		}
-		//window.requestAnimationFrame(execInstruction(instruction));
+
 	}
 
 	var btnEmpty=$('#empty');
@@ -400,8 +351,8 @@ function muertes(){
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
-	
-	
+	/*agregar imagen y sonido*/
+
 
 
 });
