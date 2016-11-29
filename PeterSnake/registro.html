@@ -1,0 +1,94 @@
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <title>PepeSnake</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript">
+			function openVentana(){
+				$('.ventana__modal').slideDown("slow");
+			}
+			function closeVentana(){
+				$('.ventana__modal').slideUp("fast");
+			}
+		</script>  
+    </head>
+    
+    <body>
+        <header class="header">
+            <div class="contenedor">
+                <h1 class="logo">PepeSnake</h1>
+                <span class="icon-menu" id="btn-menu"></span>
+                <nav class="nav" id="nav">
+                    <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="#">Como Usar</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#">Contacto</a></li>
+                        <li class="menu__item"><a class="menu__link" href="javascript:openVentana();">Ingresar</a></li>
+                    </ul>
+                </nav>
+            </div>
+		</header>
+       	
+       	<section>
+       		<div class="texto__reg">
+       			<h2>Inscribete en Pepe Snake</h2>
+       			<p>
+       				Registrate para obtener una cuenta con la cual podras realizar un seguimiento de su progreso o del progreso de su clase. Puede navegar por las distintas etapas y rompecabezas sin una cuenta, pero tendra que registrarse para guardar su progreso. proy
+       			</p>
+       		</div>
+       	</section>
+       	 
+       	<div class="contenedor-formulario">
+       		<div class="wrap">
+				<form name="formulario_registro" class="formulario" action="" method="post">
+					<div>
+						<div class="input-group">
+							<input type="text" id="nick" name="nick">
+							<label class="label" for="nick">Nick:</label>
+						</div>
+						<div class="input-group">
+							<input type="email" id="correo" name="correo" class="error">
+							<label class="label" for="correo">Correo Electronico:</label>
+						</div>
+						<div class="input-group">
+							<input type="password" id="contra" name="contra">
+							<label class="label" for="contra">Contraseña:</label>
+						</div>
+						<div class="input-group">
+							<input type="password" id="contra2" name="contra2">
+							<label class="label" for="contra2">Repetir Contraseña:</label>
+						</div>
+						<div class="input-group radio">
+							<input type="radio" name="sexo" id="masculino" value="Masculino">
+							<label for="masculino">Masculino</label>
+
+							<input type="radio" name="sexo" id="femenino" value="Femenino">
+							<label for="femenino">Femenino</label>
+						</div>
+						<div class="input-group">
+							<input type="number" id="edad" name="edad">
+							<label for="edad">Edad:</label>
+						</div>
+						<div class="input-group" checkbox>
+							<input type="checkbox" id="terminos" name="terminos" value="true">
+							<label for="terminos">Acepto los terminos y coondiciones</label>
+						</div>
+
+						<input type="submit" id="btn-submit" value="REGISTRATE">
+					</div>
+
+				</form>
+       		</div>
+       		
+       		<div class="otros__registros">
+       			
+       		</div>
+       	</div>     
+       	
+       	
+       	<script src="js/formulario.js"></script>
+        <script src="js/menu.js"></script>  
+    </body>
+</html>

@@ -1,0 +1,141 @@
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+        <title>PepeSnake</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript">
+			function openVentana(){
+				$('.ventana__modal').slideDown("slow");
+			}
+			function closeVentana(){
+				$('.ventana__modal').slideUp("fast");
+			}
+		</script>  
+    </head>
+    
+    <body>
+        <header class="header">
+            <div class="contenedor">
+                <h1 class="logo">PepeSnake</h1>
+                <span class="icon-menu" id="btn-menu"></span>
+                <nav class="nav" id="nav">
+                    <ul class="menu">
+                        <li class="menu__item"><a class="menu__link" href="#">Como Usar</a></li>
+                        <li class="menu__item"><a class="menu__link" href="#">Contacto</a></li>
+                        <li class="menu__item"><a class="menu__link" href="javascript:openVentana();">Ingresar</a></li>
+                    </ul>
+                </nav>
+            </div>
+		</header>
+       	
+       	<div class="banner">
+       		<img src="img/fondo_kids.jpg" class="banner_img">
+       		<div class="contenedor">
+       			<p class="banner__txt">Aprende a Programar Jugando</p>
+       		</div>
+       	</div>
+       	 
+       	<main class="main">
+       		<div class="contenedor" align="center">
+       		
+       		<h5>Aprende a Programar Jugando</h5>	
+       		<h6>Peter Snake es una plataforma donde la programacion se aprendre jugando</h6>
+       			
+       			<section class="info">
+       				<article class="info__columna">
+       					<img src="img/circulo1.png" class="info__img" width="130" height="130"><br>
+       					<h2 class="info__titulo">JUEGA</h2>
+       					<p class="info__txt">Iniciate en el mundo de la programacion con interactivos juegos que te ayudaran a despertar tus habilidades</p>
+       				</article>
+       				<article class="info__columna">
+       					<img src="img/circulo2.png" class="info__img" width="130" height="130"><br>
+       					<h2 class="info__titulo">APRENDE</h2>
+       					<p class="info__txt">Desbloquea nuevos niveles y alcanza la mayor puntuación. Reta a tus amigos</p>
+       				</article>
+       				<article class="info__columna">
+       					<img src="img/circulo3.png" class="info__img" width="130" height="130"><br>
+       					<h2 class="info__titulo">GANA</h2>
+       					<p class="info__txt">Gana Premios cada vez que acumules 3000 puntos. Comparte tus logros con tus amigos</p>
+       				</article>
+       			</section>
+       		</div>
+       		
+       		<div class="contenedor">
+       			<section class="info">
+       				<article class="info__izquierda">
+       					<h2 class="info__titulo">DEMOSTRACION</h2><br>
+       					<div class="video__responsive">
+       						<iframe src="https://www.youtube.com/embed/ItNKIRzQCm8" frameborder="0" allowfullscreen></iframe>
+       					</div>
+       					
+       				</article>
+       				<article class="info__derecha ">
+       					<h2>FORMAS DE JUGAR</h2><br>
+       					<p class="contaside">Mueve a ______ a travez de la pantalla usando instrucciones de programacion usando el mouse, las instrucciones apareceran en forma de bloque </p>
+	       				<p class="contaside">Puedes consultar tus puntajes y premios una vez te haz logueado </p>
+       					
+       				</article>
+       			</section>
+       		</div>
+       		
+       		<section id="contacto" class="contenedor">
+				<div class="contenedor_contacto" align="center">				
+				
+					<form class="contact_form"  action="#" method="post">
+													<h2>CONTACTANOS</h2>
+
+							<div >
+								<input name="name" id="name" value="" placeholder="Nombre" type="text">
+							</div>
+							<div>
+								<input name="email" id="email" value="" placeholder="Email" type="email">
+							</div>
+							<div>
+								<textarea name="message" id="message" placeholder="Mensaje" rows="6"></textarea>
+							</div>
+							<div>
+								
+<!--								<input value="Enviar Comentario" class="special big" type="submit">-->
+								<button class="submit" type="submit">Enviar Comentario</button>
+							</div>
+						
+					</form>
+      		</div>
+       		<section>
+       	</main>       
+       	
+       	<div id="ventana__modal" class="ventana__modal">
+       	<div class="contenedor-formulario">
+       		<div class="wrap2">
+       		<div id="form__inicio">
+       		<div class="cerrar__modal"><a href="javascript:closeVentana();">X</a></div>
+       		<h1>INICIAR SESION</h1><hr>
+       			<form action="" class="formulario" method="post" name="formulario_registro">
+					<div>
+						
+							<div class="input-group">
+								<input type="email" id="correo" name="correo" class="error">
+								<label class="label" for="correo">Correo Electronico:</label>
+							</div>
+							<div class="input-group">
+								<input type="password" id="contra" name="contra">
+								<label class="label" for="contra">Contraseña:</label>
+							</div>
+							
+						<input type="submit" id="btn-submit" value="Enviar"><a href="juego.html">
+						</div>
+
+       		</form>
+       		</div>
+       		</div>
+       		</div>
+       	</div>
+       	<script src="js/formulario.js"></script> 
+        <script src="js/menu.js"></script>  
+    </body>
+</html>

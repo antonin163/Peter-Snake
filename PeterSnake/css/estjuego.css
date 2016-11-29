@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+	background: #F2F2F2;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 1.5px;
+	text-align: center;
+}
+p{
+	text-align: center;
+}
+
+.contenedor {
+	width: 100%;
+	max-width:3000px;
+	margin-bottom: 3%;
+
+}
+ 
+.contenedor p {
+	margin-bottom:40px;
+}
+ 
+header nav {
+	background:#0D47A1;
+	margin-bottom:10px;
+}
+ 
+header nav ul {
+	list-style: none;
+	overflow: hidden;
+	margin-right: 2.5%;
+}
+ 
+header nav ul li {
+	float: right;
+
+}
+ 
+header nav ul li a {
+	display: block;
+	padding:20px;
+	color:#fff;
+	text-decoration: none;
+}
+ 
+header nav ul li a:hover {
+	background:#2980b9;
+}
+ 
+ 
+/* ---Scroll --- */
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	max-width:1000px;
+	width:100%;
+	box-shadow:0px 4px 3px rgba(0,0,0,.5);
+}
+
+.central{
+	display: flex;
+	background: #E5E7E9;
+	width: 100%vh;
+	height: 100%;
+	padding: 2%;
+
+}
+.game{
+	padding: 0.5%;
+	background: #ABEBC6;
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+.view_game{
+	background: #34495E;
+	width: 100%vh;
+	height: 50%;
+	margin-bottom: 7%;
+}
+.central input[type="submit"] {
+      background: #303F9F;
+      border-radius: 1px;
+      border: 0.5px solid #f2f2f2;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Roboto";
+      font-size: 16px;
+      padding: 15px;
+      width: 50%;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+.central input[type="submit"]:hover {
+        background: #1976D2; }
+.instrucciones{
+	padding: 0.5%;
+	background: #F0B27A;
+	width: 55%;
+	height: 100%;
+	float: right;
+}

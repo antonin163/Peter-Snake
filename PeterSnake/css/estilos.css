@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Shrikhand');
+*{
+    box-sizing: border-box;
+	
+}
+img{
+    display: block;
+    max-width: 100%;
+	align-items: center;
+	
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+	background: #F2F2F2;
+}
+h1,h2,h3,h4,h6{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    letter-spacing: 1.5px;
+	text-align: center;
+	color:   #2C3E50; 
+}
+h5{
+	color: #2C3E50  ;
+	font-size: 2.50em;
+	font-weight: 700;
+	line-height: 1em;
+	margin: 0 0 1em 0;
+	font-family: 'Shrikhand';
+	letter-spacing: 4px;
+}
+h6{
+	color: #AEB6BF;
+	font-size: 1.2em;
+	font-weight: 10;
+	margin: 0 0 1em 0;
+	font-family: 'Shrikhand';
+}
+p{
+	text-align: justify;
+	color: #7F8C8D;
+}
+.header{
+    height: 60px;
+	width: 100%;
+}
+.header .contenedor {
+    display: flex;
+}
+
+
+
+.logo, icon-menu{
+	margin: 5px;
+	color: black;
+	
+}
+.icon-menu{
+    display: block;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    background: #0D47A1; 
+    color: white;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 5px;
+    margin-left: auto;
+    cursor: pointer;
+	float: inherit;
+	margin-top: 20px;
+}
+.nav{
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    transition: all 0.4s;
+}
+.menu{
+    list-style: none;
+    padding: 0;
+    margin: 10;
+}
+.menu__link{
+    display: block;
+    padding: 17px;
+    background: #0D47A1;
+    text-decoration: none;
+    color: #fff;
+}
+.menu__link:hover{
+	background: rgba(255,255,255,0.5);
+    color: currentColor;
+}
+
+.mostrar{
+    left: 0;
+    
+}
+
+/* Banner*/
+.banner{
+	margin-top: -70px;
+	position: relative;
+	z-index: -1000;
+	margin-left: -10px;
+	margin-right: -10px;
+	margin-bottom: 5%;
+}
+.banner .contenedor{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 100%;
+	text-align: center;
+}
+.banner__txt{
+	display: none;
+}
+
+/* ---------- Estilos de columnas ------------- */
+.info__columna{
+	background: white;
+	padding: 15px;
+	margin-bottom: 30px;
+}
+	.info__izquierda{
+		background: white;
+	}	
+	.info__derecha{
+		background: white;
+	}
+#contacto{
+	background: #3CADD4;
+	width: 100%;
+	height: 100%;
+}
+info__img{
+	
+}
+/* ---------- Estilos de Cuerpo Responsive ------------- */
+@media(min-width:480px){
+	.logo{
+		font-size: 40px;
+	}
+	.banner__titulo{
+		font-size: 30px;
+		margin: 5px 0;
+	}
+	.banner_txt{
+		display: block;
+		font-size: 18px;
+		margin: 7px 0;
+	}
+	.info{
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px;
+		padding: 2%;
+	
+	}
+	.info__columna{
+		width: 33%;
+		margin-left: 25px;
+		margin-right: 25px;
+		padding: 2%;
+	}
+	.info__titulo{
+		font-size: 30px;
+		margin: 5px 0;
+	}
+	.section__titulo{
+		width: 100%;
+	}
+	
+	.info__izquierda{
+		background: white;
+		padding: 10px;
+		margin-bottom: 30px;
+		width: 65%;
+	}	
+	.info__derecha{
+		background: white;
+		padding: 10px;
+		margin-bottom: 30px;
+		width: 35%;
+	}
+}
+
+
+.video__responsive{
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px; 
+		height: 0;
+		overflow: hidden;
+	}
+	.video__responsive iframe,
+	.video__responsive object,
+	.video__responsive embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	}
+
+/* ---------- MODAL e IMICIO ------------- */
+.ventana__modal{
+	width: 100%;
+	height: 100%;
+	color: #FFF;
+	position: fixed;
+	background-image: url(../img/fondo_modal.png);
+	top: 0;
+	left: 0;
+	display: none;
+}
+#form__inicio{
+	width: 65%;
+	height: 69%;
+	background-color: azure;
+	color: #666;
+	top: 18%;
+	left: 20%;
+	right: 20%;
+	padding: 19px;
+	position: absolute;
+}
+.cerrar__modal{
+	color: red;
+	font-weight: 900;
+	text-align: right;
+}
+
+/* ----------------------  	FORMULARIO: ------------------------*/
+.otros__registros{
+	float: right;
+}
+.wrap {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  margin-left: 2%;
+  background: #fff;
+	float: left;
+  box-shadow: 0px 0px 3px grey; 
+margin-bottom: 2%;}
+
+.wrap2 {
+  width: 100%;
+  max-width: 500px;
+  padding: 40px;
+  margin: auto;
+  background: #fff;
+  box-shadow: 0px 0px 3px grey; }
+
+.contenedor-formulario {
+  width: 100%;
+  color: #f2f2f2;
+}
+  .contenedor-formulario .formulario {
+    width: 100%;
+	margin-left: 2%;
+margin-top: 20px;}
+    .contenedor-formulario .formulario .input-group {
+      position: relative;
+      margin-bottom: 32px; }
+      .contenedor-formulario .formulario .input-group input[type="text"],
+      .contenedor-formulario .formulario .input-group input[type="email"],
+      .contenedor-formulario .formulario .input-group input[type="password"] {
+        font-family: "Roboto";
+        font-size: 16px;
+        color: #303F9F;
+        width: 100%;
+        outline: none;
+        padding: 15px;
+        background: none;
+        border: none;
+        border-bottom: 2px solid #BBDEFB; }
+        .contenedor-formulario .formulario .input-group input[type="text"]:focus, .contenedor-formulario .formulario .input-group input[type="text"]:active,
+        .contenedor-formulario .formulario .input-group input[type="email"]:focus,
+        .contenedor-formulario .formulario .input-group input[type="email"]:active,
+        .contenedor-formulario .formulario .input-group input[type="password"]:focus,
+        .contenedor-formulario .formulario .input-group input[type="password"]:active {
+          outline: none;
+          border-bottom: 2px solid #303F9F; }
+        .contenedor-formulario .formulario .input-group input[type="text"].error,
+        .contenedor-formulario .formulario .input-group input[type="email"].error,
+        .contenedor-formulario .formulario .input-group input[type="password"].error {
+          border-bottom: 2px solid #D32F2F; }
+          .contenedor-formulario .formulario .input-group input[type="text"].error + label,
+          .contenedor-formulario .formulario .input-group input[type="email"].error + label,
+          .contenedor-formulario .formulario .input-group input[type="password"].error + label {
+            color: #D32F2F; }
+      .contenedor-formulario .formulario .input-group label {
+        color: #303F9F; }
+        .contenedor-formulario .formulario .input-group label.label {
+          -webkit-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          margin-left: 15px;
+          font-size: 16px;
+          line-height: 16px;
+          position: absolute;
+          top: 16px;
+          left: 0; }
+          .contenedor-formulario .formulario .input-group label.label.active {
+            top: -12px;
+            font-size: 12px;
+            line-height: 12px;
+            color: #B6B6B6; }
+      .contenedor-formulario .formulario .input-group.checkbox label, .contenedor-formulario .formulario .input-group.radio label {
+        display: inline-block;
+        cursor: pointer;
+        color: #303F9F;
+        position: relative;
+        padding: 5px 15px 5px 51px;
+        font-size: 1em;
+        border-radius: 3px;
+        -webkit-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        transition: all 0.3s ease; }
+        .contenedor-formulario .formulario .input-group.checkbox label:hover, .contenedor-formulario .formulario .input-group.radio label:hover {
+          background: #bbdefb; }
+        .contenedor-formulario .formulario .input-group.checkbox label:before, .contenedor-formulario .formulario .input-group.radio label:before {
+          content: "";
+          display: inline-block;
+          width: 17px;
+          height: 17px;
+          position: absolute;
+          left: 15px;
+          border-radius: 50%;
+          background: none;
+          border: 2px solid #303F9F; }
+      .contenedor-formulario .formulario .input-group.error label {
+        color: #D32F2F; }
+        .contenedor-formulario .formulario .input-group.error label:hover {
+          background: rgba(211, 47, 47, 0.2); }
+        .contenedor-formulario .formulario .input-group.error label:before {
+          border: 2px solid #D32F2F; }
+      .contenedor-formulario .formulario .input-group.radio input[type="radio"] {
+        display: none; }
+        .contenedor-formulario .formulario .input-group.radio input[type="radio"]:checked + label:before {
+          display: none; }
+        .contenedor-formulario .formulario .input-group.radio input[type="radio"]:checked + label {
+          padding: 5px 15px;
+          background: #303F9F;
+          border-radius: 2px;
+          color: #f2f2f2; }
+      .contenedor-formulario .formulario .input-group.checkbox label:before {
+        border-radius: 3px; }
+      .contenedor-formulario .formulario .input-group.checkbox input[type="checkbox"] {
+        display: none; }
+        .contenedor-formulario .formulario .input-group.checkbox input[type="checkbox"]:checked + label:before {
+          display: none; }
+        .contenedor-formulario .formulario .input-group.checkbox input[type="checkbox"]:checked + label {
+          background: #303F9F;
+          color: #f2f2f2;
+          padding: 5px 15px; }
+    .contenedor-formulario .formulario input[type="submit"] {
+      background: #303F9F;
+      border-radius: 1px;
+      border: 2px solid #f2f2f2;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Roboto";
+      font-size: 16px;
+      padding: 15px;
+      width: 100%;
+      -webkit-transition: all 0.3s ease;
+      -o-transition: all 0.3s ease;
+      transition: all 0.3s ease; }
+      .contenedor-formulario .formulario input[type="submit"]:hover {
+        background: #1976D2; }
+
+.texto__reg{
+	float: left;
+	margin-right: 50%;
+	margin-left: 2%;
+	margin-bottom: 2%;
+}
+
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="email"]:focus,
+		select:focus,
+		textarea:focus {
+			border-color: #383b43;
+			border-radius: 4px;
+			box-shadow: 0 0 0 1px #383b43;
+		}
+
+.contenedor_contacto{
+	padding: 5%;
+}
+.contact_form h2 {
+    border-radius: 5px;
+    color: white;
+	font-family: 'Shrikhand';
+    font-size: 40px;
+    padding: 2px;
+	letter-spacing: 5px;
+    text-shadow: 1px 1px 1px #CCCCCC;
+    width: 433px;
+}
+/*— estilos para los ul y li del formulario —*/
+
+.contact_form input {
+height:40px; 
+width:300px; 
+padding:5px 8px;
+margin-bottom: 20px;
+}
+.contact_form textarea {
+padding:8px; 
+width:800px;
+	height: 200px;
+	margin-bottom: 30px;
+}
+.contact_form button {
+margin-left:90px;
+}
+ 
+/*—– estilos visuales de los elementos ——–*/
+ 
+.contact_form input, .contact_form textarea { 
+border:1px solid #aaa;
+box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+border-radius:11px;
+color: #888;
+font-size: 12px;
+padding-right:30px;
+-moz-transition: padding .25s; 
+-webkit-transition: padding .25s; 
+-o-transition: padding .25s;
+transition: padding .25s;
+}
+.contact_form input:focus, .contact_form textarea:focus {
+background: #fff; 
+border:1px solid #555; 
+box-shadow: 0 0 3px #aaa; 
+padding-right:80px;
+}
+ 
+/* === Estilos de Validacion === */ 
+ 
+.contact_form input:required:valid, .contact_form textarea:required:valid {
+box-shadow: 0 0 5px #5cd053;
+border-color: #28921f;
+}
+.contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
+box-shadow: 0 0 5px #d45252;
+border-color: #b03535
+}
+ 
+/* === Estilos del boton de Envio === */
+button.submit {
+    padding: 9px 17px;
+   font-family: Helvetica,calibri, Arial, sans-serif;
+   font-weight: bold;
+   line-height: 1;
+   color: #444;
+   border: none;
+   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#bbb));
+   background-image: -moz-linear-gradient(0% 100% 90deg, #BBBBBB, #FFFFFF);
+   background-color: #fff;
+   border: 1px solid #f1f1f1;
+   border-radius: 10px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+button.submit:hover {
+opacity:.55;
+cursor: pointer; 
+color: #fff;
+}
+button.submit:active {
+border: 1px solid #222;
+box-shadow: 0 0 10px 5px #444 inset; 
+}
