@@ -1,4 +1,6 @@
-
+body{
+  font-family: sans-serif;
+}
 
 *{
   box-sizing: border-box;
@@ -20,31 +22,58 @@
 }
 .game-controllers{
   display: flex;
-  height: 70vh;
+  height: 80vh;
   width: 50vw;
 }
 .piece-box, .piece-container{
+  /*AQUI CAMBIE EL TAMAÑO DE PIXEL A 4*/
+  border-style: dashed; border-width: 4px;
   background-color: #ecf0f1;
   width: 18vw;
   height: 70vh;
   border: 4px solid;
-
 }
 .piece-container{
 
   padding-top: 2em;
   width: 18vw;
-  height: 50vh;
+  height: 60vh;
+}
+.piece-for{
+  /*AQUI CAMBIE EL CUADRO*/
+
+  height: auto;
+
+}
+.piece-box, .piece-for{
+  /*AQUI PUSE EL CUADRADO EN LINEAS*/
+  border-style: dashed; border-width: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  z-index: 0;
+  height: 1000px;
 }
 
-.piece-box{
-border-style: dashed; border-width: 4px;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-top: 2em;
+.piece-for{
+  height: auto !important;
+  z-index: 999;
+  color: rgb(222, 53, 0);
+  font-weight: bold;
+}
+.piece-for p{
+  padding: 0;
+  margin: 0 0 .5em 0;
+}
+.piece-for .b{
+  background-color: rgb(52, 152, 219) !important;
 }
 .piece-box .piece{
+  margin: 0;
+}
+.piece-for .piece{
   margin: 0;
 }
 .piece-container{
@@ -157,6 +186,7 @@ button{
   font-size: 0.8em;
   margin: .4em !important;
   border: solid white 2px;
+  border: solid white 2px;
   padding-top: 5px;
   padding-bottom: 20px;
 
@@ -205,8 +235,6 @@ button{
   background-color:#19B1C4;
   cursor: pointer;
 }
-
-
 
 
 .colu {
@@ -260,7 +288,8 @@ button{
   color: orange;
 }
 ul.tabs {
-    border-style: solid; border-width: 4px;
+  /* aqui cambie el color de la parte arriba */
+  border-style: solid; border-width: 4px;
     display: flex;
     justify-content: space-around;
     width: 50%;
@@ -271,6 +300,8 @@ ul.tabs {
     list-style: none
 }
 section.wrapper {
-    background:#04606c;
-    border-style: solid; border-width: 4px;
+   /*aqui cambie el borde*/
+    background: navajowhite;
+    border-style: solid; 
+    border-width: 4px;
 }
