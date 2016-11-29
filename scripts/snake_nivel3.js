@@ -30,6 +30,10 @@ img.onload = function(){
 	var array;
 	var iBody = new Image();
 	var iFood = new Image();
+	var iHead = new Image();
+	var iHead2 = new Image();
+	var iHead3 = new Image();
+	var iHead4 = new Image();
 	var aEat = new Audio();
 	var aDie = new Audio();
 	var iBackground = new Image();
@@ -51,23 +55,25 @@ img.onload = function(){
 		d = "down";
 		createSnake();
 		createFood();
-		score = 0;
+//		score = 0;
 
 		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
 		}*/
-		right();
-		down();
 			
 		/*agregacion de imagenes*/
-		iBody.src = 'assets/body3.png';
-		iFood.src = 'assets/fruit.png';
+		iBody.src = 'assets/body.png';
+		iFood.src = 'assets/apple_green.png';
+		iHead.src = 'assets/abajo_snake.png';
+		iHead2.src = 'assets/arriba_snake.png';
+		iHead3.src = 'assets/izq_snake.png';
+		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture3.png';
+		iBackground.src = 'assets/flat-texture2.png';
 
 		//iBrick.src = 'assets/brick.png';
-
+		paint(d);
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -85,7 +91,7 @@ img.onload = function(){
          //      tiempo = tiempo + 800;	
        //   }
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	paint();
+	paint(d);
 	
 	}	
 
@@ -112,8 +118,9 @@ img.onload = function(){
 	}
 
 	//Dibujamos la víbora
-	function paint()
+	function paint(direccion)
 	{
+		var dir=direccion;
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -166,15 +173,22 @@ img.onload = function(){
 		}
 
 		snake.unshift(tail);
+		//Pintar cabeza
+		var typeCell="head";
+		var c = snake[0];
+		paintCell(c.x, c.y, typeCell);
 
-		for(var i = 0; i < snake.length; i++) {
-			var c = snake[i];
+		//Pintar Cuerpo
+		typeCell='body';
+		for(var i = 1; i < snake.length; i++) {
+			c = snake[i];
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
-
-			paintCell1(c.x, c.y);
+			paintCell(c.x, c.y, typeCell);
 		}
-
-		paintCell(food.x, food.y);
+		typeCell='food';
+		paintCell(food.x, food.y,typeCell);
+/*		typeCell='head';
+		paintCell(c.x, c.y, typeCell);*/
 		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
 
@@ -191,20 +205,18 @@ img.onload = function(){
  paint();
  }*/
 	//Pintamos la celda
-	function paintCell(x, y)
+	function paintCell(x, y, type)
 	{
-
-		context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		//context.fillStyle = snakeColor;
-		//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		//context.strokeStyle = background;
-		//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-
-	}
-
-	function paintCell1(x, y)
-	{		
-		context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		var t=type;
+		if (t=="body") {
+			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		}
+		else if (t=="head"){
+			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		}
+		else if (t=="food"){
+			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		}
 	}
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)

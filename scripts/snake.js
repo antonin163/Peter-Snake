@@ -30,6 +30,10 @@ img.onload = function(){
 	var array;
 	var iBody = new Image();
 	var iFood = new Image();
+	var iHead = new Image();
+	var iHead2 = new Image();
+	var iHead3 = new Image();
+	var iHead4 = new Image();
 	var aEat = new Audio();
 	var aDie = new Audio();
 	var run;
@@ -53,12 +57,9 @@ img.onload = function(){
 	function init()
 	{
 
-		d = "down";
-		createFood();
+		d = "down";		
 		createSnake();
-
-
-
+		createFood();
 		//score = 0;
 
 
@@ -69,6 +70,10 @@ img.onload = function(){
 		/*agregacion de imagenes*/
 		iBody.src = 'assets/body.png';
 		iFood.src = 'assets/fruit.png';
+		iHead.src = 'assets/abajo_snake.png';
+		iHead2.src = 'assets/arriba_snake.png';
+		iHead3.src = 'assets/izq_snake.png';
+		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
 		iBackground.src = 'assets/flat-texture.png';
@@ -147,10 +152,12 @@ img.onload = function(){
 		var ny = snake[0].y;
 
 		if (dir == "right") {
-			nx++;
+			nx++;			
+
 		}
 		else if (dir == "left") {
 			nx--;
+
 		}
 		else if (dir == "up") {
 			ny--;
@@ -207,6 +214,8 @@ img.onload = function(){
 		}
 		typeCell='food';
 		paintCell(food.x, food.y,typeCell);
+/*		typeCell='head';
+		paintCell(c.x, c.y, typeCell);*/
 		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
 
@@ -227,17 +236,6 @@ function muertes(){
 	};
 }*/
 
- /*function run() {
- setTimeout(, 1000);
- }*/
-
- /*
- window.requestAnimationFrame = (function () {
- 	return window.requestAnimationFrame ||
- 	window.mozRequestAnimationFrame ||
- 	window.webkitRequestAnimationFrame ||
- 	function (callback) {
- 	window.setTimeout(callback, 5); }; }());*/
 
 
 	//
@@ -260,15 +258,18 @@ function muertes(){
 			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 		else if (t=="head"){
-			context.fillStyle = snakeColor;
-			context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-			context.strokeStyle = background;
-			context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 		else if (t=="food"){
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 	}
+
+	/*function paintCellHead(x, y)
+	{
+		context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		
+	}*/
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
 	function checkCollision(x, y, array)
@@ -277,7 +278,7 @@ function muertes(){
 		{
 			if(array[i].x == x && array[i].y == y) {
 				return true;
-				 //aDie.play();
+				 aDie.play();
 				 //finestraModal.classList.add("js-mostrar");
 			}
 		}
@@ -297,9 +298,12 @@ function muertes(){
 		d="left";
 		paint();
 	}
-	function right(){
-		d="right";
+	function right(){		
+		d="right";	
+
 		paint();
+
+
 	}
 	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
 	//$(document).on('keydown', function(e) {
@@ -373,6 +377,7 @@ function muertes(){
 			//run();
 		} else if (instruction == "right" && d != "left") {
 			right();
+
 			//run();
 		} else if (instruction == "down" && d != "up") {
 			down();
