@@ -53,18 +53,18 @@ img.onload = function(){
 		createFood();
 		score = 0;
 
-		if(typeof gameLoop != "undefined") {
+		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
-		}
+		}*/
 		right();
 		down();
 			
 		/*agregacion de imagenes*/
-		iBody.src = 'assets/body.png';
-		iFood.src = 'assets/fruit.png';
+		iBody.src = 'assets/46body.png';
+		iFood.src = 'assets/apple_green.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture.png';
+		iBackground.src = 'assets/flat-texture3.png';
 
 		//iBrick.src = 'assets/brick.png';
 
@@ -72,6 +72,22 @@ img.onload = function(){
 	}
 
 	init();
+
+	iBackground.onload = function(){
+	context.drawImage(iBackground,0, 0, width, height );
+	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	//context.drawImage(iBackground);
+   // context.drawImage(iBackground,tiempo-800,0);
+		 
+         // tiempo--;
+         // if(tiempo<0){
+         //      tiempo = tiempo + 800;	
+       //   }
+	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	paint();
+	
+	}	
 
 	//Creamos la víbora
 	function createSnake()
@@ -98,11 +114,11 @@ img.onload = function(){
 	//Dibujamos la víbora
 	function paint()
 	{
-		//context.drawImage( iBackground, 0, 0, width, height );
-		context.fillStyle = background;
-		context.fillRect(0, 0, width, height);
-		context.strokeStyle = border;
-		context.strokeRect(0, 0, width, height);
+		context.drawImage( iBackground, 0, 0, width, height );
+		//context.fillStyle = background;
+		//context.fillRect(0, 0, width, height);
+		//context.strokeStyle = border;
+		//context.strokeRect(0, 0, width, height);
 
 		var nx = snake[0].x;
 		var ny = snake[0].y;
@@ -145,7 +161,7 @@ img.onload = function(){
 			// BtnAbrir();
 			//console.log(finestra_modal_obrir);
 			//console.log(modalInstruction);
-			createFood();
+			//createFood();
 		} else {
 			var tail = snake.pop();
 
@@ -159,11 +175,11 @@ img.onload = function(){
 			var c = snake[i];
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
 
-			paintCell(c.x, c.y);
+			paintCell1(c.x, c.y);
 		}
 
 		paintCell(food.x, food.y);
-		context.drawImage(iFood,  food.x, food.y);
+		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
 
 	//	img.onload = function(){
@@ -174,18 +190,25 @@ img.onload = function(){
 		context.fillText(scoreText, 5, height - 5);
 
 	}
- function run() {
+ /*function run() {
  setTimeout(run, 500);
  paint();
- }
+ }*/
 	//Pintamos la celda
 	function paintCell(x, y)
 	{
-		context.fillStyle = snakeColor;
-		context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		context.strokeStyle = background;
-		context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 
+		context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		//context.fillStyle = snakeColor;
+		//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		//context.strokeStyle = background;
+		//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+
+	}
+
+	function paintCell1(x, y)
+	{		
+		context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	}
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
@@ -220,7 +243,7 @@ img.onload = function(){
 		paint();
 	}
 	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
-	$(document).on('keydown', function(e) {
+	/*$(document).on('keydown', function(e) {
 		var key = e.which;
 		if (key == "37" && d != "right") {
 			d = "left";
@@ -231,7 +254,26 @@ img.onload = function(){
 		} else if (key == "40" && d != "up") {
 			d = "down";
 		}
-	});
+	});*/
+		var btnReiniciar=$('#reiniciar');
+	btnReiniciar.click(reiniciarDenuevo);
+
+	function reiniciarDenuevo(){
+		//aDie.play();
+		init();
+		return;	
+		//btnReiniciar.style.visibility  = 'hidden';
+        //btnReiniciar.style.display = 'none';
+        /*btnCompile.style.visibility  = 'visible';
+        btnCompile.style.display = '';*/
+	}
+
+	var btnRepetir=$('#repetir');
+	btnRepetir.click(repetirDenuevo);
+
+	function repetirDenuevo(){
+		finestraModal.classList.remove("js-mostrar");
+	}
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);

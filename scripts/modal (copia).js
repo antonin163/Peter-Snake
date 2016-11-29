@@ -13,9 +13,9 @@ function FinestraModal(){
 	finestraModalTancar.addEventListener("click",function() {
 		finestraModal.classList.remove("js-mostrar");
 	});
-	finestraModal.addEventListener("click",function() {
+	/*finestraModal.addEventListener("click",function() {
 		finestraModal.classList.remove("js-mostrar");
-	});
+	});*/
 }
 
 //console.log('from modal.js');

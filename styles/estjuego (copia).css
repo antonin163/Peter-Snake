@@ -21,16 +21,16 @@ p{
 	/*margin-bottom: 3%;*/
 
 }
- 
+
 .contenedor p {
 	margin-bottom:40px;
 }
- 
+
 header nav {
 	background:#0D47A1;
 	/*margin-bottom:10px;*/
 }
- 
+
 header nav ul {
 	list-style: none;
 	overflow: hidden;
@@ -39,24 +39,24 @@ header nav ul {
 	font-size: 20px;
 	margin-bottom: 0px;
 }
- 
+
 header nav ul li {
 	float: right;
 
 }
- 
+
 header nav ul li a {
 	display: block;
 	padding:20px;
 	color:#fff;
 	text-decoration: none;
 }
- 
+
 header nav ul li a:hover {
 	background:#2980b9;
 }
- 
- 
+
+
 /* ---Scroll --- */
 .menu-fixed {
 	position:fixed;
@@ -68,8 +68,9 @@ header nav ul li a:hover {
 }
 
 .central{
+  /*AQUI CAMBIE EL COLOR DE FONDO*/
 	display: flex;
-	background: #E5E7E9;
+	background: #0d5196;
 	width: 100%vh;
 	height: 100%;
 	padding: 2%;
@@ -78,17 +79,22 @@ header nav ul li a:hover {
 
 }
 .game{
+  border-radius: 30px 0px 0px 30px;
+  -moz-border-radius: 30px 0px 0px 30px;
+  -webkit-border-radius: 30px 0px 0px 30px;
 	padding: 4.5%;
-	background: #A1CA01;
+	background: #6c198a;
 	width: 45%;
 	height: 100%;
 	float: left;
+  border-style: double; border-width: 8px;
 	/*margin-left: 25px;*/
 }
 .game p{
+  border-style: dashed; border-width: 4px	text-align: center;
 	text-align: center;
 	font-size: 40px;
-	color: #F0B27A;
+	color: #32c83d;
 	margin-top: -40px;
 }
 .view_game{
@@ -110,16 +116,22 @@ header nav ul li a:hover {
       width: 50%;
       -webkit-transition: all 0.3s ease;
       -o-transition: all 0.3s ease;
-      transition: all 0.3s ease; }
+      transition: all 0.3s ease;
+
+    }
 .central input[type="submit"]:hover {
         background: #1976D2; }
 .instrucciones{
+  border-radius: 0px 30px 30px 0px;
+  -moz-border-radius: 0px 30px 30px 0px;
+  -webkit-border-radius: 0px 30px 30px 0px;
 	padding: 0.5%;
-	background: #11AFED;
+	background: #46484a;
 	width: 55%;
 	/*height: 100%;*/
 	float: right;
 	padding-top: 50px;
+  border-style: double; border-width: 8px;
 }
 .menu img {
     margin-top: 10px;

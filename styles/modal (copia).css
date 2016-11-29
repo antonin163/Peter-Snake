@@ -81,3 +81,22 @@
 .js-mostrar {
   top: 0;
 }
+.tamaño_snake img {
+    height: 150px;
+    justify-content: center;
+}
+.modal_button {
+    display: flex;
+    justify-content: space-around;
+}
+.modal_button1 {
+    background: green;
+    color: white;
+}
+
+.modal_button1:hover{
+  color: white;
+  background-color:#27ae60;
+  cursor: pointer;
+  
+}

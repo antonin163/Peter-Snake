@@ -6,8 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="./styles/estjuego.css">
 		<link rel="stylesheet" href="./styles/modal.css">
 
-		<link rel="stylesheet" href="./styles/main2.css" media="screen" title="no title" charset="utf-8">		
-		<link rel="stylesheet" type="text/css" href="./styles/estjuego2.css">		
+		<link rel="stylesheet" href="./styles/main2.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./styles/estjuego2.css">
 		<link rel="stylesheet" href="./styles/modal2.css">
 		<script src="./scripts/jquery-1.4.2.min.js"></script>
 
@@ -31,13 +31,19 @@
 </script>
 		<header>
 			<div class="contenedor">
-				
+
 				<nav class="menu">
 					<ul>
 						<a><img src="img/img_logo.png"></a>
+						<font color="Olive" face="Comic Sans MS,arial" size= 5>
 						<li><a href="#">Salir</a></li>
+						</font>
+						<font color="Olive" face="Comic Sans MS,arial" size= 5>
 						<li><a href="#">Contacto</a></li>
+						</font>
+						<font color="Olive" face="Comic Sans MS,arial" size= 5>
 						<li><a href="#">Como Usar</a></li>
+					</font>
 					</ul>
 				</nav>
 			</div>
@@ -45,16 +51,23 @@
 
 		 <section class="wrapper">
 						    <ul class="tabs">
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
 						      <li><a href="./snake.html">NIVEL1</a></li>
-						      <li><a href="./snake2.html">NIVEL2</a></li>
+									</font>
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
+						      <li><a href="./snake2.html" id="nivel2">NIVEL2</a></li>
+									</font>
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
 						      <li><a href="#tab3">NIVEL3</a></li>
+								  </font>
+
 						    </ul>
 							<div class="clr"></div>
 							    <section class="block">
 							      <article class="tab_1" id="tab1">
-							      
-							        
-										<div class="game-container">		
+
+
+										<div class="game-container">
 
 
 											</div>
@@ -64,14 +77,15 @@
 										       	 	<!--<img src="./styles/img/snake.png">-->
 										       	 		<p> PETER SNAKE</p>
 										       	 		<section class="view_game">
-											       	 		<div class="game">
-																<canvas id="snake" width="450" height="450"></canvas>
+																	<!--AQUI HICE UN CAMBIO -->
+											       	 		<div class="game1">
+																<canvas id="snake" width="450" height="450" style="border:8px solid black"></canvas>
 															</div>
 									       	 			</section>
 									       	 			<!--<p><input type="submit"  value="EJECUTAR"></p>-->
-									       	 		
+
 									       	 		</div>
-								       	 	
+
 									       	 	<div class="instrucciones">
 									       	 	<div class="game-controllers colu-center">
 												<div class="piece-container" >
@@ -97,28 +111,36 @@
 														</div>
 												</div>
 												<div class="game-buttons">
-													<button class="btn-first" id="compile" type="button" name="compile" >COMPILAR</button>
-													<button class="btn-second" id="empty" type="button" name="empty" >VACIAR CONTENEDOR</button>
-													<a title="legalDescripcio" id="finestra-modal-obrir" ><button class="btn-first" id="abrir" type="button" name="abrir" >MOSTRAR CODIGO</button></a>
+													<button class="btn-first" id="compile" type="button" name="compile" >COMPILAR</button>					
+
+													<button class="btn-third" id="reiniciar" type="button" name="compile">REINICIAR</button>				
+													<button class="btn-second" id="empty" type="button" name="empty" >VACIAR CONTENEDOR</button>			
+													<a title="legalDescripcio" id="finestra-modal-obrir" ><button class="btn-fourth" id="abrir" type="button" name="abrir" >MOSTRAR CODIGO</button></a>
 												</div>
 												<div id="piece-box" class="piece-box">
 
-												</div>	
+												</div>
 									       	 	</div>
-								       	 	
+
 								       	 	</div>
 											<!--++++++++++-->
-											
+
 										</div>
 
-										  
+
 											<div id="finestra-modal" class="finestra-modal">
 											  <div class="finestra-modal__contingut">
-											    <h2>JUEGO COMPLETADO</h2>
+													<font color="Green" face="Comic Sans MS,arial" size= 5>
+											    <h2>!JUEGO COMPLETADO!</h2>
+												</font>
+												<font color="Olive" face="Comic Sans MS,arial" size= 3>
 														<h3>¡FELICITACIONES! PASASTES EL PRIMER NIVEL!</h3>
+													</font>
+													<font color="Olive" face="Comic Sans MS,arial" size= 2>
 														<p id="modal-instructions">
-															Al colocar los bloques de este rompecabezas, has creado una serie de instrucciones en un lenguaje informático llamado JavaScript. Este código le dice al ordenador lo que debe mostrar en la pantalla. 
+															Al colocar los bloques de este rompecabezas, has creado una serie de instrucciones en un lenguaje informático llamado JavaScript. Este código le dice al ordenador lo que debe mostrar en la pantalla.
 														</p>
+													</font>
 														<div class="ins">
 															<p class="instruction" id="modal-instructions">
 																 moveRight();
@@ -129,11 +151,17 @@
 
 															</p>
 														<div>
-														<img src="./styles/img/snake.png">
+														<div class="tamaño_snake">
+															<img  src="./styles/img/snake.png">
+														</div>
+														<div class="modal_button">
+														<button class="modal_button1" id="repetir">REPETIR</button>
+														<a href="./snake2.html"><button class="modal_button1">CONTINUAR</button></a>					
+														</div>
 
 											    <div id="finestra-modal-tancar" class="finestra-modal-tancar boto">×</div>
 											  </div>
-											</div>		
+											</div>
 							      </article>
 							      <!--
 							      <article class="tab_2" id="tab2">
@@ -148,10 +176,10 @@
 		<script src="./scripts/snake.js" type="text/javascript"></script>
 		<script src="./scripts/drawndrop.js" type="text/javascript"></script>
 		<script src="./scripts/modal.js"></script>
-		
 
-		<script src="./scripts/snake2.js" type="text/javascript"></script>		
-		<script src="./scripts/drawndrop2.js" type="text/javascript"></script>		
+
+		<script src="./scripts/snake2.js" type="text/javascript"></script>
+		<script src="./scripts/drawndrop2.js" type="text/javascript"></script>
 		<script src="./scripts/modal2.js"></script>
 
 
