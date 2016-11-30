@@ -91,19 +91,23 @@ img.onload = function(){
          //      tiempo = tiempo + 800;
        //   }
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	paint(d);
+	paint("left");
+	paint("left");
+	paint("down");
+	paint("down");
+
 
 	}
 
 	//Creamos la víbora
 	function createSnake()
 	{
-		var length = 5;
+		var length = 6;
 		snake = [];
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ x: 2, y: i });
+			snake.push({ x: 4, y: i-2 });
 		}
 	}
 
