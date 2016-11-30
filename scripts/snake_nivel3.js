@@ -116,7 +116,14 @@ img.onload = function(){
 
 		};
 	}
+	function createFood()
+	{
+		food = {
+			x: Math.round(0.6 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
+		};
+	}
 	//Dibujamos la víbora
 	function paint(direccion)
 	{
@@ -212,7 +219,18 @@ img.onload = function(){
 			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 		else if (t=="head"){
+			if(d=="down"){
 			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="right"){
+			context.drawImage(iHead4, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="up"){
+			context.drawImage(iHead2, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="left"){
+			context.drawImage(iHead3, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
 		}
 		else if (t=="food"){
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);

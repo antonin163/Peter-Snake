@@ -207,8 +207,6 @@ button{
 }
 
 
-
-
 .colu {
   display: flex;
   justify-content: space-around;
@@ -259,18 +257,37 @@ button{
 .ins{
   color: orange;
 }
-ul.tabs {
-    border-style: solid; border-width: 4px;
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-    list-style: none;
-    margin: auto;
-    height: 50px;
-    background: #19b1c4;
-    list-style: none
-}
+
 section.wrapper {
     background:#04606c;
     border-style: solid; border-width: 4px;
+}
+
+ul.tabs {
+    
+    display: flex;
+    justify-content: space-around;
+    width: 25%;   
+    margin: auto;    
+    list-style: none;
+    margin-top: 10px;
+    height: 70px;
+    margin-bottom: -15px;
+}
+
+.nivel{
+      border: solid 4px #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 45px;
+    display: inline-block;
+    background: #A2D60F;
+    text-decoration: none;
+    font-size: 32px;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+.nivel:hover{
+  background-color: #000000;
 }

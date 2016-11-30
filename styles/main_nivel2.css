@@ -288,17 +288,34 @@ button{
   color: orange;
 }
 ul.tabs {
-  /* aqui cambie el color de la parte arriba */
-  border-style: solid; border-width: 4px;
+    
     display: flex;
     justify-content: space-around;
-    width: 50%;
+    width: 25%;   
+    margin: auto;    
     list-style: none;
-    margin: auto;
-    height: 50px;
-    background: #19b1c4;
-    list-style: none
+    margin-top: 10px;
+    height: 70px;
+    margin-bottom: -15px;
 }
+
+.nivel{
+      border: solid 1px #ddd;
+    border-radius: 50%;
+    width: 45px;
+    height: 41px;
+    display: inline-block;
+    background: #A2D60F;
+    text-decoration: none;
+    font-size: 32px;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+.nivel:hover{
+  background-color: #000000;
+}
+
 section.wrapper {
    /*aqui cambie el borde*/
     background: aquamarine;

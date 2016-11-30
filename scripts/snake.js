@@ -61,6 +61,8 @@ img.onload = function(){
 		createSnake();
 		createFood();
 		//score = 0;
+		console.log(food);
+		
 
 
 		/*if(typeof gameLoop != "undefined") {
@@ -82,6 +84,8 @@ img.onload = function(){
 
 		//iBrick.src = 'assets/brick.png';
 		paint(d);
+		//paintCell(food.x, food.y,"food");
+		
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -93,6 +97,7 @@ img.onload = function(){
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
+	
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	//context.drawImage(iBackground);
@@ -143,6 +148,7 @@ img.onload = function(){
 	{
 		console.log(direccion);
 		var dir=direccion;
+		d=dir;
 		console.log(dir);
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
@@ -260,7 +266,18 @@ function muertes(){
 			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 		else if (t=="head"){
+			if(d=="down"){
 			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="right"){
+			context.drawImage(iHead4, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="up"){
+			context.drawImage(iHead2, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="left"){
+			context.drawImage(iHead3, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
 		}
 		else if (t=="food"){
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);

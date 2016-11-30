@@ -212,7 +212,18 @@ img.onload = function(){
 			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 		else if (t=="head"){
+			if(d=="down"){
 			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="right"){
+			context.drawImage(iHead4, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="up"){
+			context.drawImage(iHead2, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
+			else if (d=="left"){
+			context.drawImage(iHead3, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			}
 		}
 		else if (t=="food"){
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
