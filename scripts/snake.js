@@ -5,13 +5,6 @@ $(document).on('ready', function() {
 	var finestraModal = document.getElementById("finestra-modal"),
 			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
-/*
-	var img = new Image();
-	img.src = "assets/pasto.jpg";
-img.onload = function(){
-	context.drawImage(img, 0, 0);
-	paint();
-}*/
 
 
 	//Obtenemos el ancho y alto de nuestro canvas.
@@ -21,6 +14,7 @@ img.onload = function(){
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
+	//var r;
 	var food;
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
@@ -37,8 +31,7 @@ img.onload = function(){
 	var aEat = new Audio();
 	var aDie = new Audio();
 	var run;
-	var iBackground = new Image();
-	//var rr;
+	var iBackground = new Image();	
 	//var tiempo = 0;
 	//var stop;
 	//var iBrick = new Image();
@@ -48,11 +41,7 @@ img.onload = function(){
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
-	// function BtnAbrir()
-	// {
 
-	// 	finestraModalObrir = document.getElementById("finestra-modal-obrir");
-	// }
 	//window.addEventListener('load',init);
 	function init()
 	{
@@ -61,8 +50,6 @@ img.onload = function(){
 		createSnake();
 		createFood();
 		//score = 0;
-		console.log(food);
-		
 
 
 		/*if(typeof gameLoop != "undefined") {
@@ -78,45 +65,22 @@ img.onload = function(){
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture.png';
-		//rr.src= 'assets/.png';
+		iBackground.src = 'assets/flat-texture.png';	
 
 
 		//iBrick.src = 'assets/brick.png';
-		paint(d);
-		//paintCell(food.x, food.y,"food");
-		
-	// gameLoop = setInterval(paint, 1000 / level);
+		paint(d);		
 	}
 
-
 	init();
-
-
-
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
 	
-	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	//context.drawImage(iBackground);
-   // context.drawImage(iBackground,tiempo-800,0);
 
-         // tiempo--;
-         // if(tiempo<0){
-         //      tiempo = tiempo + 800;
-       //   }
-	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	paint(d);
 
 	}
-
-  //   function comenzar(){
-    //      clearTimeout(stop);
-      //    stop = setTimeout(comenzar,1);
-        //  ee(context);
-     //}
 
 
 	//Creamos la víbora
@@ -206,7 +170,9 @@ img.onload = function(){
 			tail.y = ny;
 
 		}
-
+		typeCell='food';
+		paintCell(food.x, food.y,typeCell);
+		
 		snake.unshift(tail);
 		//Pintar cabeza
 		var typeCell="head";
@@ -220,8 +186,7 @@ img.onload = function(){
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
 			paintCell(c.x, c.y, typeCell);
 		}
-		typeCell='food';
-		paintCell(food.x, food.y,typeCell);
+
 /*		typeCell='head';
 		paintCell(c.x, c.y, typeCell);*/
 		//context.drawImage(iFood,  food.x, food.y);
@@ -260,8 +225,9 @@ function muertes(){
 	function paintCell(x, y, type)
 	{
 		var t=type;
-		if (t=="body") {
-			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		if (t=="food") {
+			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+			
 		}
 		else if (t=="head"){
 			if(d=="down"){
@@ -277,16 +243,10 @@ function muertes(){
 			context.drawImage(iHead3, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 			}
 		}
-		else if (t=="food"){
-			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		else if (t=="body"){
+			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 	}
-
-	/*function paintCellHead(x, y)
-	{
-		context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		
-	}*/
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
 	function checkCollision(x, y, array)
@@ -317,7 +277,6 @@ function muertes(){
 	}
 	function right(){		
 		d="right";	
-
 		paint();
 
 
@@ -348,11 +307,7 @@ function muertes(){
 		init();
   	//document.getElementById('piece-box').innerHTML= "";
 		return;
-
-
 	}
-
-
 
 	var btnRepetir=$('#repetir');
 	btnRepetir.click(repetirDenuevo);
@@ -379,27 +334,50 @@ function muertes(){
 				setTimeout(paint,i*1000,instruction);
 				array[i]=instruction;
 				console.log(array);
+				//contar(r);
+				/*
+				if(instruction==food.x){
+					aEat.play();
+					finestraModal.classList.add("js-mostrar");
+
+				}else{
+					aDie.play();
+				}*/
 
 		}
-
-
-	function execInstruction(instruction){
+/*
+		function sta{
+			var rf;
+			if (rf) {}
+		}*/
+/*
+	function contar(r){
+		r=0;
+		while (r<instruction) {
+			r++;
+		}
+			if (r=4) {
+				aEat.play();
+			}
+			else{
+				aDie.play();
+			}
+*/
+	}
+	function execInstruction(instruction ){
 		if (instruction == "left" && d != "right") {
 			left();
-			//run();
 
 		} else if (instruction == "up" && d != "down") {
 			up();
-			//run();
+			
 		} else if (instruction == "right" && d != "left") {
 			right();
 
-			//run();
+			
 		} else if (instruction == "down" && d != "up") {
-			down();
-			//run();
-		}
-		//window.requestAnimationFrame(execInstruction(instruction));
+			down();			
+		}		
 	}
 
 
@@ -409,5 +387,5 @@ function muertes(){
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
-}
+
 });
