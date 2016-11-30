@@ -227,9 +227,7 @@ img.onload = function(){
 		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
 
-	//	img.onload = function(){
-	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
-	//	}
+
 		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
