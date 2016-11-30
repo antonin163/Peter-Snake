@@ -60,7 +60,7 @@ img.onload = function(){
 		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
 		}*/
-			
+
 		/*agregacion de imagenes*/
 		iBody.src = 'assets/body.png';
 		iFood.src = 'assets/apple_green.png';
@@ -73,7 +73,7 @@ img.onload = function(){
 		iBackground.src = 'assets/flat-texture2.png';
 
 		//iBrick.src = 'assets/brick.png';
-		paint(d);
+	//	paint(d);
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
@@ -85,15 +85,15 @@ img.onload = function(){
 	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	//context.drawImage(iBackground);
    // context.drawImage(iBackground,tiempo-800,0);
-		 
+
          // tiempo--;
          // if(tiempo<0){
-         //      tiempo = tiempo + 800;	
+         //      tiempo = tiempo + 800;
        //   }
 	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 	paint(d);
-	
-	}	
+
+	}
 
 	//Creamos la víbora
 	function createSnake()
@@ -121,6 +121,8 @@ img.onload = function(){
 	function paint(direccion)
 	{
 		var dir=direccion;
+		console.log(dir);
+
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -130,16 +132,16 @@ img.onload = function(){
 		var nx = snake[0].x;
 		var ny = snake[0].y;
 
-		if (d == "right") {
+		if (dir == "right") {
 			nx++;
 		}
-		else if (d == "left") {
+		else if (dir == "left") {
 			nx--;
 		}
-		else if (d == "up") {
+		else if (dir == "up") {
 			ny--;
 		}
-		else if (d == "down") {
+		else if (dir == "down") {
 			ny++;
 		}
 
@@ -270,7 +272,7 @@ img.onload = function(){
 		//aDie.play();
 		document.getElementById('compile').style.display = 'block';
 		init();
-		return;	
+		return;
 
 	}
 
@@ -290,6 +292,7 @@ img.onload = function(){
 		var pieces=document.getElementById('piece-box').getElementsByClassName('piece');
 		var piece;
 		var instruction;
+		var instructionSig;
 		var length=pieces.length;
 		var i=0;
 		var iFor=0;
@@ -300,19 +303,23 @@ img.onload = function(){
 		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1]
-				if(typeof piece.style != 'undefined')
+				if(typeof pieceSiguiente != 'undefined')
 	      {
+					instructionSig=pieceSiguiente.dataset.instruction;
+				}
 					instruction=piece.dataset.instruction;
+
 					if(instruction=='for')
 					{
-						execInstruction(pieceSiguiente.dataset.instruction);
+						setTimeout(paint,i*1000,instructionSig);
+						// setTimeout(function(){},i*2000);
+						// execInstruction(instructionSig);
+					}else {
+						setTimeout(paint,i*1000,instruction);
 					}
-					setTimeout(function(){},i*2000);
-						execInstruction(instruction);
+
 						array[i]=instruction;
 						console.log(array);
-
-				}
 				i++;
 		}
 		console.log(array);

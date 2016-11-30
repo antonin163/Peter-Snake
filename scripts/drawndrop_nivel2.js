@@ -71,9 +71,11 @@ $(document).on('ready',function (){
     }
     function droppablePieceFor(){
       pieceFor=document.querySelector('.piece-box .piece-for');
-      pieceFor.addEventListener('drop', recogerpieza,false);
-      pieceFor.addEventListener('dragover', piezasobre,false);
-      console.log(pieceFor);
+      if(typeof pieceFor != 'undefined' && pieceFor != null)
+      {
+        pieceFor.addEventListener('drop', recogerpieza,false);
+        pieceFor.addEventListener('dragover', piezasobre,false);
+      }
     }
 
 })

@@ -37,7 +37,7 @@ body{
 
   padding-top: 2em;
   width: 18vw;
-  height: 60vh;
+  height: 100vh;
 }
 .piece-for{
   /*AQUI CAMBIE EL CUADRO*/
@@ -302,6 +302,6 @@ ul.tabs {
 section.wrapper {
    /*aqui cambie el borde*/
     background: navajowhite;
-    border-style: solid; 
+    border-style: solid;
     border-width: 4px;
 }

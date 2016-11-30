@@ -57,7 +57,7 @@ img.onload = function(){
 	function init()
 	{
 
-		d = "down";		
+		d = "down";
 		createSnake();
 		createFood();
 		//score = 0;
@@ -154,7 +154,7 @@ img.onload = function(){
 		var ny = snake[0].y;
 
 		if (dir == "right") {
-			nx++;			
+			nx++;
 
 		}
 		else if (dir == "left") {
@@ -270,7 +270,7 @@ function muertes(){
 	/*function paintCellHead(x, y)
 	{
 		context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-		
+
 	}*/
 
 	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
@@ -300,8 +300,8 @@ function muertes(){
 		d="left";
 		paint();
 	}
-	function right(){		
-		d="right";	
+	function right(){
+		d="right";
 
 		paint();
 
