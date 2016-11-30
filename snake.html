@@ -29,35 +29,41 @@
 			<div class="contenedor">
 
 				<nav class="menu">
-					<ul>
+					<ul class="menu_info">
 						<a><img src="img/img_logo.png"></a>
-						<font color="Olive" face="Comic Sans MS,arial" size= 5>
-						<li><a href="#">Salir</a></li>
-						</font>
-						<font color="Olive" face="Comic Sans MS,arial" size= 5>
-						<li><a href="#">Contacto</a></li>
-						</font>
-						<font color="Olive" face="Comic Sans MS,arial" size= 5>
-						<li><a href="#">Como Usar</a></li>
-					</font>
+						<div class="subtitles">
+							<font color="Olive" face="Comic Sans MS,arial" size= 5>
+							<span class="subtitle">Niveles del Juego :</span>
+							</font>
+							
+							<div class="tabs">
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
+							     <li><a class="nivel" href="./snake.html">1</a></li>
+									</font>
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
+							     <li><a class="nivel" href="./snake_nivel2.html" id="nivel2">2</a></li>
+									</font>
+									<font color="Olive" face="Comic Sans MS,arial" size= 6>
+							     <li><a class="nivel" href="./snake_nivel3.html">3</a></li>
+								  </font>
+							</div>
+							<font color="Olive" face="Comic Sans MS,arial" size= 5>
+							<li><a class="title" href="#">Salir</a></li>
+							</font>
+							<font color="Olive" face="Comic Sans MS,arial" size= 5>
+							<li><a class="title" href="#">Contacto</a></li>
+							</font>
+							<font color="Olive" face="Comic Sans MS,arial" size= 5>
+							<li><a class="title" href="#">Como Usar</a></li>
+							</font>
+						</div>
 					</ul>
 				</nav>
 			</div>
 		 </header>
 
 		 <section class="wrapper">
-						    <ul class="tabs">
-									<font color="Olive" face="Comic Sans MS,arial" size= 6>
-						      <li><a class="nivel" href="./snake.html">1</a></li>
-									</font>
-									<font color="Olive" face="Comic Sans MS,arial" size= 6>
-						      <li><a class="nivel" href="./snake_nivel2.html" id="nivel2">2</a></li>
-									</font>
-									<font color="Olive" face="Comic Sans MS,arial" size= 6>
-						      <li><a class="nivel" href="./snake_nivel3.html">3</a></li>
-								  </font>
 
-						    </ul>
 							<div class="clr"></div>
 							    <section class="block">
 							      <article class="tab_1" id="tab1">
@@ -132,7 +138,7 @@
 														<h3>¡FELICITACIONES! PASASTES EL PRIMER NIVEL!</h3>
 													</font>
 													<font color="Olive" face="Comic Sans MS,arial" size= 2>
-														<p id="modal-instructions">
+														<p class="info_gamer" id="modal-instructions">
 															Al colocar los bloques de este rompecabezas, has creado una serie de instrucciones en un lenguaje informático llamado JavaScript. Este código le dice al ordenador lo que debe mostrar en la pantalla.
 														</p>
 													</font>
