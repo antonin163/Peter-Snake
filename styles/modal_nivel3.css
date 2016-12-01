@@ -106,6 +106,10 @@
   color: mediumblue;
 }
 .instruction{
+    width: 30%;
+    margin: auto;
+}
+.codigo_snake{
     width: 50%;
     margin: auto;
     background: #FDFFAE;

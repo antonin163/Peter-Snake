@@ -5,13 +5,6 @@ $(document).on('ready', function() {
 	var finestraModal = document.getElementById("finestra-modal"),
 			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
-/*
-	var img = new Image();
-	img.src = "assets/pasto.jpg";
-img.onload = function(){
-	context.drawImage(img, 0, 0);
-	paint();
-}*/
 
 
 	//Obtenemos el ancho y alto de nuestro canvas.
@@ -36,6 +29,7 @@ img.onload = function(){
 	var iHead4 = new Image();
 	var aEat = new Audio();
 	var aDie = new Audio();
+	var salto = new Audio();
 	var iBackground = new Image();
 	//var iBrick = new Image();
 	//var relleno=context.createPattern(iFood, "no-repeat")
@@ -44,11 +38,7 @@ img.onload = function(){
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
-	// function BtnAbrir()
-	// {
 
-	// 	finestraModalObrir = document.getElementById("finestra-modal-obrir");
-	// }
 	function init()
 	{
 
@@ -70,7 +60,8 @@ img.onload = function(){
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture2.png';
+		iBackground.src = 'assets/flat-texture.png';
+		salto.src= 'assets/salto.wav';
 
 		//iBrick.src = 'assets/brick.png';
 	//	paint(d);
@@ -81,21 +72,10 @@ img.onload = function(){
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
-	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	//context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	//context.drawImage(iBackground);
-   // context.drawImage(iBackground,tiempo-800,0);
-
-         // tiempo--;
-         // if(tiempo<0){
-         //      tiempo = tiempo + 800;
-       //   }
-	//context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	paint("left");
-	paint("left");
-	paint("down");
-	paint("down");
-
+	setTimeout(paint,1000,"left");
+	setTimeout(paint,2000,"left");
+	setTimeout(paint,3000,"down");
+	setTimeout(paint,4000,"down");
 
 	}
 
@@ -125,6 +105,7 @@ img.onload = function(){
 	function paint(direccion)
 	{
 		var dir=direccion;
+		d=dir;
 		console.log(dir);
 
 		context.drawImage( iBackground, 0, 0, width, height );
@@ -164,19 +145,20 @@ img.onload = function(){
 
 			score++;
 			aEat.play();
-
-
 			finestraModal.classList.add("js-mostrar");
-
-			// BtnAbrir();
-
+			
 			//createFood();
 		} else {
+
+			salto.play();
 			var tail = snake.pop();
 
 			tail.x = nx;
 			tail.y = ny;
 		}
+
+		typeCell='food';
+		paintCell(food.x, food.y,typeCell);
 
 		snake.unshift(tail);
 		//Pintar cabeza
@@ -191,31 +173,37 @@ img.onload = function(){
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
 			paintCell(c.x, c.y, typeCell);
 		}
-		typeCell='food';
-		paintCell(food.x, food.y,typeCell);
+		
 /*		typeCell='head';
 		paintCell(c.x, c.y, typeCell);*/
 		//context.drawImage(iFood,  food.x, food.y);
 		//agregando fondo
 
-	//	img.onload = function(){
-	//	context.drawImage( iBackground, 0, 0, canvas.width, canvas.height );
-	//	}
 		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
 
 	}
- /*function run() {
- setTimeout(run, 500);
- paint();
- }*/
-	//Pintamos la celda
+
+	//
+	// //Pintamos la celda
+	// function paintCell(x, y)
+	// {
+	//
+	// 	context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	// 	//context.fillStyle = snakeColor;
+	// 	//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	// 	//context.strokeStyle = background;
+	// 	//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+	//
+	// }
+
 	function paintCell(x, y, type)
 	{
 		var t=type;
-		if (t=="body") {
-			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		if (t=="food") {
+			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+
 		}
 		else if (t=="head"){
 			if(d=="down"){
@@ -231,8 +219,8 @@ img.onload = function(){
 			context.drawImage(iHead3, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 			}
 		}
-		else if (t=="food"){
-			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+		else if (t=="body"){
+			context.drawImage(iBody, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 		}
 	}
 
@@ -243,7 +231,7 @@ img.onload = function(){
 		{
 			if(array[i].x == x && array[i].y == y) {
 				return true;
-				// aDie.play();
+				 aDie.play();
 				// finestraModal.classList.add("js-mostrar");
 			}
 		}
@@ -287,6 +275,7 @@ img.onload = function(){
 		//aDie.play();
 		document.getElementById('compile').style.display = 'block';
 		init();
+		//document.getElementById('piece-box').innerHTML= "";
 		return;
 
 	}
@@ -352,20 +341,6 @@ img.onload = function(){
 
 	}
 
-	//var myTimer = setTimeout(recyclerPiece(), 5000);
-	//var myTimer = setTimeout(paintCell(), 5000);
-	//var myTimer = setTimeout(paint(), 5000);
-	//setInterval(recyclerPiece, 8000);
-	//var timeoutId = setTimeout("recyclerPiece()", 6000);
-	//var timeoutId = setTimeout(paintCell, 6000);
-	//var timeoutId = setTimeout("paint()", 2000);
-	//setInterval("reloj()",1000);
-
-	// function setInstructionModal(arrayInstructions){
-
-	// 	var finestra_modal_obrir=document.getElementById('finestra-modal-obrir');
-	// 	console.log(finestra_modal_obrir);
-	// }
 	function execInstruction(instruction){
 		if (instruction == "left" && d != "right") {
 			left();
@@ -385,7 +360,7 @@ img.onload = function(){
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
-	/*agregar imagen y sonido*/
+	
 
 
 
