@@ -155,10 +155,8 @@ button{
   height: 3em;
   font-weight: bold !important;
   font-size: 0.8em;
-  margin: .4em !important;
-  border: solid white 2px;
-  padding-top: 5px;
-  padding-bottom: 20px;
+  margin: .2em !important;
+  border: solid white 2px;  
 
 }
 
@@ -205,8 +203,6 @@ button{
   background-color:#19B1C4;
   cursor: pointer;
 }
-
-
 
 
 .colu {
@@ -259,18 +255,9 @@ button{
 .ins{
   color: orange;
 }
-ul.tabs {
-    border-style: solid; border-width: 4px;
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-    list-style: none;
-    margin: auto;
-    height: 50px;
-    background: #19b1c4;
-    list-style: none
-}
+
 section.wrapper {
     background:#04606c;
     border-style: solid; border-width: 4px;
 }
+

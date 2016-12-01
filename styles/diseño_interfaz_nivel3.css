@@ -45,14 +45,14 @@ header nav ul li {
 
 }
 
-header nav ul li a {
+.title {
 	display: block;
 	padding:20px;
 	color:#fff;
 	text-decoration: none;
 }
 
-header nav ul li a:hover {
+.title:hover {
 	background:#2980b9;
 }
 
@@ -70,7 +70,7 @@ header nav ul li a:hover {
 .central{
   /*AQUI CAMBIE EL COLOR DE FONDO*/
 	display: flex;
-	background: aquamarine;
+	background: navajowhite;
 	width: 100%vh;
 	height: 100%;
 	/*padding: 2%;*/
@@ -82,7 +82,7 @@ header nav ul li a:hover {
   border-radius: 30px 0px 0px 30px;
   -moz-border-radius: 30px 0px 0px 30px;
   -webkit-border-radius: 30px 0px 0px 30px;
-	padding: 3.5%;
+	padding: 45px 30px 45px 30px;
 	background: #97F8F8;
 	width: 45%;
 	/*height: 100%;*/
@@ -96,6 +96,9 @@ header nav ul li a:hover {
 	font-size: 40px;
 	color: #32c83d;
 	margin-top: -40px;
+}
+.game1 {
+    background: #36CECA;
 }
 .view_game{
 	background: #34495E;
@@ -125,7 +128,7 @@ header nav ul li a:hover {
   border-radius: 0px 30px 30px 0px;
   -moz-border-radius: 0px 30px 30px 0px;
   -webkit-border-radius: 0px 30px 30px 0px;
-	padding: 0.5%;
+	padding: 45px 20px 45px 20px;
 	background: #46484a;
 	width: 55%;
 	/*height: 100%;*/
@@ -133,6 +136,41 @@ header nav ul li a:hover {
 	padding-top: 50px;
   border-style: double; border-width: 8px;
 }
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    width: 20%;
+    margin: auto;
+    list-style: none;
+    margin-top: -37px;
+    /* height: 70px; */
+    margin-bottom: -55px;
+}
+
+.nivel{
+      border: solid 4px #ddd;
+    border-radius: 50%;
+    width: 50px;
+    height: 45px;
+    display: inline-block;
+    background: #A2D60F;
+    text-decoration: none;
+    font-size: 32px;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+.nivel:hover{
+  background-color: #000000;
+}
+.subtitle {
+    margin-top: -28px;
+    margin-left: 240px;
+    color: white;
+}
 .menu img {
-    margin-top: 10px;
+    margin-top: 21px;
+}
+.subtitles {
+    margin-top: -50px;
 }
