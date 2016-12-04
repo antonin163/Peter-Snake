@@ -1,14 +1,35 @@
+<!DOCTYPE HTML>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-        <title>PepeSnake</title>
-        <link rel="stylesheet" type="text/css" href="css/estilos.css">
-        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+<head>
+<title>Peter Snake</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!---- start-smoth-scrolling---->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+		</script>
+<!---- start-smoth-scrolling---->
+ <!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+</script>
+<!----webfonts---->
+<link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-
-        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript">
+<script type="text/javascript">
 			function openVentana(){
 				$('.ventana__modal').slideDown("slow");
 			}
@@ -16,103 +37,204 @@
 				$('.ventana__modal').slideUp("fast");
 			}
 		</script>  
-    </head>
-    
-    <body>
-        <header class="header">
-            <div class="contenedor">
-                <h1 class="logo">PepeSnake</h1>
-                <span class="icon-menu" id="btn-menu"></span>
-                <nav class="nav" id="nav">
-                    <ul class="menu">
-                        <li class="menu__item"><a class="menu__link" href="#">Como Usar</a></li>
-                        <li class="menu__item"><a class="menu__link" href="#">Contacto</a></li>
-                        <li class="menu__item"><a class="menu__link" href="javascript:openVentana();">Ingresar</a></li>
-                    </ul>
-                </nav>
-            </div>
-		</header>
-       	
-       	<div class="banner">
-       		<img src="img/fondo_kids.jpg" class="banner_img">
-       		<div class="contenedor">
-       			<p class="banner__txt">Aprende a Programar Jugando</p>
-       		</div>
-       	</div>
-       	 
-       	<main class="main">
-       		<div class="contenedor" align="center">
-       		
-       		<h5>Aprende a Programar Jugando</h5>	
-       		<h6>Peter Snake es una plataforma donde la programacion se aprendre jugando</h6>
-       			
-       			<section class="info">
-       				<article class="info__columna">
-       					<img src="img/circulo1.png" class="info__img" width="130" height="130"><br>
+<!----//webfonts---->
+<!----start-top-nav-script---->
+		<script>
+			$(function() {
+				var pull 		= $('#pull');
+					menu 		= $('nav ul');
+					menuHeight	= menu.height();
+				$(pull).on('click', function(e) {
+					e.preventDefault();
+					menu.slideToggle();
+				});
+				$(window).resize(function(){
+	        		var w = $(window).width();
+	        		if(w > 320 && menu.is(':hidden')) {
+	        			menu.removeAttr('style');
+	        		}
+	    		});
+			});
+		</script>
+<!----//End-top-nav-script---->
+</head>
+<body>
+		<!-----start-container---->
+			<!----- start-header---->
+			<div id="home" class="header">
+				<div class="container">
+					<div class="logo">
+						<a href="#"><img src="images/img_logo.png" title="logo" /></a>
+					</div>
+					<!----start-top-nav---->
+					 <nav class="top-nav">
+						<ul class="top-nav">
+							<li class="active"><a href="javascript:openVentana();" >Jugar</a></li>
+							<li class="page-scroll "><a href="#features" class="scroll">Somos</a></li>
+							<li class="page-scroll "><a href="#team" class="scroll">Uso</a></li>
+							<li class="page-scroll"><a href="registro.html">Registrarse</a></li>
+							<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Contactenos</a></li>
+						</ul>
+						<a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
+					</nav>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<!----- //End-header---->
+			<!----start-slider-script---->
+			<script src="js/responsiveslides.min.js"></script>
+			 <script>
+			    // You can also use "$(window).load(function() {"
+			    $(function () {
+			      // Slideshow 4
+			      $("#slider4").responsiveSlides({
+			        auto: true,
+			        pager: true,
+			        nav: true,
+			        speed: 500,
+			        namespace: "callbacks",
+			        before: function () {
+			          $('.events').append("<li>before event fired.</li>");
+			        },
+			        after: function () {
+			          $('.events').append("<li>after event fired.</li>");
+			        }
+			      });
+			
+			    });
+			  </script>
+			<!----//End-slider-script---->
+			<!-- Slideshow 4 -->
+			    <div  id="top" class="callbacks_container">
+			      <ul class="rslides" id="slider4">
+			        <li>
+			          <img src="images/slide_1.jpg" alt="">
+			          <div class="caption">
+			          	<!--<div class="slide-text-info">
+			          		<h1>JUGAR</h1>
+			          	</div>-->
+			          </div>
+			        </li>
+			        <li>
+			          <img src="images/fondo_kids2.jpg" alt="">
+			          <div class="caption">
+			          	<div class="slide-text-info">
+			          		<h1>JUGAR</h1>
+			          	</div>
+			          </div>
+			        </li>
+			        <li>
+			          <img src="images/fondo_kids3.jpg" alt="">
+			           <div class="caption">
+			           	<div class="slide-text-info">
+			          		<h1>JUGAR</h1>
+			          	</div>
+			          </div>
+			        </li>
+			      </ul>
+			    </div>
+			    <div class="clearfix"> </div>
+			<!----- //End-slider---->
+			<!-----start-fearures---->
+			<div class="features" id="features" >
+				<div class="container">
+					<div class="features-head text-center">
+						<h2>La mejor opcion <span>se parte de  nosotros</span></h2>
+						<p>Una Aplicacion, una experiencia.</p>
+						<p>Buscamos mejorar la satisfaccion de nuestros alumnos y la eficiencia educativa. Ademas somos concientes de la importancia de aprender a programar mediante juegos totalmente entretenidos, donde la tu razonamiento aumentara cada vez mas</p>
+					</div>
+					<div class="feature-grids" align="center">
+						<div class="col-md-3 feature-grid" >
+							<img src="images/circulo1.png" width="130" height="130"><br>
        					<h2 class="info__titulo">JUEGA</h2>
        					<p class="info__txt">Iniciate en el mundo de la programacion con interactivos juegos que te ayudaran a despertar tus habilidades</p>
-       				</article>
-       				<article class="info__columna">
-       					<img src="img/circulo2.png" class="info__img" width="130" height="130"><br>
+						</div>
+						<div class="col-md-3 feature-grid">
+							<img src="images/circulo2.png"  width="130" height="130"><br>
        					<h2 class="info__titulo">APRENDE</h2>
        					<p class="info__txt">Desbloquea nuevos niveles y alcanza la mayor puntuación. Reta a tus amigos</p>
-       				</article>
-       				<article class="info__columna">
-       					<img src="img/circulo3.png" class="info__img" width="130" height="130"><br>
+						</div>
+						<div class="col-md-3 feature-grid">
+							<img src="images/circulo3.png" width="130" height="130"><br>
        					<h2 class="info__titulo">GANA</h2>
        					<p class="info__txt">Gana Premios cada vez que acumules 3000 puntos. Comparte tus logros con tus amigos</p>
-       				</article>
-       			</section>
-       		</div>
-       		
-       		<div class="contenedor">
-       			<section class="info">
-       				<article class="info__izquierda">
-       					<h2 class="info__titulo">DEMOSTRACION</h2><br>
-       					<div class="video__responsive">
-       						<iframe src="https://www.youtube.com/embed/ItNKIRzQCm8" frameborder="0" allowfullscreen></iframe>
-       					</div>
-       					
-       				</article>
-       				<article class="info__derecha ">
-       					<h2>FORMAS DE JUGAR</h2><br>
-       					<p class="contaside">Mueve a ______ a travez de la pantalla usando instrucciones de programacion usando el mouse, las instrucciones apareceran en forma de bloque </p>
-	       				<p class="contaside">Puedes consultar tus puntajes y premios una vez te haz logueado </p>
-       					
-       				</article>
-       			</section>
-       		</div>
-       		
-       		<section id="contacto" class="contenedor">
-				<div class="contenedor_contacto" align="center">				
+						</div>
 				
-					<form class="contact_form"  action="#" method="post">
-													<h2>CONTACTANOS</h2>
-
-							<div >
-								<input name="name" id="name" value="" placeholder="Nombre" type="text">
-							</div>
-							<div>
-								<input name="email" id="email" value="" placeholder="Email" type="email">
-							</div>
-							<div>
-								<textarea name="message" id="message" placeholder="Mensaje" rows="6"></textarea>
-							</div>
-							<div>
+					</div>
+				</div>
+			</div>
+			<!-----//End-fearures---->
+			<!-----start-team---->
+			<div class="team" id="team">
+				<div class="container">
+					<div class="team-head text-center">
+						<h3>Como Usar</h3>
+					</div>
+					<div class="team-video">
+						<div class="cajadevideo">
+        					<div class="video">
+        					<iframe width="600" height="315" src="https://www.youtube.com/embed/ItNKIRzQCm8" frameborder="0" allowfullscreen></iframe>
 								
-<!--								<input value="Enviar Comentario" class="special big" type="submit">-->
-								<button class="submit" type="submit">Enviar Comentario</button>
 							</div>
-						
-					</form>
-      		</div>
-       		<section>
-       	</main>       
-       	
-       	<div id="ventana__modal" class="ventana__modal">
-       	<div class="contenedor-formulario">
-       		<div class="wrap2">
-       		<div id="form__inicio">
+						</div>
+					</div>			
+				</div>
+			</div>
+			<!-----//End-team---->
+	       
+  <div class="footer">
+  	<div class="container">
+  		<div class="footer-top">
+		    
+		 	<div class="social">
+			   <ul>
+				 <li><a href=""> <i class="facebook"> </i> </a></li>
+				 <li><a href=""><i class="twitter"> </i> </a></li>
+				 <li><a href=""><i class="pinterest"> </i> </a></li>
+				 <li><a href=""><i class="google"> </i> </a></li>
+				 <li><a href=""><i class="tw"> </i> </a></li>
+				 <li><a href=""><i class="instagram"> </i> </a></li>
+				 <li><a href=""><i class="rss"> </i> </a></li>
+				 <div class="clear"> </div>
+			  </ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="footer-bottom" id="contact">
+		  <div class="container contact">
+      	  	 <div class="col-md-4 contact-top_left">
+			  <h3>CONTACTANOS</h3>
+			  <p>Para mayor informacion envianos un mensaje a PeterSnake@gmail.com</p>
+			  <ul class="contact_info">
+			  	<li><i class="mobile"> </i><span>951254337</span></li>
+			  	<li><i class="message"> </i><span class="msg">info(at)PeterSnake.com</span></li>
+			  </ul>
+	 		 </div>
+      		 <div class="col-md-8 contact-top">
+      		 <br>
+			  <h3>Envia un mensaje</h3>
+			     <form id="contactform" method="post" action="/send/contact">
+					<div class="to">
+                     	<input type="text" class="text" value="Nombre" name="name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+					 	<input type="text" class="text" value="Email" name="mail" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:20px">
+					 	<input type="text" class="text" value="Motivo"  name="subject"onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" style="margin-left:20px">
+					</div>
+					<div class="contact_bottom-textarea">
+	                   <textarea name="message"value="Mensaje" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Mensaje</textarea>
+	                </div>
+	                <div class="form-submit1">
+			           <input name="submit" type="submit" id="submit" value="Envia tu mensaje"><br>
+			           <p class="m_msg">Use un E-mail valido</p>
+					</div>
+					<div class="clear"></div>
+                 </form>
+             </div>
+            </div>
+          </div>
+          
+           	<div id="ventana__modal" class="ventana__modal">
+       	<div class="contenedor-formulario" >
+       		<div id="form__inicio" >
        		<div class="cerrar__modal"><a href="javascript:closeVentana();">X</a></div>
        		<h1>INICIAR SESION</h1><hr>
        			<form action="" class="formulario" method="post" name="formulario_registro">
@@ -127,7 +249,7 @@
 								<label class="label" for="contra">Contraseña:</label>
 							</div>
 							
-						<input type="submit" id="btn-submit" value="Enviar"><a href="juego.html">
+						<input type="submit" id="btn-submit" value="Jugar"><a href="juego.html">
 						</div>
 
        		</form>
@@ -135,7 +257,30 @@
        		</div>
        		</div>
        	</div>
-       	<script src="js/formulario.js"></script> 
+         <script src="js/formulario.js"></script> 
         <script src="js/menu.js"></script>  
-    </body>
+          <script type="text/javascript">
+				$(document).ready(function() {
+					/*
+					var defaults = {
+			  			containerID: 'toTop', // fading element id
+						containerHoverID: 'toTopHover', // fading element hover id
+						scrollSpeed: 1200,
+						easingType: 'linear' 
+			 		};
+					*/
+
+					
+					$().UItoTop({ easingType: 'easeOutQuart' });
+					
+				});
+			</script>
+		    <a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;">top </span></a>
+			</div>
+		</div>
+	</div>
+		<!----//End-footer---->
+		<!----//End-container---->  
+</body>
 </html>
+
