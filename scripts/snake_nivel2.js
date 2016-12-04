@@ -5,16 +5,6 @@ $(document).on('ready', function() {
 	var finestraModal = document.getElementById("finestra-modal"),
 			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
-/*
-	var img = new Image();
-	img.src = "assets/pasto.jpg";
-img.onload = function(){
-	context.drawImage(img, 0, 0);
-	paint();
-}*/
-
-
-	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
 
@@ -320,6 +310,7 @@ img.onload = function(){
 				var pieceSiguiente=pieces[i+1]
 				if(typeof pieceSiguiente != 'undefined')
 	      {
+					console.log(piece.className);
 					instructionSig=pieceSiguiente.dataset.instruction;
 				}
 					instruction=piece.dataset.instruction;
@@ -327,9 +318,12 @@ img.onload = function(){
 					if(instruction=='for')
 					{
 						setTimeout(paint,i*1000,instructionSig);
+						piecesInfor=recogerPiezasInfor(pieces,forId);
+						console.log(piecesInfor);
+						ejecutarPiezasInfor(piecesInfor);
 						// setTimeout(function(){},i*2000);
 						// execInstruction(instructionSig);
-					}else {
+					}else if(piece.className =!'in-for'){
 						setTimeout(paint,i*1000,instruction);
 					}
 
@@ -351,33 +345,12 @@ img.onload = function(){
     //}
 
 	}
-
-	//var myTimer = setTimeout(recyclerPiece(), 5000);
-	//var myTimer = setTimeout(paintCell(), 5000);
-	//var myTimer = setTimeout(paint(), 5000);
-	//setInterval(recyclerPiece, 8000);
-	//var timeoutId = setTimeout("recyclerPiece()", 6000);
-	//var timeoutId = setTimeout(paintCell, 6000);
-	//var timeoutId = setTimeout("paint()", 2000);
-	//setInterval("reloj()",1000);
-
-	// function setInstructionModal(arrayInstructions){
-
-	// 	var finestra_modal_obrir=document.getElementById('finestra-modal-obrir');
-	// 	console.log(finestra_modal_obrir);
-	// }
-	function execInstruction(instruction){
-		if (instruction == "left" && d != "right") {
-			left();
-		} else if (instruction == "up" && d != "down") {
-			up();
-		} else if (instruction == "right" && d != "left") {
-			right();
-		} else if (instruction == "down" && d != "up") {
-			down();
-		}
-
+	function recogerPiezasInfor(pieces){
+		console.log(pieces);
+		piecesInfor=getElementsByClassName('in-for');
+		
 	}
+
 
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);

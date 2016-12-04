@@ -2,7 +2,7 @@ $(document).on('ready',function (){
     var box=document.querySelector('.piece-box');
     var pieces=document.getElementsByClassName('piece');
     var pieceFor=document.querySelector('.piece-for');
-
+    //droppablePieceFor();
     console.log(pieceFor);
     box.addEventListener('drop', recogerpieza,false);
     box.addEventListener('dragover', piezasobre,false);
@@ -16,7 +16,6 @@ $(document).on('ready',function (){
         piece.addEventListener('dragstart', alzarpieza, false);
         piece.addEventListener('dragend', soltarpieza, false);
       }
-
     }
 
     function alzarpieza(e){
@@ -39,13 +38,23 @@ $(document).on('ready',function (){
     function recogerpieza(e){
       e.preventDefault();
       var datoclon=e.dataTransfer.getData('text');
-      console.log(datoclon);
       this.innerHTML += datoclon;
-      droppablePieceFor();
+      if (e.target.id == 'piece-for') {
+        e.target.parentNode.removeEventListener('drop',recogerpieza,false);
+        var nodoshijos=e.target.childNodes;
+        console.log(nodoshijos);
+        //agregarClaseInfor(nodoshijos);
+        // Agregar clase in-for a todos los elementos dentro del for
+        for (var i = 0; i <= nodoshijos.length; i++) {
+            nodoshijos[i].className += ' in-for';
+            console.log(i);
+        }
+      }
     }
     function soltarpieza(e){
-        e.preventDefault();
+      e.preventDefault();
       this.style.backgroundColor='#3498db';
+      droppablePieceFor();
     }
 
     function piezasobre(e){
@@ -56,8 +65,9 @@ $(document).on('ready',function (){
       // console.log(e.target.id);
       // console.log(e.target.parentNode);
       if (e.target.id == 'piece-for') {
+        this.style.backgroundColor='green';
         console.log(e.target.parentNode);
-        e.target.parentNode.removeEventListener('drop',recogerpieza,false);
+        this.parentNode.removeEventListener('drop',recogerpieza,false);
 
       }
 
@@ -70,12 +80,18 @@ $(document).on('ready',function (){
       }
     }
     function droppablePieceFor(){
-      pieceFor=document.querySelector('.piece-box .piece-for');
-      if(typeof pieceFor != 'undefined' && pieceFor != null)
-      {
-        pieceFor.addEventListener('drop', recogerpieza,false);
-        pieceFor.addEventListener('dragover', piezasobre,false);
+      piecesFor=document.querySelectorAll('.piece-box .piece-for');
+      console.log(piecesFor);
+      for(i in piecesFor){
+        var pieceFor=piecesFor[i];
+        if(typeof pieceFor.style != 'undefined' )
+        {
+          console.log(piecesFor);
+          pieceFor.addEventListener('drop', recogerpieza,false);
+          pieceFor.addEventListener('dragover', piezasobre,false);
+        }
       }
+
     }
 
 })
