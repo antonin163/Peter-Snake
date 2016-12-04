@@ -91,7 +91,6 @@ $(document).on('ready',function (){
           pieceFor.addEventListener('dragover', piezasobre,false);
         }
       }
-
     }
 
 })

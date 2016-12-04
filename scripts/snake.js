@@ -30,6 +30,7 @@ $(document).on('ready', function() {
 	var iHead4 = new Image();
 	var aEat = new Audio();
 	var aDie = new Audio();
+	var salto = new Audio();
 	var run;
 	var iBackground = new Image();
 	//var tiempo = 0;
@@ -66,6 +67,7 @@ $(document).on('ready', function() {
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
 		iBackground.src = 'assets/flat-texture.png';
+		salto.src= 'assets/salto.wav';
 
 
 		//iBrick.src = 'assets/brick.png';
@@ -84,10 +86,7 @@ $(document).on('ready', function() {
 	setTimeout(paint,3000,"down");
 	setTimeout(paint,4000,"down");
 
-
-
 	}
-
 
 	//Creamos la víbora
 	function createSnake()
@@ -160,22 +159,20 @@ $(document).on('ready', function() {
 
 
 			score++;
-
 			aEat.play();
-
 			finestraModal.classList.add("js-mostrar");
 
-			// BtnAbrir();
 			//createFood();
 		} else {
 
-			aDie.play();
+			salto.play();
 			var tail = snake.pop();
 
 			tail.x = nx;
 			tail.y = ny;
 
 		}
+
 		typeCell='food';
 		paintCell(food.x, food.y,typeCell);
 
@@ -204,16 +201,6 @@ $(document).on('ready', function() {
 		context.fillText(scoreText, 5, height - 5);
 
 	}
-
-/*
-function muertes(){
-	if(nx != food.x && ny != food.y)
-	{
-		aDie.play();
-	};
-}*/
-
-
 
 	//
 	// //Pintamos la celda
@@ -285,11 +272,7 @@ function muertes(){
 
 	function right(){
 		d="right";
-
-
 		paint();
-
-
 	}
 	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
 	//$(document).on('keydown', function(e) {
@@ -304,9 +287,6 @@ function muertes(){
 	//		d = "down";
 	//	}
 	//});
-
-	var btnCompile=$('#compile');
-	btnCompile.click(recyclerPiece);
 
 	var btnReiniciar=$('#reiniciar');
 	btnReiniciar.click(reiniciarDenuevo);
@@ -325,6 +305,9 @@ function muertes(){
 	function repetirDenuevo(){
 		finestraModal.classList.remove("js-mostrar");
 	}
+
+	var btnCompile=$('#compile');
+	btnCompile.click(recyclerPiece);
 
 	function recyclerPiece(){
 		document.getElementById('compile').style.display = 'none';
