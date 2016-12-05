@@ -6,8 +6,6 @@ $(document).on('ready', function() {
 			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 
-
-	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
 
@@ -38,7 +36,6 @@ $(document).on('ready', function() {
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
-	// function BtnAbrir()
 
 	function init()
 	{
@@ -72,7 +69,7 @@ $(document).on('ready', function() {
 	init();
 
 	iBackground.onload = function(){
-	context.drawImage(iBackground,0, 0, width, height );	
+	context.drawImage(iBackground,0, 0, width, height );
 	setTimeout(paint,1000,"left");
 	setTimeout(paint,2000,"left");
 	setTimeout(paint,3000,"down");
@@ -101,20 +98,14 @@ $(document).on('ready', function() {
 
 		};
 	}
-	function createFood()
-	{
-		food = {
-			x: Math.round(0.6 * (width - cellWidth) / cellWidth),
-			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
-		};
-	}
 	//Dibujamos la víbora
 	function paint(direccion)
 	{
 		var dir=direccion;
-		console.log(dir);
 		d=dir;
+		console.log(dir);
+
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -152,8 +143,6 @@ $(document).on('ready', function() {
 
 			score++;
 			aEat.play();
-
-
 			finestraModal.classList.add("js-mostrar");
 
 			//createFood();
@@ -182,7 +171,7 @@ $(document).on('ready', function() {
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
 			paintCell(c.x, c.y, typeCell);
 		}
-		
+
 /*		typeCell='head';
 		paintCell(c.x, c.y, typeCell);*/
 		//context.drawImage(iFood,  food.x, food.y);
@@ -284,6 +273,7 @@ $(document).on('ready', function() {
 		//aDie.play();
 		document.getElementById('compile').style.display = 'block';
 		init();
+		//document.getElementById('piece-box').innerHTML= "";
 		return;
 
 	}
@@ -315,21 +305,28 @@ $(document).on('ready', function() {
 		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1]
+				var piecesInfor;
 				if(typeof pieceSiguiente != 'undefined')
 	      {
+
 					instructionSig=pieceSiguiente.dataset.instruction;
 				}
+
 					instruction=piece.dataset.instruction;
 
 					if(instruction=='for')
 					{
-						setTimeout(paint,i*1000,instructionSig);
+						//setTimeout(paint,i*1000,instructionSig);
+						piecesInfor=recogerPiezasInfor(pieces,piece);
+						console.log(piecesInfor);
+						ejecutarPiezasInfor(piecesInfor,i);
 						// setTimeout(function(){},i*2000);
 						// execInstruction(instructionSig);
-					}else {
+					}else if(piece.className.search('in-for') == -1){
+						console.log(piece.className);
 						setTimeout(paint,i*1000,instruction);
 					}
-
+					console.log(piece.className);
 						array[i]=instruction;
 						console.log(array);
 				i++;
@@ -349,16 +346,28 @@ $(document).on('ready', function() {
 
 	}
 
-	
-	function execInstruction(instruction){
-		if (instruction == "left" && d != "right") {
-			left();
-		} else if (instruction == "up" && d != "down") {
-			up();
-		} else if (instruction == "right" && d != "left") {
-			right();
-		} else if (instruction == "down" && d != "up") {
-			down();
+	function recogerPiezasInfor(pieces,pieceFor){
+		var piecesInFor=pieceFor.getElementsByClassName('piece');
+		for (var i = 0; i < piecesInFor.length; i++) {
+		    piecesInFor[i].className += ' in-for';
+		}
+		console.log(pieceFor);
+		console.log(piecesInFor);
+		return piecesInFor;
+	}
+	function ejecutarPiezasInfor(piecesInFor,retraso){
+		console.log(piecesInFor);
+		var piece;
+		var instruction;
+		var j=1;
+		while (j<=2) {
+			for (var i = 0; i < piecesInFor.length; i++) {
+				piece=piecesInFor[i];
+				instruction=piece.dataset.instruction;
+				setTimeout(paint,(retraso)*1000,instruction);
+				retraso++;
+			}
+			j++;
 		}
 
 	}
@@ -369,7 +378,7 @@ $(document).on('ready', function() {
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
-	/*agregar imagen y sonido*/
+
 
 
 

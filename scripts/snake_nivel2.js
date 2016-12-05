@@ -71,9 +71,9 @@ $(document).on('ready', function() {
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
 	setTimeout(paint,1000,"left");
-	setTimeout(paint,2000,"left");
-	setTimeout(paint,3000,"down");
-	setTimeout(paint,4000,"down");
+	// setTimeout(paint,2000,"left");
+	// setTimeout(paint,3000,"down");
+	// setTimeout(paint,4000,"down");
 
 	}
 
@@ -305,25 +305,28 @@ $(document).on('ready', function() {
 		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1]
+				var piecesInfor;
 				if(typeof pieceSiguiente != 'undefined')
 	      {
-					console.log(piece.className);
+
 					instructionSig=pieceSiguiente.dataset.instruction;
 				}
+
 					instruction=piece.dataset.instruction;
 
 					if(instruction=='for')
 					{
-						setTimeout(paint,i*1000,instructionSig);
-						piecesInfor=recogerPiezasInfor(pieces,forId);
+						//setTimeout(paint,i*1000,instructionSig);
+						piecesInfor=recogerPiezasInfor(pieces,piece);
 						console.log(piecesInfor);
-						ejecutarPiezasInfor(piecesInfor);
+						ejecutarPiezasInfor(piecesInfor,i);
 						// setTimeout(function(){},i*2000);
 						// execInstruction(instructionSig);
-					}else if(piece.className =!'in-for'){
+					}else if(piece.className.search('in-for') == -1){
+						console.log(piece.className);
 						setTimeout(paint,i*1000,instruction);
 					}
-
+					console.log(piece.className);
 						array[i]=instruction;
 						console.log(array);
 				i++;
@@ -343,13 +346,31 @@ $(document).on('ready', function() {
 
 	}
 
-	function recogerPiezasInfor(pieces){
-		console.log(pieces);
-		piecesInfor=getElementsByClassName('in-for');
-
+	function recogerPiezasInfor(pieces,pieceFor){
+		var piecesInFor=pieceFor.getElementsByClassName('piece');
+		for (var i = 0; i < piecesInFor.length; i++) {
+		    piecesInFor[i].className += ' in-for';
+		}
+		console.log(pieceFor);
+		console.log(piecesInFor);
+		return piecesInFor;
+	}
+	function ejecutarPiezasInfor(piecesInFor,retraso){
+		console.log(piecesInFor);
+		var piece;
+		var instruction;
+		var j=1;
+		while (j<=2) {
+			for (var i = 0; i < piecesInFor.length; i++) {
+				piece=piecesInFor[i];
+				instruction=piece.dataset.instruction;
+				setTimeout(paint,(retraso)*1000,instruction);
+				retraso++;
+			}
+			j++;
+		}
 
 	}
-
 
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
