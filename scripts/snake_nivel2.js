@@ -7,8 +7,8 @@ $(document).on('ready', function() {
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 
 	var finestraModal2 = document.getElementById("finestra-modal2"),
-			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
-			finestraModalTancar = document.getElementById("finestra-modal-tancar");
+			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
+			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
 
 
 	//Obtenemos el ancho y alto de nuestro canvas.
@@ -284,6 +284,21 @@ $(document).on('ready', function() {
 		init();
 	}
 	
+	var btnaspa=$('#finestra-modal-tancar');
+	btnaspa.click(Aspa);
+
+	function Aspa(){
+		finestraModal.classList.remove("js-mostrar");			
+		init();			
+	}
+
+	var btnaspa2=$('#finestra-modal-tancar2');
+	btnaspa2.click(Aspa2);
+
+	function Aspa2(){
+		finestraModal2.classList.remove("js-mostrar2");			
+		init();			
+	}
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);

@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.boto {
+.boto2 {
   display: table;
   margin: 0;
   padding: .5em 1em;
@@ -18,13 +18,13 @@
 }
 
 
-.boto:hover {
+.boto2:hover {
   text-decoration: none;
 }
-.boto:active, .boto:focus {
+.boto2:active, .boto2:focus {
   outline: none;
 }
-.boto:visited {
+.boto2:visited {
   color: white;
 }
 
@@ -81,31 +81,31 @@
 .js-mostrar2 {
   top: 0;
 }
-.tamaño_snake img {
+.tamaño_snake2 img {
     height: 150px;
     justify-content: center;
 }
-.modal_button {
+.modal_button2 {
     display: flex;
     justify-content: space-around;
     margin-bottom: 15px;
 }
-.modal_button1 {
+.modal_button12 {
     background: green;
     color: white;
 }
 
-.modal_button1:hover{
+.modal_button12:hover{
   color: white;
   background-color:#27ae60;
   cursor: pointer;
   
 }
-.info_gamer{
+.info_gamer2{
   font-size: 23px;
   color: mediumblue;
 }
-.instruction{
+.instruction2{
     width: 50%;
     margin: auto;
     background: #FDFFAE;

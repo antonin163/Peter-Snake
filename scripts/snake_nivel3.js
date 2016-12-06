@@ -7,16 +7,16 @@ $(document).on('ready', function() {
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 
 	var finestraModal2 = document.getElementById("finestra-modal2"),
-			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
-			finestraModalTancar = document.getElementById("finestra-modal-tancar");			
+			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
+			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");			
 
 
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
 
-	var arrayWall=[{x:2,y:5},{x:3,y:5},{x:4,y:4},{x:4,y:5},{x:4,y:6},
-	{x:3,y:6},{x:2,y:7},{x:3,y:8},{x:4,y:8},{x:5,y:8},{x:6,y:8},{x:7,y:7},{x:6,y:7},
+	var arrayWall=[{x:2,y:5},{x:3,y:5},{x:4,y:4},{x:5,y:4},{x:6,y:4},
+	{x:6,y:3},{x:7,y:2},{x:8,y:3},{x:8,y:4},{x:8,y:5},{x:8,y:6},{x:7,y:7},{x:6,y:7},
 	{x:5,y:7},{x:4,y:7},{x:3,y:7},{x:2,y:7}];
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
@@ -325,6 +325,22 @@ $(document).on('ready', function() {
 
 	}
 
+		var btnaspa=$('#finestra-modal-tancar');
+	btnaspa.click(Aspa);
+
+	function Aspa(){
+		finestraModal.classList.remove("js-mostrar");			
+		init();			
+	}
+
+	var btnaspa2=$('#finestra-modal-tancar2');
+	btnaspa2.click(Aspa2);
+
+	function Aspa2(){
+		finestraModal2.classList.remove("js-mostrar2");			
+		init();			
+	}
+	
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 

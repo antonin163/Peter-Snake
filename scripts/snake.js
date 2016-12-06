@@ -7,8 +7,8 @@ $(document).on('ready', function() {
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 
 	var finestraModal2 = document.getElementById("finestra-modal2"),
-			finestraModalObrir = document.getElementById("finestra-modal-obrir2"),
-			finestraModalTancar = document.getElementById("finestra-modal-tancar2");
+			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
+			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
 
 
 
@@ -39,8 +39,7 @@ $(document).on('ready', function() {
 	var aDie = new Audio();
 
 	var salto = new Audio();	
-	var iBackground = new Image();
-	var iBackground2 = new Image();
+	var iBackground = new Image();	
 
 	//var tiempo = 0;
 	//var stop;
@@ -73,9 +72,7 @@ $(document).on('ready', function() {
 		iHead3.src = 'assets/izq_snake.png';
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
-		aDie.src = 'assets/dies.oga';
-
-		iBackground2.src = 'assets/nebluna.jpg';
+		aDie.src = 'assets/dies.oga';		
 		iBackground.src = 'assets/flat-texture.png';
 		salto.src= 'assets/salto.wav';
 		
@@ -303,7 +300,6 @@ $(document).on('ready', function() {
 	btnRepetir.click(repetirDenuevo);
 
 	function repetirDenuevo(){
-
 		finestraModal.classList.remove("js-mostrar");			
 		init();		
 		
@@ -316,6 +312,22 @@ $(document).on('ready', function() {
 		finestraModal2.classList.remove("js-mostrar2");			
 		init();			
 
+	}
+
+	var btnaspa=$('#finestra-modal-tancar');
+	btnaspa.click(Aspa);
+
+	function Aspa(){
+		finestraModal.classList.remove("js-mostrar");			
+		init();			
+	}
+
+	var btnaspa2=$('#finestra-modal-tancar2');
+	btnaspa2.click(Aspa2);
+
+	function Aspa2(){
+		finestraModal2.classList.remove("js-mostrar2");			
+		init();			
 	}
 
 	var btnCompile=$('#compile');
