@@ -4,7 +4,10 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="./styles/main_nivel3.css" media="screen" title="no title" charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="./styles/diseño_interfaz_nivel3.css">
-		<link rel="stylesheet" href="./styles/modal_nivel3.css">
+
+		<link rel="stylesheet" href="./styles/modal_nivel3.css">				
+		<link rel="stylesheet" href="./styles/modal_pierde.css">
+
 		<script src="./scripts/jquery-1.4.2.min.js"></script>
 
 	</head>
@@ -75,7 +78,9 @@
 											</div>
 								<!--			+++++++++++++++++-->
 											<div class="central">
-										       	 	<div class="game">
+
+										       	 	<div class="game"><!--
+
 																<div id="cronometro">
 														<div id="reloj">
 															0 00 00 00
@@ -84,7 +89,9 @@
 															<input type="button" value="Empezar" name="boton1"   />
 															<input type="button" value="Parar" name="boton2"  /><br/>
 														</form>
-													</div><br/>
+
+													</div><br/>-->
+
 										       	 		<section class="view_game">
 											       	 		<div class="game1">
 																<canvas id="snake" width="450" height="450" style="border:8px solid black"></canvas>
@@ -117,23 +124,30 @@
 														<span class="b"></span>
 														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
 													</div>
-													<div id="piece-for"class="piece piece-for" draggable="true" data-instruction="for" >
+
+													<div id="piece-for" class="piece piece-for" draggable="true" data-instruction="for" >
+
 													<font color="#181518" face="Comic Sans MS,arial" size= 3>
 													<p> Repetir 2 veces 	</p><br>
 													</font>
 													</div>
-													<div id="piece-for"class="piece piece-for" draggable="true" data-instruction="for" >
+
+													<div id="piece-for" class="piece piece-for" draggable="true" data-instruction="for" >
 													<font color="#181518" face="Comic Sans MS,arial" size= 3>
-														<p> Si la manzana es verde</p><br>
+														<p> Si la manzana es verde, esquivar y comer la roja</p><br>
 													</font>
 													</div>
-													<div class="piece piece-around" data-instruction="left"  draggable="true">
+													<div class="piece piece-right" data-instruction="right"  draggable="true">
 														<span class="t"></span>
 														<span class="b"></span>
+
+														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
+
 														<!-- <img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" /> -->
 														<font color="#181518" face="Comic Sans MS,arial" size= 3>
 														<p> Rodear la manzana</p><br>
 													  </font>
+
 													</div>
 											</div>
 												<div class="game-buttons">
@@ -192,6 +206,38 @@
 											    <div id="finestra-modal-tancar" class="finestra-modal-tancar boto">×</div>
 											  </div>
 											</div>
+
+											
+											<div id="finestra-modal2" class="finestra-modal">
+											  <div class="finestra-modal__contingut">
+													<font color="Green" face="Comic Sans MS,arial" size= 5>
+											    <h2>!PERDISTES EL JUEGO!</h2>
+												</font>
+												<font color="Olive" face="Comic Sans MS,arial" size= 3>
+														<h3>¡SIGUE INTENTANDOLO!</h3>
+													</font>
+													<font color="Olive" face="Comic Sans MS,arial" size= 2>
+														<p class="info_gamer" id="modal-instructions">														
+															Prueba usar más comandos para caminar hasta la comida.
+
+														</p>
+													</font>
+														<div class="ins">
+															<p class="instruction" id="modal-instructions">															 
+															</p>
+														<div>
+														<div class="tamaño_snake">
+															<img  src="./styles/img/snake.png">
+														</div>
+														<div class="modal_button">
+														<button class="modal_button1" id="repetir2">REPETIR</button>
+														<!--<a href="./snake_nivel2.html"><button class="modal_button1">CONTINUAR</button></a>-->
+														</div>
+
+											    <div id="finestra-modal-tancar" class="finestra-modal-tancar boto">×</div>
+											  </div>
+											</div>
+
 							      </article>
 							      <article class="tab_2" id="tab2">
 
@@ -205,6 +251,9 @@
 		<script src="./scripts/snake_nivel3.js" type="text/javascript"></script>
 		<script src="./scripts/drawndrop_nivel3.js" type="text/javascript"></script>
 		<script src="./scripts/modal_nivel3.js"></script>
+
+		<script src="./scripts/modal_pierde.js"></script>
+
 
 
 
