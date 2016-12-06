@@ -10,6 +10,7 @@ body a{
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
+
 /*-----start-header----*/
 .header{
 	background: #0da144;
@@ -431,10 +432,10 @@ nav a#pull {
 /*-----start-features-----*/
 .feature-grids{
 	width: 100%;
-	margin-right: 3%;
+
 }
 .features{
-	padding:3em 0;
+	padding:1em 0;
 	align-content: center;
 }
 .features-head h2{
@@ -449,8 +450,8 @@ nav a#pull {
 }
 .features-head p{
 	font-family: 'Droid Serif', serif;
-	color: #BBB;
-	font-size: 1em;
+	color: darkslategrey;
+	font-size: 1.50em;
 	font-style: italic;
 	margin-top: 10px;
 }
@@ -468,7 +469,7 @@ nav a#pull {
 }
 .feature-grid p{
 	color:#777777;
-	font-size:0.85em;
+	font-size:1.20em;
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
 }
@@ -494,7 +495,7 @@ nav a#pull {
 	color: #FFF;
 	font-weight: 700;
 	font-size: 1.8em;
-	margin:0;
+	margin-bottom: 3%;
 }
 .team-head span{
 	height:1px;
@@ -506,13 +507,13 @@ nav a#pull {
 	padding-top:3.5em;
 }
 .cajadevideo{
-    max-width:560px;
+    max-width:760px;
     margin:auto;
 }
 .video{
     height:0px;
     width:100%;
-    max-width:560px;
+    max-width:760px;
     padding-top:56.25%;
     position:relative;
 }
@@ -803,9 +804,7 @@ span.default_line {
 .footer{
 	background:#202020;
 }
-.footer-top{
-	padding:3% 0;
-}
+
 ul.twitter_footer {
 	list-style: none;
 	padding: 0;
