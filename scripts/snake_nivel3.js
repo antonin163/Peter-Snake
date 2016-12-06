@@ -32,7 +32,7 @@ $(document).on('ready', function() {
 	//var iBrick = new Image();
 	//var relleno=context.createPattern(iFood, "no-repeat")
 	//Creamos nuestra víbora
-	var snake;
+	var snake = [];
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
@@ -71,9 +71,9 @@ $(document).on('ready', function() {
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
 	setTimeout(paint,1000,"left");
-	setTimeout(paint,2000,"left");
-	setTimeout(paint,3000,"down");
-	setTimeout(paint,4000,"down");
+	// setTimeout(paint,2000,"left");
+	// setTimeout(paint,3000,"down");
+	// setTimeout(paint,4000,"down");
 
 	}
 
@@ -81,7 +81,7 @@ $(document).on('ready', function() {
 	function createSnake()
 	{
 		var length = 6;
-		snake = [];
+
 
 		for(var i = length - 1; i >= 0; i--)
 		{
@@ -171,7 +171,8 @@ $(document).on('ready', function() {
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
 			paintCell(c.x, c.y, typeCell);
 		}
-
+		console.log(nx);
+		console.log(ny);
 /*		typeCell='head';
 		paintCell(c.x, c.y, typeCell);*/
 		//context.drawImage(iFood,  food.x, food.y);
@@ -299,33 +300,46 @@ $(document).on('ready', function() {
 		var i=0;
 		var iFor=0;
 		var array=[];
+
 		console.log(length);
 		//for(var i = 0; i <= length-1; i++)
 		while (i<=length-1)
 		{
 				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
+				var pieceSiguiente=pieces[i+1];
 				var piecesInfor;
+				var piecesInIf;
 				if(typeof pieceSiguiente != 'undefined')
 	      {
-
 					instructionSig=pieceSiguiente.dataset.instruction;
 				}
-
 					instruction=piece.dataset.instruction;
+					console.log(food.x);
+
 
 					if(instruction=='for')
 					{
+
 						//setTimeout(paint,i*1000,instructionSig);
 						piecesInfor=recogerPiezasInfor(pieces,piece);
 						console.log(piecesInfor);
 						ejecutarPiezasInfor(piecesInfor,i);
 						// setTimeout(function(){},i*2000);
 						// execInstruction(instructionSig);
-					}else if(piece.className.search('in-for') == -1){
-						console.log(piece.className);
-						setTimeout(paint,i*1000,instruction);
-					}
+					}else if(instruction == 'if'){
+						piecesInIf=recogerPiezasInIf(pieces,piece);
+						console.log(piecesInIf);
+						setTimeout(manzanaEnfrente,i*1000,piecesInIf,i);
+
+					}else if(piece.className.search('for') == -1 &&
+										piece.className.search('if') == -1
+									)
+								{
+									console.log(piece.className.search('right'));
+									ejecutarPieza(instruction,i);
+								}
+
+
 					console.log(piece.className);
 						array[i]=instruction;
 						console.log(array);
@@ -346,6 +360,19 @@ $(document).on('ready', function() {
 
 	}
 
+	function ejecutarPieza(instr,retraso){
+		setTimeout(paint,retraso*1000,instr);
+	}
+	function manzanaEnfrente(piecesInIf,retraso){
+		console.log(snake[0]);
+		console.log(snake);
+		if((snake[0].x)+1 == food.x){
+			ejecutarPiezasInif(piecesInIf,retraso);
+		}else {
+			return false;
+		}
+
+	}
 	function recogerPiezasInfor(pieces,pieceFor){
 		var piecesInFor=pieceFor.getElementsByClassName('piece');
 		for (var i = 0; i < piecesInFor.length; i++) {
@@ -355,6 +382,7 @@ $(document).on('ready', function() {
 		console.log(piecesInFor);
 		return piecesInFor;
 	}
+
 	function ejecutarPiezasInfor(piecesInFor,retraso){
 		console.log(piecesInFor);
 		var piece;
@@ -372,6 +400,41 @@ $(document).on('ready', function() {
 
 	}
 
+	function recogerPiezasInIf(pieces,pieceIf){
+		var piecesInIf=pieceIf.getElementsByClassName('piece');
+		for (var i = 0; i < piecesInIf.length; i++) {
+				piecesInIf[i].className += ' in-if';
+		}
+		console.log(pieceIf);
+		console.log(piecesInIf);
+		return piecesInIf;
+	}
+
+	function ejecutarPiezasInif(piecesInIf,retraso){
+		console.log(piecesInIf);
+		var piece;
+		var instruction;
+		for (var i = 0; i < piecesInIf.length; i++) {
+			piece=piecesInIf[i];
+			instruction=piece.dataset.instruction;
+			console.log(instruction);
+			if (instruction=='around') {
+					rodearManzana(retraso);
+			}else {
+				console.log(instruction);
+				setTimeout(paint,(retraso)*1000,instruction);
+				retraso++;
+			}
+
+		}
+
+	}
+	function rodearManzana(i){
+		setTimeout(paint,i*1000,'down');
+		setTimeout(paint,(i+1)*1000,'right');
+		setTimeout(paint,(i+2)*1000,'right');
+		setTimeout(paint,(i+3)*1000,'up');
+	}
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
 

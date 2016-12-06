@@ -20,6 +20,7 @@ $(document).on('ready',function (){
     }
 
     function alzarpieza(e){
+      box.addEventListener('drop', recogerpieza,false);
       console.log(e);
       this.style.backgroundColor='#e74c3c';
       //Creamos un padre
@@ -55,7 +56,7 @@ $(document).on('ready',function (){
     function piezaingresa(e){
       // console.log(e.target.id);
       // console.log(e.target.parentNode);
-      if (e.target.id == 'piece-for') {
+      if (e.target.id == 'piece-for' || e.target.id == 'piece-if') {
         console.log(e.target.parentNode);
         e.target.parentNode.removeEventListener('drop',recogerpieza,false);
 
@@ -64,17 +65,22 @@ $(document).on('ready',function (){
     }
     function piezasale(e){
       console.log(e.target.parentNode);
-      if (e.target.id == 'piece-for') {
+      if (e.target.id == 'piece-for' || e.target.id == 'piece-if') {
         e.target.parentNode.addEventListener('drop',recogerpieza,false);
 
       }
     }
     function droppablePieceFor(){
-      pieceFor=document.querySelector('.piece-box .piece-for');
-      if(typeof pieceFor != 'undefined' && pieceFor != null)
-      {
-        pieceFor.addEventListener('drop', recogerpieza,false);
-        pieceFor.addEventListener('dragover', piezasobre,false);
+      piecesFor=document.querySelectorAll('.piece-box .piece-for');
+      console.log(piecesFor);
+      for(i in piecesFor){
+        var pieceFor=piecesFor[i];
+        if(typeof pieceFor.style != 'undefined' )
+        {
+          console.log(piecesFor);
+          pieceFor.addEventListener('drop', recogerpieza,false);
+          pieceFor.addEventListener('dragover', piezasobre,false);
+        }
       }
     }
 

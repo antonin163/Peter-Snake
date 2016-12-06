@@ -71,9 +71,9 @@ $(document).on('ready', function() {
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
 	setTimeout(paint,1000,"left");
-	// setTimeout(paint,2000,"left");
-	// setTimeout(paint,3000,"down");
-	// setTimeout(paint,4000,"down");
+	setTimeout(paint,2000,"left");
+	setTimeout(paint,3000,"down");
+	setTimeout(paint,4000,"down");
 
 	}
 
