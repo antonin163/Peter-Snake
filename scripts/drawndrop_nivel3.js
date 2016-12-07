@@ -47,6 +47,7 @@ $(document).on('ready',function (){
     function soltarpieza(e){
         e.preventDefault();
       this.style.backgroundColor='#3498db';
+      //this.style.height='#3498db';
     }
 
     function piezasobre(e){
@@ -65,10 +66,9 @@ $(document).on('ready',function (){
     }
     function piezasale(e){
       console.log(e.target.parentNode);
-      if (e.target.id == 'piece-for' || e.target.id == 'piece-if') {
-        e.target.parentNode.addEventListener('drop',recogerpieza,false);
-
-      }
+      // if (e.target.id == 'piece-for' || e.target.id == 'piece-if') {
+      //   e.target.parentNode.addEventListener('drop',recogerpieza,false);
+      // }
     }
     function droppablePieceFor(){
       piecesFor=document.querySelectorAll('.piece-box .piece-for');
@@ -77,7 +77,7 @@ $(document).on('ready',function (){
         var pieceFor=piecesFor[i];
         if(typeof pieceFor.style != 'undefined' )
         {
-          console.log(piecesFor);
+          console.log(pieceFor);
           pieceFor.addEventListener('drop', recogerpieza,false);
           pieceFor.addEventListener('dragover', piezasobre,false);
         }
