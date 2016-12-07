@@ -6,13 +6,20 @@ $(document).on('ready', function() {
 			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 
+	var finestraModal2 = document.getElementById("finestra-modal2"),
+			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
+			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
+
+
+	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
-
+	var arrayWall=[{x:1,y:5},{x:2,y:6},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:3,y:4},{x:4,y:5},{x:5,y:5},{x:6,y:5}];
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
 	var food;
+
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
 	var background = '#27ae60';
@@ -96,7 +103,9 @@ $(document).on('ready', function() {
 			x: Math.round(0.6 * (width - cellWidth) / cellWidth),
 			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
+
 		};
+
 	}
 
 	//Dibujamos la víbora
@@ -107,10 +116,6 @@ $(document).on('ready', function() {
 		console.log(dir);
 
 		context.drawImage( iBackground, 0, 0, width, height );
-		//context.fillStyle = background;
-		//context.fillRect(0, 0, width, height);
-		//context.strokeStyle = border;
-		//context.strokeRect(0, 0, width, height);
 
 		var nx = snake[0].x;
 		var ny = snake[0].y;
@@ -129,9 +134,13 @@ $(document).on('ready', function() {
 		}
 
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
-			ny == height / cellWidth || checkCollision(nx, ny, snake)) {
-			init();
+
+			ny == height / cellWidth || checkCollision(nx, ny, snake) || checkCollision(nx,ny,arrayWall )) {
+
 			aDie.play();
+			emptyContainer();
+			finestraModal2.classList.add("js-mostrar2");
+
 			return;
 		}
 
@@ -143,7 +152,10 @@ $(document).on('ready', function() {
 
 			score++;
 			aEat.play();
+
+			emptyContainer();
 			finestraModal.classList.add("js-mostrar");
+
 
 			//createFood();
 		} else {
@@ -172,29 +184,13 @@ $(document).on('ready', function() {
 			paintCell(c.x, c.y, typeCell);
 		}
 
-/*		typeCell='head';
-		paintCell(c.x, c.y, typeCell);*/
-		//context.drawImage(iFood,  food.x, food.y);
-		//agregando fondo
-
 		var scoreText = "Score: " + score;
 
 		context.fillText(scoreText, 5, height - 5);
 
 	}
 
-	//
-	// //Pintamos la celda
-	// function paintCell(x, y)
-	// {
-	//
-	// 	context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	// 	//context.fillStyle = snakeColor;
-	// 	//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	// 	//context.strokeStyle = background;
-	// 	//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	//
-	// }
+
 
 	function paintCell(x, y, type)
 	{
@@ -202,7 +198,9 @@ $(document).on('ready', function() {
 		if (t=="food") {
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 
+
 		}
+
 		else if (t=="head"){
 			if(d=="down"){
 			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
@@ -229,8 +227,8 @@ $(document).on('ready', function() {
 		{
 			if(array[i].x == x && array[i].y == y) {
 				return true;
-				 aDie.play();
-				// finestraModal.classList.add("js-mostrar");
+				 //aDie.play();
+
 			}
 		}
 
@@ -253,27 +251,17 @@ $(document).on('ready', function() {
 		d="right";
 		paint();
 	}
-	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
-	/*$(document).on('keydown', function(e) {
-		var key = e.which;
-		if (key == "37" && d != "right") {
-			d = "left";
-		} else if (key == "38" && d != "down") {
-			d = "up";
-		} else if (key == "39" && d != "left") {
-			d = "right";
-		} else if (key == "40" && d != "up") {
-			d = "down";
-		}
-	});*/
-		var btnReiniciar=$('#reiniciar');
+
+	var btnReiniciar=$('#reiniciar');
+
 	btnReiniciar.click(reiniciarDenuevo);
 
 	function reiniciarDenuevo(){
 		//aDie.play();
-		document.getElementById('compile').style.display = 'block';
+
+		//document.getElementById('compile').style.display = 'block';
 		init();
-		//document.getElementById('piece-box').innerHTML= "";
+
 		return;
 
 	}
@@ -283,13 +271,42 @@ $(document).on('ready', function() {
 
 	function repetirDenuevo(){
 		finestraModal.classList.remove("js-mostrar");
+
+		init();
+		console.log(init);
+	}
+
+	var btnRepetir_pierde=$('#repetir2');
+	btnRepetir_pierde.click(repetirDenuevo2);
+
+	function repetirDenuevo2(){
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
+	}
+
+	var btnaspa=$('#finestra-modal-tancar');
+	btnaspa.click(Aspa);
+
+	function Aspa(){
+		finestraModal.classList.remove("js-mostrar");
+		init();
+	}
+
+	var btnaspa2=$('#finestra-modal-tancar2');
+	btnaspa2.click(Aspa2);
+
+	function Aspa2(){
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
 	}
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 
 	function recyclerPiece(){
-		document.getElementById('compile').style.display = 'none';
+
+		//document.getElementById('compile').style.display = 'none';
+
 		var pieceBox=document.getElementsByClassName('piece-box');
 		var pieces=document.getElementById('piece-box').getElementsByClassName('piece');
 		var piece;
@@ -310,6 +327,7 @@ $(document).on('ready', function() {
 	      {
 
 					instructionSig=pieceSiguiente.dataset.instruction;
+
 				}
 
 					instruction=piece.dataset.instruction;
@@ -354,6 +372,7 @@ $(document).on('ready', function() {
 		console.log(pieceFor);
 		console.log(piecesInFor);
 		return piecesInFor;
+
 	}
 	function ejecutarPiezasInfor(piecesInFor,retraso){
 		console.log(piecesInFor);
@@ -378,6 +397,10 @@ $(document).on('ready', function() {
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
+
+/*
+=======
+>>>>>>> 40205c2f96953bc8966947a477d25b04cc0726ab
 
 	window.onload = function() {
 
@@ -478,4 +501,7 @@ $(document).on('ready', function() {
 			 document.cron.boton2.value="Parar"; //estado inicial segundo botón
 			 document.cron.boton2.disabled=true;  //segundo botón desactivado
 			 }
+<<<<<<< HEAD
+*/
+
 });

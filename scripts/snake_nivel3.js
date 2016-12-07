@@ -6,13 +6,22 @@ $(document).on('ready', function() {
 			finestraModalObrir = document.getElementById("finestra-modal-obrir"),
 			finestraModalTancar = document.getElementById("finestra-modal-tancar");
 
+	var finestraModal2 = document.getElementById("finestra-modal2"),
+			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
+			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
+
 	var width = $("#snake").width();
 	var height = $("#snake").height();
 
+	var arrayWall=[{x:2,y:5},{x:3,y:5},{x:4,y:4},{x:5,y:4},{x:6,y:4},
+	{x:6,y:3},{x:7,y:2},{x:8,y:3},{x:8,y:4},{x:8,y:5},{x:8,y:6},{x:7,y:7},{x:6,y:7},
+	{x:5,y:7},{x:4,y:7},{x:3,y:7},{x:2,y:7}];
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
 	var food;
+	var food1;
+
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
 	var background = '#27ae60';
@@ -21,6 +30,9 @@ $(document).on('ready', function() {
 	var array;
 	var iBody = new Image();
 	var iFood = new Image();
+
+	var iFood1 = new Image();
+
 	var iHead = new Image();
 	var iHead2 = new Image();
 	var iHead3 = new Image();
@@ -40,7 +52,9 @@ $(document).on('ready', function() {
 	function init()
 	{
 
-		d = "down";
+
+		d = "right";
+
 		createSnake();
 		createFood();
 //		score = 0;
@@ -52,13 +66,18 @@ $(document).on('ready', function() {
 		/*agregacion de imagenes*/
 		iBody.src = 'assets/body.png';
 		iFood.src = 'assets/apple_green.png';
+
+		iFood1.src = 'assets/fruit.png';
+
 		iHead.src = 'assets/abajo_snake.png';
 		iHead2.src = 'assets/arriba_snake.png';
 		iHead3.src = 'assets/izq_snake.png';
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture.png';
+
+		iBackground.src = 'assets/8flat-texture.png';
+
 		salto.src= 'assets/salto.wav';
 
 		//iBrick.src = 'assets/brick.png';
@@ -69,11 +88,15 @@ $(document).on('ready', function() {
 	init();
 
 	iBackground.onload = function(){
+
+
 	context.drawImage(iBackground,0, 0, width, height );
-	setTimeout(paint,1000,"left");
-	setTimeout(paint,2000,"left");
+	setTimeout(paint,1000,"down");
+	setTimeout(paint,2000,"down");
 	setTimeout(paint,3000,"down");
-	setTimeout(paint,4000,"down");
+	setTimeout(paint,4000,"right");
+
+
 
 	}
 
@@ -85,7 +108,9 @@ $(document).on('ready', function() {
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ x: 4, y: i-2 });
+
+			snake.push({ x: 1, y: i-2 });
+
 		}
 	}
 
@@ -97,7 +122,15 @@ $(document).on('ready', function() {
 			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
 		};
+
+
+		food1 = {
+			x: Math.round(0.9 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.4 * (height - cellWidth) / cellWidth),
+
+		};
 	}
+
 
 	//Dibujamos la víbora
 	function paint(direccion)
@@ -129,8 +162,12 @@ $(document).on('ready', function() {
 		}
 
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
-			ny == height / cellWidth || checkCollision(nx, ny, snake)) {
-			init();
+
+			ny == height / cellWidth || checkCollision(nx, ny, snake) || checkCollision(nx,ny,arrayWall )) {
+//			init();
+			emptyContainer();
+			finestraModal2.classList.add("js-mostrar2");
+
 			aDie.play();
 			return;
 		}
@@ -143,9 +180,13 @@ $(document).on('ready', function() {
 
 			score++;
 			aEat.play();
+
+
+			emptyContainer();
 			finestraModal.classList.add("js-mostrar");
 
-			//createFood();
+
+
 		} else {
 
 			salto.play();
@@ -157,6 +198,9 @@ $(document).on('ready', function() {
 
 		typeCell='food';
 		paintCell(food.x, food.y,typeCell);
+
+		typeCell='food1';
+		paintCell(food1.x, food1.y,typeCell);
 
 		snake.unshift(tail);
 		//Pintar cabeza
@@ -172,10 +216,6 @@ $(document).on('ready', function() {
 			paintCell(c.x, c.y, typeCell);
 		}
 
-/*		typeCell='head';
-		paintCell(c.x, c.y, typeCell);*/
-		//context.drawImage(iFood,  food.x, food.y);
-		//agregando fondo
 
 		var scoreText = "Score: " + score;
 
@@ -183,18 +223,6 @@ $(document).on('ready', function() {
 
 	}
 
-	//
-	// //Pintamos la celda
-	// function paintCell(x, y)
-	// {
-	//
-	// 	context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	// 	//context.fillStyle = snakeColor;
-	// 	//context.fillRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	// 	//context.strokeStyle = background;
-	// 	//context.strokeRect(x * cellWidth, y * cellWidth, cellWidth, cellWidth);
-	//
-	// }
 
 	function paintCell(x, y, type)
 	{
@@ -203,6 +231,13 @@ $(document).on('ready', function() {
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 
 		}
+
+		else if (t=='food1'){
+			context.drawImage(iFood1, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
+
+		}
+
+
 		else if (t=="head"){
 			if(d=="down"){
 			context.drawImage(iHead, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
@@ -228,9 +263,10 @@ $(document).on('ready', function() {
 		for(var i = 0; i < array.length; i++)
 		{
 			if(array[i].x == x && array[i].y == y) {
+
 				return true;
-				 aDie.play();
-				// finestraModal.classList.add("js-mostrar");
+
+
 			}
 		}
 
@@ -253,25 +289,17 @@ $(document).on('ready', function() {
 		d="right";
 		paint();
 	}
-	//Captamos las flechas de nuestro teclado para poder mover a nuestra víbora
-	/*$(document).on('keydown', function(e) {
-		var key = e.which;
-		if (key == "37" && d != "right") {
-			d = "left";
-		} else if (key == "38" && d != "down") {
-			d = "up";
-		} else if (key == "39" && d != "left") {
-			d = "right";
-		} else if (key == "40" && d != "up") {
-			d = "down";
-		}
-	});*/
-		var btnReiniciar=$('#reiniciar');
+
+
+	var btnReiniciar=$('#reiniciar');
+
 	btnReiniciar.click(reiniciarDenuevo);
 
 	function reiniciarDenuevo(){
 		//aDie.play();
-		document.getElementById('compile').style.display = 'block';
+
+		//document.getElementById('compile').style.display = 'block';
+
 		init();
 		//document.getElementById('piece-box').innerHTML= "";
 		return;
@@ -283,13 +311,43 @@ $(document).on('ready', function() {
 
 	function repetirDenuevo(){
 		finestraModal.classList.remove("js-mostrar");
+
+		init();
+
+	}
+
+	var btnRepetir_pierde=$('#repetir2');
+	btnRepetir_pierde.click(repetirDenuevo2);
+
+	function repetirDenuevo2(){
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
+
+	}
+
+		var btnaspa=$('#finestra-modal-tancar');
+	btnaspa.click(Aspa);
+
+	function Aspa(){
+		finestraModal.classList.remove("js-mostrar");
+		init();
+	}
+
+	var btnaspa2=$('#finestra-modal-tancar2');
+	btnaspa2.click(Aspa2);
+
+	function Aspa2(){
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
 	}
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 
 	function recyclerPiece(){
-		document.getElementById('compile').style.display = 'none';
+
+		//document.getElementById('compile').style.display = 'none';
+
 		var pieceBox=document.getElementsByClassName('piece-box');
 		var pieces=document.getElementById('piece-box').getElementsByClassName('piece');
 		var piece;
@@ -302,7 +360,9 @@ $(document).on('ready', function() {
 
 		console.log(length);
 		//for(var i = 0; i <= length-1; i++)
-		while (i<=length-1)
+
+				while (i<=length-1)
+
 		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1];
@@ -344,18 +404,9 @@ $(document).on('ready', function() {
 						console.log(array);
 				i++;
 		}
+
+
 		console.log(array);
-
-		// for(i in pieces){
-    //   var piece=pieces[i];
-    //   if(typeof piece.style != 'undefined')
-    //   {
-		// 		instruction=piece.dataset.instruction;
-		// 		setTimeout(function(){execInstruction(instruction)},2000);
-		// 		console.log(instruction);
-		// 	}
-
-    //}
 
 	}
 
@@ -430,10 +481,10 @@ $(document).on('ready', function() {
 
 	}
 	function rodearManzana(i){
-		setTimeout(paint,i*1000,'down');
+		setTimeout(paint,i*1000,'up');
 		setTimeout(paint,(i+1)*1000,'right');
 		setTimeout(paint,(i+2)*1000,'right');
-		setTimeout(paint,(i+3)*1000,'up');
+		setTimeout(paint,(i+3)*1000,'down');
 	}
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
@@ -442,7 +493,8 @@ $(document).on('ready', function() {
 		document.getElementById('piece-box').innerHTML= "";
 	}
 
-	/*agregar imagen y sonido*/
+/*
+>>>>>>> ba57d4fe1bfdc33a50bfa92a4b07656d2d66bacb
 	window.onload = function() {
 
 	visor=document.getElementById("reloj"); //localizar pantalla del reloj
@@ -543,4 +595,7 @@ $(document).on('ready', function() {
 			 document.cron.boton2.value="Parar"; //estado inicial segundo botón
 			 document.cron.boton2.disabled=true;  //segundo botón desactivado
 			 }
+
+			 */
+
 });

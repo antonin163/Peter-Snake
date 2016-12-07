@@ -70,9 +70,12 @@
 					<!----start-top-nav---->
 					 <nav class="top-nav">
 						<ul class="top-nav">
-							<li class="page-scroll "><a href="inicio.html" >Inicio</a></li>
-							<li class="page-scroll "><a href="inicio.html" >Uso</a></li>
-							<li class="contatct-active" class="page-scroll"><a href="inicio.html">Contactenos</a></li>
+							<li class="page-scroll button1 button2"><a href="inicio.html" > <h4> Inicio </h4></a></li>
+							<li class="page-scroll button1 button2"><a href="inicio.html" class="button1 button2"><h4>Uso</h4></a></li>
+							<li class="contatct-active button1 button2" class="page-scroll"><a href="#contact" class="scroll button1 button2"><h4>Contactenos</h4></a></li>
+
+
+
 						</ul>
 						<a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
 					</nav>
@@ -96,7 +99,7 @@
 				<form name="formulario_registro" class="formulario" action="" method="post">
 					<div>
 						<div class="input-group">
-							<input type="text" id="nick" name="nick">
+							<input type="text" id="nick" name="nick" class="error">
 							<label class="label" for="nick">Nick:</label>
 						</div>
 						<div class="input-group">
@@ -104,26 +107,26 @@
 							<label class="label" for="correo">Correo Electronico:</label>
 						</div>
 						<div class="input-group">
-							<input type="password" id="contra" name="contra">
+							<input type="password" id="contra" name="contra" class="error">
 							<label class="label" for="contra">Contraseña:</label>
 						</div>
 						<div class="input-group">
-							<input type="password" id="contra2" name="contra2">
+							<input type="password" id="contra2" name="contra2" class="error">
 							<label class="label" for="contra2">Repetir Contraseña:</label>
 						</div>
 						<div class="input-group radio">
-							<input type="radio" name="sexo" id="masculino" value="Masculino">
+							<input type="radio" name="sexo" id="masculino" value="Masculino" class="error">
 							<label for="masculino">Masculino</label>
 
-							<input type="radio" name="sexo" id="femenino" value="Femenino">
+							<input type="radio" name="sexo" id="femenino" value="Femenino" class="error">
 							<label for="femenino">Femenino</label>
 						</div>
 						<div class="input-group">
-							<input type="number" id="edad" name="edad">
+							<input type="number" id="edad" name="edad" class="error">
 							<label for="edad">Edad:</label>
 						</div>
 						<div class="input-group" checkbox>
-							<input type="checkbox" id="terminos" name="terminos" value="true">
+							<input type="checkbox" id="terminos" name="terminos" value="true" class="error">
 							<label for="terminos">Acepto los terminos y coondiciones</label>
 						</div>
 
@@ -134,7 +137,7 @@
        		</div>
        		
        		<div class="otros__registros">
-       			 <img  align="center" src="images/img_registro.jpg">
+       			 <img  align="center" src="images/img_registro.jpg" style="width: 200%;">
 
        		</div>
        	</div>     

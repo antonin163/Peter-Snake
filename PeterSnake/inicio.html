@@ -58,22 +58,23 @@
 		</script>
 <!----//End-top-nav-script---->
 </head>
+<!--jackson -->
 <body>
 		<!-----start-container---->
 			<!----- start-header---->
 			<div id="home" class="header">
 				<div class="container">
 					<div class="logo">
-						<a href="#"><img src="images/img_logo.png" title="logo" /></a>
+						<a href="inicio.html"><img src="images/img_logo.png" title="logo" /></a>
 					</div>
 					<!----start-top-nav---->
 					 <nav class="top-nav">
 						<ul class="top-nav">
-							<li class="active"><a href="javascript:openVentana();" >Jugar</a></li>
-							<li class="page-scroll "><a href="#features" class="scroll">Somos</a></li>
-							<li class="page-scroll "><a href="#team" class="scroll">Uso</a></li>
-							<li class="page-scroll"><a href="registro.html">Registrarse</a></li>
-							<li class="contatct-active" class="page-scroll"><a href="#contact" class="scroll">Contactenos</a></li>
+							<li class="active button1 button2"><a href="javascript:openVentana();" class="button1 button2" > <h4>Jugar </h4>  </a></li>
+							<li class="page-scroll button1 button2"><a href="#features" class="scroll button1 button2"> <h4>  Somos </h4></a></li>
+							<li class="page-scroll button1 button2"><a href="#team" class="scroll button1 button2"><h4>Uso</h4></a></li>
+							<li class="page-scroll button1 button2"><a href="registro.html" class="button1 button2"><h4>Registrarse</h4></a></li>
+							<li class="contatct-active button1 button2" class="page-scroll"><a href="#contact" class="scroll button1 button2"><h4>Contactenos</h4></a></li>
 						</ul>
 						<a href="#" id="pull"><img src="images/nav-icon.png" title="menu" /></a>
 					</nav>
@@ -105,11 +106,14 @@
 			  </script>
 			<!----//End-slider-script---->
 			<!-- Slideshow 4 -->
+
 			    <div  id="top" class="callbacks_container">
 			      <ul class="rslides" id="slider4">
 			        <li>
 			          <img src="images/slide_1.jpg" alt="">
 			          <div class="caption">
+			          <a href="javascript:openVentana();"><img src="images/BOTON1.png" alt="Mountain View" style="width:400px;height:300px;" ></a>
+			          	
 			          	<!--<div class="slide-text-info">
 			          		<h1>JUGAR</h1>
 			          	</div>-->
@@ -119,6 +123,7 @@
 			          <img src="images/slide_2.jpg" alt="">
 			          <div class="caption">
 			          	<div class="slide-text-info">
+			          	
 			          	</div>
 			          </div>
 			        </li>
@@ -126,14 +131,15 @@
 			          <img src="images/slide_3.jpg" alt="">
 			           <div class="caption">
 			           	<div class="slide-text-info">
-<!--
-			          		<h1>JUGAR</h1>
--->
+			           
 			          	</div>
 			          </div>
 			        </li>
 			      </ul>
 			    </div>
+
+
+
 			    <div class="clearfix"> </div>
 			<!----- //End-slider---->
 			<!-----start-fearures---->
@@ -169,16 +175,51 @@
 			<div class="team" id="team">
 				<div class="container">
 					<div class="team-head text-center">
-						<h3>Como Usar</h3>
-					</div>
-					<div class="team-video">
-						<div class="cajadevideo">
+						<h3>Como Usar</h3>	
+
+
+
+
+
+<div class="col-md-3">
+        <div class="region region-menu-footer-1">
+    <div class="cajadevideo">
         					<div class="video">
         					<iframe src="https://www.youtube.com/embed/ItNKIRzQCm8" frameborder="0" allowfullscreen></iframe>
 								
 							</div>
 						</div>
-					</div>			
+  </div>
+                    </div>
+
+
+                    <div class="col-md-3 text-center">
+        <div class="region region-menu-footer-1">
+    <section id="block-menu-menu-menu-footer" class="block block-menu clearfix">
+
+        <h2 class="block-title">FORMAS DE JUGAR</h2>
+
+  Mueve a ______ a travez de la pantalla usando instrucciones de programacion usando el mouse, las instrucciones apareceran en forma de bloque
+
+Puedes consultar tus puntajes y premios una vez te haz logueado
+
+
+
+</ul>
+</section>
+  </div>
+                    </div>
+
+
+
+                    </div>
+
+
+
+
+
+
+
 				</div>
 			</div>
 			<!-----//End-team---->
@@ -246,11 +287,11 @@
 								<label class="label" for="correo">Correo Electronico:</label>
 							</div>
 							<div class="input-group">
-								<input type="password" id="contra" name="contra">
+								<input type="password" id="contra" name="contra" class="error">
 								<label class="label" for="contra">Contraseña:</label>
 							</div>
 							
-						<input type="submit" id="btn-submit" value="Jugar"><a href="juego.html">
+						<input type="submit" id="btn-submit" value="Jugar"><a href="juego/snake.html">
 						</div>
 
        		</form>
