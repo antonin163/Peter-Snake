@@ -11,21 +11,6 @@
 	</head>
 
 	<body>
-		<script >
-  $(function(){
-  $('ul.tabs li:first').addClass('active');
-  $('.block article').hide();
-  $('.block article:first').show();
-  $('ul.tabs li').on('click',function(){
-  $('ul.tabs li').removeClass('active');
-  $(this).addClass('active')
-  $('.block article').hide();
-  var activeTab = $(this).find('a').attr('href');
-  $(activeTab).show();
-  return false;
-  });
- })
-</script>
 		<header>
 			<div class="contenedor">
 
@@ -39,7 +24,7 @@
 
 							<div class="tabs">
 									<font color="Olive" face="Comic Sans MS,arial" size= 6>
-							     <li><a class="nivel" href="./snake.html">1</a></li>
+							     <li><a id="nivel1" class="nivel" href="./snake.html">1</a></li>
 									</font>
 									<font color="Olive" face="Comic Sans MS,arial" size= 6>
 							     <li><a class="nivel" href="./snake_nivel2.html" id="nivel2">2</a></li>

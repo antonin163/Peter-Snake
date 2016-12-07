@@ -105,11 +105,16 @@
   font-size: 23px;
   color: mediumblue;
 }
-.instruction{
+.codigo_snake{
     width: 50%;
     margin: auto;
     background: #FDFFAE;
     color: #000000;
     font-size: 20px;
     border: solid;
+}
+.instruction{
+    width: 30%;
+    margin: auto;
+
 }

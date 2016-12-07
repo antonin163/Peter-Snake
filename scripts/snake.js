@@ -15,6 +15,7 @@ $(document).on('ready', function() {
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
+
 	var arrayWall=[{x:1,y:5},{x:2,y:6},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:3,y:4},{x:4,y:5},{x:5,y:5},{x:6,y:5}];
 
 	//Definimos algunas variables para configurar nuestro juego
@@ -89,15 +90,6 @@ $(document).on('ready', function() {
 	iBackground.onload = function(){
 	context.drawImage( iBackground, 0, 0, width, height );	
 		
-	setTimeout(paint,1000,"left");
-	setTimeout(paint,2000,"left");
-	setTimeout(paint,3000,"down");
-	setTimeout(paint,4000,"down");
-
-	}
-
-	iBackground.onload = function(){
-	context.drawImage(iBackground,0, 0, width, height );
 	setTimeout(paint,1000,"left");
 	setTimeout(paint,2000,"left");
 	setTimeout(paint,3000,"down");
@@ -186,6 +178,7 @@ $(document).on('ready', function() {
 
 			emptyContainer();
 			finestraModal.classList.add("js-mostrar");
+			
 			
 
 		} else {
@@ -329,11 +322,19 @@ $(document).on('ready', function() {
 		finestraModal2.classList.remove("js-mostrar2");			
 		init();			
 	}
+/*
+	var nivel1=$('#nivel1');
+	btnnivel1.click(Nivel1);
+
+	function Nivel1(){
+
+		recyclerPiece1();
+	}*/
 
 	var btnCompile=$('#compile');
-	btnCompile.click(recyclerPiece);
+	btnCompile.click(recyclerPiece1);
 
-	function recyclerPiece(){
+	function recyclerPiece1(){
 		//document.getElementById('compile').style.display = 'none';
 
 		var pieceBox=document.getElementsByClassName('piece-box');
@@ -359,6 +360,7 @@ $(document).on('ready', function() {
 
 	}
 
+
 	function execInstruction(instruction ){
 		if (instruction == "left" && d != "right") {
 			left();
@@ -381,7 +383,7 @@ $(document).on('ready', function() {
 
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";		  	
-		return;
+		
 	}
 /*
 	window.onload = function() {

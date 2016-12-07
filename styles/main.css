@@ -24,6 +24,7 @@
   width: 50vw;
 }
 .piece-box, .piece-container{
+  border-style: dashed; border-width: 4px;
   background-color: #ecf0f1;
   width: 18vw;
   height: 70vh;
@@ -34,16 +35,52 @@
 
   padding-top: 2em;
   width: 18vw;
-  height: 50vh;
+  height: 100vh;
+}
+.piece-for{
+  /*AQUI CAMBIE EL CUADRO*/
+
+  height: auto;
+
 }
 
-.piece-box{
+.piece-box, .piece-for{
 border-style: dashed; border-width: 4px;
 display: flex;
 flex-direction: column;
 align-items: center;
 padding-top: 2em;
+padding-bottom: 2em;
+z-index: 0;
+height: 1000px;
 }
+
+.piece-for{
+  height: auto !important;
+  z-index: 999;
+  color: rgb(222, 53, 0);
+  border: 5px solid red;
+  font-weight: bold;
+}
+.piece-for p{
+  padding: 0;
+  margin: 0 0 .5em 0;
+}
+.piece-for .b{
+  background-color: rgb(52, 152, 219) !important;
+  font-weight: 900;
+
+}
+.piece-box .piece{
+  margin: 0;
+}
+.piece-for .piece{
+  margin: 0;
+}
+.piece-container{
+  z-index: 100;
+}
+
 .piece-box .piece{
   margin: 0;
 }
@@ -71,6 +108,7 @@ padding-top: 2em;
 }
 .piece span {
  background-color: inherit;
+ position: relative;
 }
 
 
@@ -258,8 +296,28 @@ button{
 }
 
 section.wrapper {
+  /*aqui cambie el borde*/
+    background: navajowhite;
     background:#04606c;
-    border-style: solid; border-width: 4px;
+    border-style: solid; 
+    border-width: 4px;
+}
+.piece-around{
+  height: 80px;
+  font-size: 12px;
+
+  }
+.piece-around .b {
+  width: 1.8em;
+   height: 1.8em;
+  /*position: absolute;*/
+   top: 5.2em;
+   left: 2em;
+   -webkit-border-radius: 4em;
+   -moz-border-radius: 4em;
+   border-radius: 4em;
+   background-color: #ecf0f1;
+   font-weight: 900;
 }
 
 #cronometro { padding:1px; border: 5px #31d0c6 double; width: 200px;
