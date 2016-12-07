@@ -19,7 +19,7 @@ $(document).on('ready', function() {
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
-	var food;	
+	var food;
 
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
@@ -105,7 +105,7 @@ $(document).on('ready', function() {
 			y: Math.round(0.5 * (height - cellWidth) / cellWidth),
 
 
-		};		
+		};
 
 	}
 
@@ -116,7 +116,7 @@ $(document).on('ready', function() {
 		d=dir;
 		console.log(dir);
 
-		context.drawImage( iBackground, 0, 0, width, height );		
+		context.drawImage( iBackground, 0, 0, width, height );
 
 		var nx = snake[0].x;
 		var ny = snake[0].y;
@@ -137,9 +137,9 @@ $(document).on('ready', function() {
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
 
 			ny == height / cellWidth || checkCollision(nx, ny, snake) || checkCollision(nx,ny,arrayWall )) {
-			
+
 			aDie.play();
-			emptyContainer();			
+			emptyContainer();
 			finestraModal2.classList.add("js-mostrar2");
 
 			return;
@@ -154,9 +154,9 @@ $(document).on('ready', function() {
 			score++;
 			aEat.play();
 
-			emptyContainer();	
+			emptyContainer();
 			finestraModal.classList.add("js-mostrar");
-			
+
 
 			//createFood();
 		} else {
@@ -200,7 +200,7 @@ $(document).on('ready', function() {
 			context.drawImage(iFood, x * cellWidth, y * cellWidth, cellWidth, cellWidth);
 
 
-		}		
+		}
 
 		else if (t=="head"){
 			if(d=="down"){
@@ -228,7 +228,7 @@ $(document).on('ready', function() {
 		{
 			if(array[i].x == x && array[i].y == y) {
 				return true;
-				 //aDie.play();				
+				 //aDie.play();
 
 			}
 		}
@@ -261,7 +261,7 @@ $(document).on('ready', function() {
 		//aDie.play();
 
 		//document.getElementById('compile').style.display = 'block';
-		init();		
+		init();
 
 		return;
 
@@ -281,24 +281,24 @@ $(document).on('ready', function() {
 	btnRepetir_pierde.click(repetirDenuevo2);
 
 	function repetirDenuevo2(){
-		finestraModal2.classList.remove("js-mostrar2");			
+		finestraModal2.classList.remove("js-mostrar2");
 		init();
 	}
-	
+
 	var btnaspa=$('#finestra-modal-tancar');
 	btnaspa.click(Aspa);
 
 	function Aspa(){
-		finestraModal.classList.remove("js-mostrar");			
-		init();			
+		finestraModal.classList.remove("js-mostrar");
+		init();
 	}
 
 	var btnaspa2=$('#finestra-modal-tancar2');
 	btnaspa2.click(Aspa2);
 
 	function Aspa2(){
-		finestraModal2.classList.remove("js-mostrar2");			
-		init();			
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
 	}
 
 	var btnCompile=$('#compile');
@@ -345,29 +345,30 @@ $(document).on('ready', function() {
 		}
 		/*{
 				var piece=pieces[i];
-
-				var pieceSiguiente=pieces[i+1]							
-
+				var pieceSiguiente=pieces[i+1]
+				var piecesInfor;
 				if(typeof pieceSiguiente != 'undefined')
 	      {
-					instructionSig=pieceSiguiente.dataset.instruction;				
-					
+
+					instructionSig=pieceSiguiente.dataset.instruction;
 
 				}
+
 					instruction=piece.dataset.instruction;
 
 					if(instruction=='for')
 					{
-						setTimeout(paint,i*1000,instructionSig);
-						piecesInfor=recogerPiezasInfor(pieces,forId);
+						//setTimeout(paint,i*1000,instructionSig);
+						piecesInfor=recogerPiezasInfor(pieces,piece);
 						console.log(piecesInfor);
-						ejecutarPiezasInfor(piecesInfor);
+						ejecutarPiezasInfor(piecesInfor,i);
 						// setTimeout(function(){},i*2000);
 						// execInstruction(instructionSig);
-					}else if(piece.className =!'in-for'){
+					}else if(piece.className.search('in-for') == -1){
+						console.log(piece.className);
 						setTimeout(paint,i*1000,instruction);
 					}
-
+					console.log(piece.className);
 						array[i]=instruction;
 						console.log(array);
 				i++;
@@ -387,20 +388,32 @@ $(document).on('ready', function() {
 
 	}
 
+	function recogerPiezasInfor(pieces,pieceFor){
+		var piecesInFor=pieceFor.getElementsByClassName('piece');
+		for (var i = 0; i < piecesInFor.length; i++) {
+		    piecesInFor[i].className += ' in-for';
+		}
+		console.log(pieceFor);
+		console.log(piecesInFor);
+		return piecesInFor;
 
-	function execInstruction(instruction){
-		if (instruction == "left" && d != "right") {
-			left();
-		} else if (instruction == "up" && d != "down") {
-			up();
-		} else if (instruction == "right" && d != "left") {
-			right();
-		} else if (instruction == "down" && d != "up") {
-			down();
+	}
+	function ejecutarPiezasInfor(piecesInFor,retraso){
+		console.log(piecesInFor);
+		var piece;
+		var instruction;
+		var j=1;
+		while (j<=2) {
+			for (var i = 0; i < piecesInFor.length; i++) {
+				piece=piecesInFor[i];
+				instruction=piece.dataset.instruction;
+				setTimeout(paint,(retraso)*1000,instruction);
+				retraso++;
+			}
+			j++;
 		}
 
 	}
-
 
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
@@ -410,8 +423,6 @@ $(document).on('ready', function() {
 	}
 
 /*
-=======
->>>>>>> 40205c2f96953bc8966947a477d25b04cc0726ab
 
 	window.onload = function() {
 
@@ -512,7 +523,7 @@ $(document).on('ready', function() {
 			 document.cron.boton2.value="Parar"; //estado inicial segundo botón
 			 document.cron.boton2.disabled=true;  //segundo botón desactivado
 			 }
-<<<<<<< HEAD
+
 */
 
 });

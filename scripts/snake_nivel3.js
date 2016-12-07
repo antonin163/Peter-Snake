@@ -8,10 +8,8 @@ $(document).on('ready', function() {
 
 	var finestraModal2 = document.getElementById("finestra-modal2"),
 			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
-			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");			
+			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
 
-
-	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
 
@@ -21,8 +19,8 @@ $(document).on('ready', function() {
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
-	var food;	
-	var food1;	
+	var food;
+	var food1;
 
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
@@ -46,11 +44,10 @@ $(document).on('ready', function() {
 	//var iBrick = new Image();
 	//var relleno=context.createPattern(iFood, "no-repeat")
 	//Creamos nuestra víbora
-	var snake;
+	var snake = [];
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
-	// function BtnAbrir()
 
 	function init()
 	{
@@ -107,7 +104,7 @@ $(document).on('ready', function() {
 	function createSnake()
 	{
 		var length = 6;
-		snake = [];
+
 
 		for(var i = length - 1; i >= 0; i--)
 		{
@@ -126,20 +123,22 @@ $(document).on('ready', function() {
 
 		};
 
+
 		food1 = {
 			x: Math.round(0.9 * (width - cellWidth) / cellWidth),
 			y: Math.round(0.4 * (height - cellWidth) / cellWidth),
 
 		};
 	}
-	
+
 
 	//Dibujamos la víbora
 	function paint(direccion)
 	{
 		var dir=direccion;
-		console.log(dir);
 		d=dir;
+		console.log(dir);
+
 		context.drawImage( iBackground, 0, 0, width, height );
 		//context.fillStyle = background;
 		//context.fillRect(0, 0, width, height);
@@ -165,9 +164,9 @@ $(document).on('ready', function() {
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
 
 			ny == height / cellWidth || checkCollision(nx, ny, snake) || checkCollision(nx,ny,arrayWall )) {
-//			init();			
-			emptyContainer();			
-			finestraModal2.classList.add("js-mostrar2");	
+//			init();
+			emptyContainer();
+			finestraModal2.classList.add("js-mostrar2");
 
 			aDie.play();
 			return;
@@ -182,10 +181,11 @@ $(document).on('ready', function() {
 			score++;
 			aEat.play();
 
-			emptyContainer();	
+
+			emptyContainer();
 			finestraModal.classList.add("js-mostrar");
 
-			
+
 
 		} else {
 
@@ -215,7 +215,6 @@ $(document).on('ready', function() {
 		//context.drawImage(iBody, snake[i].x, snake[i].y);
 			paintCell(c.x, c.y, typeCell);
 		}
-
 
 
 		var scoreText = "Score: " + score;
@@ -265,8 +264,8 @@ $(document).on('ready', function() {
 		{
 			if(array[i].x == x && array[i].y == y) {
 
-				return true;				 
-				
+				return true;
+
 
 			}
 		}
@@ -302,6 +301,7 @@ $(document).on('ready', function() {
 		//document.getElementById('compile').style.display = 'block';
 
 		init();
+		//document.getElementById('piece-box').innerHTML= "";
 		return;
 
 	}
@@ -312,7 +312,7 @@ $(document).on('ready', function() {
 	function repetirDenuevo(){
 		finestraModal.classList.remove("js-mostrar");
 
-		init();			
+		init();
 
 	}
 
@@ -320,8 +320,8 @@ $(document).on('ready', function() {
 	btnRepetir_pierde.click(repetirDenuevo2);
 
 	function repetirDenuevo2(){
-		finestraModal2.classList.remove("js-mostrar2");			
-		init();			
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
 
 	}
 
@@ -329,18 +329,18 @@ $(document).on('ready', function() {
 	btnaspa.click(Aspa);
 
 	function Aspa(){
-		finestraModal.classList.remove("js-mostrar");			
-		init();			
+		finestraModal.classList.remove("js-mostrar");
+		init();
 	}
 
 	var btnaspa2=$('#finestra-modal-tancar2');
 	btnaspa2.click(Aspa2);
 
 	function Aspa2(){
-		finestraModal2.classList.remove("js-mostrar2");			
-		init();			
+		finestraModal2.classList.remove("js-mostrar2");
+		init();
 	}
-	
+
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 
@@ -357,6 +357,7 @@ $(document).on('ready', function() {
 		var i=0;
 		var iFor=0;
 		var array=[];
+
 		console.log(length);
 		//for(var i = 0; i <= length-1; i++)
 
@@ -364,57 +365,141 @@ $(document).on('ready', function() {
 
 		{
 				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
+				var pieceSiguiente=pieces[i+1];
+				var piecesInfor;
+				var piecesInIf;
 				if(typeof pieceSiguiente != 'undefined')
 	      {
 					instructionSig=pieceSiguiente.dataset.instruction;
 				}
 					instruction=piece.dataset.instruction;
+					console.log(food.x);
+
 
 					if(instruction=='for')
 					{
-						setTimeout(paint,i*1000,instructionSig);
+
+						//setTimeout(paint,i*1000,instructionSig);
+						piecesInfor=recogerPiezasInfor(pieces,piece);
+						console.log(piecesInfor);
+						ejecutarPiezasInfor(piecesInfor,i);
 						// setTimeout(function(){},i*2000);
 						// execInstruction(instructionSig);
-					}else {
-						setTimeout(paint,i*1000,instruction);
-					}
+					}else if(instruction == 'if'){
+						piecesInIf=recogerPiezasInIf(pieces,piece);
+						console.log(piecesInIf);
+						setTimeout(manzanaEnfrente,i*1000,piecesInIf,i);
 
+					}else if(piece.className.search('for') == -1 &&
+										piece.className.search('if') == -1
+									)
+								{
+									console.log(piece.className.search('right'));
+									ejecutarPieza(instruction,i);
+								}
+
+
+					console.log(piece.className);
 						array[i]=instruction;
 						console.log(array);
 				i++;
 		}
 
-		
+
 		console.log(array);
 
 	}
 
 
-	function execInstruction(instruction){
-		if (instruction == "left" && d != "right") {
-			left();
-		} else if (instruction == "up" && d != "down") {
-			up();
-		} else if (instruction == "right" && d != "left") {
-			right();
-		} else if (instruction == "down" && d != "up") {
-			down();
+	function ejecutarPieza(instr,retraso){
+		setTimeout(paint,retraso*1000,instr);
+	}
+	function manzanaEnfrente(piecesInIf,retraso){
+		console.log(snake[0]);
+		console.log(snake);
+		if((snake[0].x)+1 == food.x){
+			ejecutarPiezasInif(piecesInIf,retraso);
+		}else {
+			return false;
+
+		}
+	}
+	function recogerPiezasInfor(pieces,pieceFor){
+		var piecesInFor=pieceFor.getElementsByClassName('piece');
+		for (var i = 0; i < piecesInFor.length; i++) {
+		    piecesInFor[i].className += ' in-for';
+		}
+		console.log(pieceFor);
+		console.log(piecesInFor);
+		return piecesInFor;
+	}
+
+	function ejecutarPiezasInfor(piecesInFor,retraso){
+		console.log(piecesInFor);
+		var piece;
+		var instruction;
+		var j=1;
+		while (j<=2) {
+			for (var i = 0; i < piecesInFor.length; i++) {
+				piece=piecesInFor[i];
+				instruction=piece.dataset.instruction;
+				setTimeout(paint,(retraso)*1000,instruction);
+				retraso++;
+			}
+			j++;
 		}
 
 	}
 
+	function recogerPiezasInIf(pieces,pieceIf){
+		var piecesInIf=pieceIf.getElementsByClassName('piece');
+		for (var i = 0; i < piecesInIf.length; i++) {
+				piecesInIf[i].className += ' in-if';
+		}
+		console.log(pieceIf);
+		console.log(piecesInIf);
+		return piecesInIf;
+	}
+
+	function ejecutarPiezasInif(piecesInIf,retraso){
+		console.log(piecesInIf);
+		var piece;
+		var instruction;
+		for (var i = 0; i < piecesInIf.length; i++) {
+			piece=piecesInIf[i];
+			instruction=piece.dataset.instruction;
+			console.log(instruction);
+			if (instruction=='around') {
+					rodearManzana(retraso);
+			}else {
+				console.log(instruction);
+				setTimeout(paint,(retraso)*1000,instruction);
+				retraso++;
+			}
+
+		}
+
+	}
+	function rodearManzana(i){
+		setTimeout(paint,i*1000,'up');
+		setTimeout(paint,(i+1)*1000,'right');
+		setTimeout(paint,(i+2)*1000,'right');
+		setTimeout(paint,(i+3)*1000,'down');
+	}
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
 
 	function emptyContainer(){
 		document.getElementById('piece-box').innerHTML= "";
 	}
+
 /*
+
 	window.onload = function() {
 
 	visor=document.getElementById("reloj"); //localizar pantalla del reloj
 	//asociar eventos a botones: al pulsar el botón se activa su función.
+
 
 	document.cron.boton1.onclick = activo;
 	document.cron.boton2.onclick = pausa;

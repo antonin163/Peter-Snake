@@ -35,13 +35,12 @@ body{
 }
 .piece-container{
 
-  padding-top: 2em;
+  padding-top: 0em;
   width: 18vw;
   height: 100vh;
 }
 .piece-for{
   /*AQUI CAMBIE EL CUADRO*/
-
   height: auto;
 
 }
@@ -58,7 +57,7 @@ body{
 }
 
 .piece-for{
-  height: 75px !important;
+  height: auto !important;
   z-index: 999;
   color: rgb(222, 53, 0);
   font-weight: bold;
@@ -91,7 +90,7 @@ body{
  font-size: 12px;
   width: 12em;
   height: 3em;
-  margin: 1.5em 4em 1.5em 4em;
+  margin: 1em 4em 1em 4em;
   position: relative;
   -webkit-border-radius: .5em;
   -moz-border-radius: .5em;

@@ -36,20 +36,22 @@ $(document).on('ready',function (){
     }
 
     function recogerpieza(e){
+      if (e.target.id == 'piece-for') {
+        e.target.parentNode.removeEventListener('drop',recogerpieza,false);
+        // var nodoshijos=e.target.childNodes;
+        // console.log(nodoshijos);
+        // //agregarClaseInfor(nodoshijos);
+        // // Agregar clase in-for a todos los elementos dentro del for
+        // for (var i = 0; i <= nodoshijos.length; i++) {
+        //     nodoshijos[i].className += ' in-for';
+        //     console.log(i);
+        // }
+      }
       e.preventDefault();
       var datoclon=e.dataTransfer.getData('text');
       this.innerHTML += datoclon;
-      if (e.target.id == 'piece-for') {
-        e.target.parentNode.removeEventListener('drop',recogerpieza,false);
-        var nodoshijos=e.target.childNodes;
-        console.log(nodoshijos);
-        //agregarClaseInfor(nodoshijos);
-        // Agregar clase in-for a todos los elementos dentro del for
-        for (var i = 0; i <= nodoshijos.length; i++) {
-            nodoshijos[i].className += ' in-for';
-            console.log(i);
-        }
-      }
+      console.log(datoclon);
+
     }
     function soltarpieza(e){
       e.preventDefault();

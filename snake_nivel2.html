@@ -11,21 +11,7 @@
 	</head>
 
 	<body>
-		<script >
-  $(function(){
-  $('ul.tabs li:first').addClass('active');
-  $('.block article').hide();
-  $('.block article:first').show();
-  $('ul.tabs li').on('click',function(){
-  $('ul.tabs li').removeClass('active');
-  $(this).addClass('active')
-  $('.block article').hide();
-  var activeTab = $(this).find('a').attr('href');
-  $(activeTab).show();
-  return false;
-  });
- })
-</script>
+
 		<header>
 			<div class="contenedor">
 
@@ -102,23 +88,23 @@
 									       	 	<div class="game-controllers colu-center">
 												<div class="piece-container" >
 													<div class="piece piece-up" data-instruction="up"  draggable="true" >
-														<span class="t" ></span>
-														<span class="b"></span>
+														<!-- <span class="t" ></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-up.svg" alt="" />
 													</div>
 													<div class="piece piece-down" data-instruction="down"  draggable="true">
-														<span class="t"></span>
-														<span class="b"></span>
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-down.svg" alt="" />
 													</div>
 													<div class="piece piece-left" data-instruction="left"  draggable="true">
-														<span class="t"></span>
-														<span class="b"></span>
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" />
 													</div>
 													<div class="piece piece-right" data-instruction="right"  draggable="true">
-														<span class="t"></span>
-														<span class="b"></span>
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
 													</div>
 													<div id="piece-for" class="piece piece-for" draggable="true" data-instruction="for" >

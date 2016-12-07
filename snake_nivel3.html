@@ -6,27 +6,12 @@
 		<link rel="stylesheet" type="text/css" href="./styles/diseño_interfaz.css">
 		<link rel="stylesheet" href="./styles/modal_gana.css">				
 		<link rel="stylesheet" href="./styles/modal_pierde.css">
-
 		<script src="./scripts/jquery-1.4.2.min.js"></script>
 
 	</head>
 
 	<body>
-		<script >
-  $(function(){
-  $('ul.tabs li:first').addClass('active');
-  $('.block article').hide();
-  $('.block article:first').show();
-  $('ul.tabs li').on('click',function(){
-  $('ul.tabs li').removeClass('active');
-  $(this).addClass('active')
-  $('.block article').hide();
-  var activeTab = $(this).find('a').attr('href');
-  $(activeTab).show();
-  return false;
-  });
- })
-</script>
+
 		<header>
 			<div class="contenedor">
 
@@ -104,23 +89,23 @@
 									       	 	<div class="game-controllers colu-center">
 												<div class="piece-container" >
 													<div class="piece piece-up" data-instruction="up"  draggable="true" >
-														<span class="t" ></span>
-														<span class="b"></span>
+														<!-- <span class="t" ></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-up.svg" alt="" />
 													</div>
 													<div class="piece piece-down" data-instruction="down"  draggable="true">
-														<span class="t"></span>
-														<span class="b"></span>
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-down.svg" alt="" />
 													</div>
 													<div class="piece piece-left" data-instruction="left"  draggable="true">
-														<span class="t"></span>
-														<span class="b"></span>
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" />
 													</div>
 													<div class="piece piece-right" data-instruction="right"  draggable="true">
-														<span class="t"></span>
-														<span class="b"></span>
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
 														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
 													</div>
 
@@ -131,6 +116,16 @@
 													</font>
 													</div>
 
+													<div id="piece-if"class="piece piece-for" draggable="true" data-instruction="if" >
+													<font color="#181518" face="Comic Sans MS,arial" size= 3>
+														<p> Si la manzana enfrente es verde</p><br>
+													</font>
+													</div>
+													<div class="piece piece-around" data-instruction="around"  draggable="true">
+														<!-- <span class="t"></span>
+														<span class="b"></span> -->
+
+													<!--
 													<div id="piece-for" class="piece piece-for" draggable="true" data-instruction="for" >
 													<font color="#181518" face="Comic Sans MS,arial" size= 3>
 														<p> Si la manzana es verde, esquivar y comer la roja</p><br>
@@ -140,7 +135,7 @@
 														<span class="t"></span>
 														<span class="b"></span>
 
-														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" />
+														<img class="piece-img" src="./styles/img/long-arrow-right.svg" alt="" /> -->
 
 														<!-- <img class="piece-img" src="./styles/img/long-arrow-left.svg" alt="" /> -->
 														<font color="#181518" face="Comic Sans MS,arial" size= 3>
@@ -161,8 +156,6 @@
 									       	 	</div>
 
 								       	 	</div>
-											<!--++++++++++-->
-
 										</div>
 
 
@@ -206,7 +199,7 @@
 											  </div>
 											</div>
 
-											
+
 											<div id="finestra-modal2" class="finestra-modal2">
 											  <div class="finestra-modal__contingut2">
 													<font color="Green" face="Comic Sans MS,arial" size= 5>
@@ -216,13 +209,13 @@
 														<h3>¡SIGUE INTENTANDOLO!</h3>
 													</font>
 													<font color="Olive" face="Comic Sans MS,arial" size= 2>
-														<p class="info_gamer2" id="modal-instructions2">														
+														<p class="info_gamer2" id="modal-instructions2">
 															Prueba usar más comandos para caminar hasta la comida.
 
 														</p>
 													</font>
 														<div class="ins2">
-															<p class="instruction2" id="modal-instructions2">															 
+															<p class="instruction2" id="modal-instructions2">
 															</p>
 														<div>
 														<div class="tamaño_snake2">
