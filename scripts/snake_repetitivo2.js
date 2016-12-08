@@ -51,7 +51,7 @@ $(document).on('ready', function() {
 		d = "up";
 		createSnake();
 		createFood();
-//		score = 0;
+		score = 0;
 
 		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
@@ -66,7 +66,7 @@ $(document).on('ready', function() {
 		iHead3.src = 'assets/izq_snake.png';
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/come.oga';
-		aDie.src = 'assets/muere.oga';		
+		aDie.src = 'assets/muere.oga';
 		iBackground.src = 'assets/fondoRepetitivo2.png';
 		salto.src= 'assets/salto.wav';
 
@@ -304,7 +304,6 @@ $(document).on('ready', function() {
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
-
 	function recyclerPiece(){
 
 		//document.getElementById('compile').style.display = 'none';
@@ -322,29 +321,7 @@ $(document).on('ready', function() {
 		var forId;
 		//for(var i = 0; i <= length-1; i++)
 		while (i<=length-1)
-					{
-				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
-				if(typeof pieceSiguiente != 'undefined')
-	      {
-					instructionSig=pieceSiguiente.dataset.instruction;
-				}
-					instruction=piece.dataset.instruction;
-
-					if(instruction=='for')
-					{
-						setTimeout(paint,i*1000,instructionSig);
-						// setTimeout(function(){},i*2000);
-						// execInstruction(instructionSig);
-					}else {
-						setTimeout(paint,i*1000,instruction);
-					}
-
-						array[i]=instruction;
-						console.log(array);
-				i++;
-		}
-		/*{
+		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1]
 				var piecesInfor;
@@ -373,22 +350,17 @@ $(document).on('ready', function() {
 						array[i]=instruction;
 						console.log(array);
 				i++;
-		}*/
-		console.log(array);
-
-		// for(i in pieces){
-    //   var piece=pieces[i];
-    //   if(typeof piece.style != 'undefined')
-    //   {
-		// 		instruction=piece.dataset.instruction;
-		// 		setTimeout(function(){execInstruction(instruction)},2000);
-		// 		console.log(instruction);
-		// 	}
-
-    //}
-
+		}
+		console.log(score);
+		setTimeout(mostrarModalsiperdio,i*1000,0);
+		
 	}
-
+	function mostrarModalsiperdio(nada){
+		if (score==0) {
+			aDie.play();
+			finestraModal2.classList.add("js-mostrar2");
+		}
+	}
 	function recogerPiezasInfor(pieces,pieceFor){
 		var piecesInFor=pieceFor.getElementsByClassName('piece');
 		for (var i = 0; i < piecesInFor.length; i++) {
@@ -410,6 +382,7 @@ $(document).on('ready', function() {
 				instruction=piece.dataset.instruction;
 				setTimeout(paint,(retraso)*1000,instruction);
 				retraso++;
+				console.log(piece);
 			}
 			j++;
 		}

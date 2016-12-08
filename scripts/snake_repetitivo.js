@@ -70,7 +70,7 @@ $(document).on('ready', function() {
 		iHead3.src = 'assets/izq_snake.png';
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/come.oga';
-		aDie.src = 'assets/muere.oga';		
+		aDie.src = 'assets/muere.oga';
 		iBackground.src = 'assets/fondoRepetitivo.png';
 		salto.src= 'assets/salto.wav';
 
@@ -344,34 +344,12 @@ $(document).on('ready', function() {
 		var forId;
 		//for(var i = 0; i <= length-1; i++)
 		while (i<=length-1)
-					{
-				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
-				if(typeof pieceSiguiente != 'undefined')
-	      {
-					instructionSig=pieceSiguiente.dataset.instruction;
-				}
-					instruction=piece.dataset.instruction;
-
-					if(instruction=='for')
-					{
-						setTimeout(paint,i*1000,instructionSig);
-						// setTimeout(function(){},i*2000);
-						// execInstruction(instructionSig);
-					}else {
-						setTimeout(paint,i*1000,instruction);
-					}
-
-						array[i]=instruction;
-						console.log(array);
-				i++;
-		}
-		/*{
+		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1]
 				var piecesInfor;
 				if(typeof pieceSiguiente != 'undefined')
-	      {
+				{
 
 					instructionSig=pieceSiguiente.dataset.instruction;
 
@@ -395,20 +373,16 @@ $(document).on('ready', function() {
 						array[i]=instruction;
 						console.log(array);
 				i++;
-		}*/
-		console.log(array);
+		}
+		setTimeout(mostrarModalsiperdio,i*1000,0);
 
-		// for(i in pieces){
-    //   var piece=pieces[i];
-    //   if(typeof piece.style != 'undefined')
-    //   {
-		// 		instruction=piece.dataset.instruction;
-		// 		setTimeout(function(){execInstruction(instruction)},2000);
-		// 		console.log(instruction);
-		// 	}
+	}
 
-    //}
-
+	function mostrarModalsiperdio(nada){
+		if (score==0) {
+			aDie.play();
+			finestraModal2.classList.add("js-mostrar2");
+		}
 	}
 
 	function recogerPiezasInfor(pieces,pieceFor){
@@ -437,6 +411,7 @@ $(document).on('ready', function() {
 		}
 
 	}
+
 
 	var btnEmpty=$('#empty');
 	btnEmpty.click(emptyContainer);
