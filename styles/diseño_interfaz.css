@@ -137,8 +137,8 @@ header nav ul li {
 }
 .tabs {
     display: flex;
-    justify-content: space-around;
-    width: 20%;
+    justify-content: center;
+    /*width: 20%;*/
     margin: auto;
     list-style: none;
     margin-top: -37px;
@@ -155,7 +155,7 @@ header nav ul li {
     background: #A2D60F;
     text-decoration: none;
     font-size: 32px;
-    margin: auto;
+    margin-right: 5px;
     text-align: center;
     color: white;
 }

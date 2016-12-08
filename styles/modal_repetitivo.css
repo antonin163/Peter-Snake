@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+
+.boto2 {
+  display: table;
+  margin: 0;
+  padding: .5em 1em;
+  width: 1em;
+  height: 1em;
+  color: white;
+  background-color: DarkMagenta;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1em;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+
+.boto2:hover {
+  text-decoration: none;
+}
+.boto2:active, .boto2:focus {
+  outline: none;
+}
+.boto2:visited {
+  color: white;
+}
+
+.finestra-modal2 {
+  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 100;
+  top: -250vh;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  -webkit-transition: all .75s;
+  transition: all .75s;
+}
+
+.finestra-modal__contingut2 {
+  position: relative;  
+  padding: 0em 2em 0em 2em;
+  width: 70%;
+  text-align: center;
+  color: black;
+  background-color: white;
+  border-radius: 3px;
+}
+.finestra-modal__contingut2 h3 {
+  margin-top: 0;  
+  padding-bottom: 1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.finestra-modal__contingut2 .finestra-modal-tancar2 {
+  position: absolute;
+  z-index: 15;
+  top: .75em;
+  right: .75em;
+  padding: 0;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.js-mostrar2 {
+  top: 0;
+}
+.tamaño_snake2 img {
+    height: 150px;
+    justify-content: center;
+}
+.modal_button2 {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+.modal_button12 {
+    background: green;
+    color: white;
+}
+
+.modal_button12:hover{
+  color: white;
+  background-color:#27ae60;
+  cursor: pointer;
+  
+}
+.info_gamer2{
+  font-size: 23px;
+  color: mediumblue;
+}
+.instruction2{
+    width: 50%;
+    margin: auto;
+    background: #FDFFAE;
+    color: #000000;
+    font-size: 20px;
+    /*border: solid;*/
+}
