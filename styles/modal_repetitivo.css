@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-.boto2 {
+.boto3 {
   display: table;
   margin: 0;
   padding: .5em 1em;
@@ -18,17 +18,17 @@
 }
 
 
-.boto2:hover {
+.boto3:hover {
   text-decoration: none;
 }
-.boto2:active, .boto2:focus {
+.boto3:active, .boto3:focus {
   outline: none;
 }
-.boto2:visited {
+.boto3:visited {
   color: white;
 }
 
-.finestra-modal2 {
+.finestra-modal3 {
   
   display: -webkit-box;
   display: -webkit-flex;
@@ -53,7 +53,7 @@
   transition: all .75s;
 }
 
-.finestra-modal__contingut2 {
+.finestra-modal__contingut3 {
   position: relative;  
   padding: 0em 2em 0em 2em;
   width: 70%;
@@ -62,13 +62,13 @@
   background-color: white;
   border-radius: 3px;
 }
-.finestra-modal__contingut2 h3 {
+.finestra-modal__contingut3 h3 {
   margin-top: 0;  
   padding-bottom: 1em;
   text-transform: uppercase;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
-.finestra-modal__contingut2 .finestra-modal-tancar2 {
+.finestra-modal__contingut3 .finestra-modal-tancar3 {
   position: absolute;
   z-index: 15;
   top: .75em;
@@ -78,34 +78,34 @@
   border-radius: 50%;
 }
 
-.js-mostrar2 {
+.js-mostrar3 {
   top: 0;
 }
-.tamaño_snake2 img {
+.tamaño_snake3 img {
     height: 150px;
     justify-content: center;
 }
-.modal_button2 {
+.modal_button3 {
     display: flex;
     justify-content: space-around;
     margin-bottom: 15px;
 }
-.modal_button12 {
+.modal_button13 {
     background: green;
     color: white;
 }
 
-.modal_button12:hover{
+.modal_button13:hover{
   color: white;
   background-color:#27ae60;
   cursor: pointer;
   
 }
-.info_gamer2{
+.info_gamer3{
   font-size: 23px;
   color: mediumblue;
 }
-.instruction2{
+.instruction3{
     width: 50%;
     margin: auto;
     background: #FDFFAE;

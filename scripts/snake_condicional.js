@@ -10,6 +10,11 @@ $(document).on('ready', function() {
 			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
 			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
 
+	var finestraModal3 = document.getElementById("finestra-modal3"),
+			finestraModalObrir3 = document.getElementById("finestra-modal-obrir3"),
+			finestraModalTancar3 = document.getElementById("finestra-modal-tancar3");	
+
+
 	var width = $("#snake").width();
 	var height = $("#snake").height();
 
@@ -50,6 +55,7 @@ $(document).on('ready', function() {
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
 
+	finestraModal3.classList.add("js-mostrar3");	
 	function init()
 	{
 
@@ -83,7 +89,7 @@ $(document).on('ready', function() {
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
-	init();
+	//init();
 
 	iBackground.onload = function(){
 
@@ -323,6 +329,16 @@ $(document).on('ready', function() {
 
 	}
 
+	var btn_empezar=$('#empezar');
+	btn_empezar.click(EmpezarJuego);
+
+	function EmpezarJuego(){
+		finestraModal3.classList.remove("js-mostrar3");			
+		//comenzar();
+		init();			
+
+	}	
+
 	var btnaspa=$('#finestra-modal-tancar');
 	btnaspa.click(Aspa);
 
@@ -338,6 +354,14 @@ $(document).on('ready', function() {
 		finestraModal2.classList.remove("js-mostrar2");
 		init();
 	}
+
+	var btnaspa3=$('#finestra-modal-tancar3');
+	btnaspa3.click(Aspa3);
+
+	function Aspa3(){
+		finestraModal3.classList.remove("js-mostrar3");			
+		init();			
+	}	
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
