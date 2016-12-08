@@ -14,8 +14,7 @@ $(document).on('ready', function() {
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
-	var arrayWall=[{x:5,y:0},{x:4,y:0},{x:3,y:1},{x:2,y:2},{x:1,y:3},
-	{x:3,y:4},{x:4,y:3},{x:5,y:2}];
+	var arrayWall=[{x:1,y:5},{x:2,y:6},{x:3,y:7},{x:4,y:7},{x:5,y:7},{x:3,y:4},{x:4,y:5},{x:5,y:5},{x:6,y:5}];
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
@@ -66,7 +65,7 @@ $(document).on('ready', function() {
 		iHead4.src = 'assets/der_snake.png';
 		aEat.src = 'assets/chomp.oga';
 		aDie.src = 'assets/dies.oga';
-		iBackground.src = 'assets/flat-texture2.png';
+		iBackground.src = 'assets/flat-texture.png';
 		salto.src= 'assets/salto.wav';
 
 		//iBrick.src = 'assets/brick.png';
@@ -79,9 +78,9 @@ $(document).on('ready', function() {
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
 	setTimeout(paint,1000,"left");
-	setTimeout(paint,2000,"up");
-	setTimeout(paint,3000,"up");
-	setTimeout(paint,4000,"left");
+	setTimeout(paint,2000,"left");
+	setTimeout(paint,3000,"down");
+	setTimeout(paint,4000,"down");
 
 	}
 
@@ -93,7 +92,7 @@ $(document).on('ready', function() {
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ x: 7, y: i-2 });
+			snake.push({ x: 4, y: i-2 });
 		}
 	}
 
@@ -101,8 +100,8 @@ $(document).on('ready', function() {
 	function createFood()
 	{
 		food = {
-			x: Math.round(0.2 * (width - cellWidth) / cellWidth),
-			y: Math.round(0.5 * (height - cellWidth) / cellWidth),
+			x: Math.round(0.6 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
 
 		};
@@ -318,32 +317,9 @@ $(document).on('ready', function() {
 		var iFor=0;
 		var array=[];
 		console.log(length);
-		var forId;
 		//for(var i = 0; i <= length-1; i++)
 		while (i<=length-1)
-					{
-				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
-				if(typeof pieceSiguiente != 'undefined')
-	      {
-					instructionSig=pieceSiguiente.dataset.instruction;
-				}
-					instruction=piece.dataset.instruction;
-
-					if(instruction=='for')
-					{
-						setTimeout(paint,i*1000,instructionSig);
-						// setTimeout(function(){},i*2000);
-						// execInstruction(instructionSig);
-					}else {
-						setTimeout(paint,i*1000,instruction);
-					}
-
-						array[i]=instruction;
-						console.log(array);
-				i++;
-		}
-		/*{
+		{
 				var piece=pieces[i];
 				var pieceSiguiente=pieces[i+1]
 				var piecesInfor;
@@ -372,7 +348,7 @@ $(document).on('ready', function() {
 						array[i]=instruction;
 						console.log(array);
 				i++;
-		}*/
+		}
 		console.log(array);
 
 		// for(i in pieces){
@@ -423,6 +399,8 @@ $(document).on('ready', function() {
 	}
 
 /*
+=======
+>>>>>>> 40205c2f96953bc8966947a477d25b04cc0726ab
 
 	window.onload = function() {
 
@@ -523,7 +501,7 @@ $(document).on('ready', function() {
 			 document.cron.boton2.value="Parar"; //estado inicial segundo botón
 			 document.cron.boton2.disabled=true;  //segundo botón desactivado
 			 }
-
+<<<<<<< HEAD
 */
 
 });
