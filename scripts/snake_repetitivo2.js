@@ -353,49 +353,7 @@ $(document).on('ready', function() {
 		}
 		console.log(score);
 		setTimeout(mostrarModalsiperdio,i*1000,0);
-		/*{
-				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
-				var piecesInfor;
-				if(typeof pieceSiguiente != 'undefined')
-	      {
-
-					instructionSig=pieceSiguiente.dataset.instruction;
-
-				}
-
-					instruction=piece.dataset.instruction;
-
-					if(instruction=='for')
-					{
-						//setTimeout(paint,i*1000,instructionSig);
-						piecesInfor=recogerPiezasInfor(pieces,piece);
-						console.log(piecesInfor);
-						ejecutarPiezasInfor(piecesInfor,i);
-						// setTimeout(function(){},i*2000);
-						// execInstruction(instructionSig);
-					}else if(piece.className.search('in-for') == -1){
-						console.log(piece.className);
-						setTimeout(paint,i*1000,instruction);
-					}
-					console.log(piece.className);
-						array[i]=instruction;
-						console.log(array);
-				i++;
-		}*/
-		console.log(array);
-
-		// for(i in pieces){
-    //   var piece=pieces[i];
-    //   if(typeof piece.style != 'undefined')
-    //   {
-		// 		instruction=piece.dataset.instruction;
-		// 		setTimeout(function(){execInstruction(instruction)},2000);
-		// 		console.log(instruction);
-		// 	}
-
-    //}
-
+		
 	}
 	function mostrarModalsiperdio(nada){
 		if (score==0) {

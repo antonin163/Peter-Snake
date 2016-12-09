@@ -404,8 +404,15 @@ $(document).on('ready', function() {
 		}
 
 
-		console.log(array);
+			setTimeout(mostrarModalsiperdio,i*1000,0);
 
+	}
+
+	function mostrarModalsiperdio(nada){
+		if (score==0) {
+			aDie.play();
+			finestraModal2.classList.add("js-mostrar2");
+		}
 	}
 
 	function ejecutarPieza(instr,retraso){

@@ -14,8 +14,6 @@ $(document).on('ready', function() {
 			finestraModalObrir3 = document.getElementById("finestra-modal-obrir3"),
 			finestraModalTancar3 = document.getElementById("finestra-modal-tancar3");
 
-
-
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
@@ -25,9 +23,10 @@ $(document).on('ready', function() {
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 
-	var d;
+	var d;	
 
 	var food;
+	//var stop;
 	var score;
 	var level = 1; //1 El nivel más lento, 10 el nivel más rápido.
 	var background = '#27ae60';
@@ -45,19 +44,16 @@ $(document).on('ready', function() {
 	var salto = new Audio();
 	var iBackground = new Image();
 
-	//var tiempo = 0;
-	//var stop;
-	//var iBrick = new Image();
-	//var relleno=context.createPattern(iFood, "no-repeat")
 	//Creamos nuestra víbora
 	var snake;
 
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
+
 	finestraModal3.classList.add("js-mostrar3");
 	function init()
 	{
-
+		//return;
 		d = "down";
 		createSnake();
 		createFood();
@@ -89,9 +85,11 @@ $(document).on('ready', function() {
 
 	}
 
-	init();
+	//init();
+
 	iBackground.onload = function(){
-	context.drawImage( iBackground, 0, 0, width, height );
+
+	context.drawImage( iBackground, 0, 0, width, height );			
 
 	setTimeout(paint,1000,"left");
 	setTimeout(paint,2000,"left");
@@ -314,8 +312,9 @@ $(document).on('ready', function() {
 	btn_empezar.click(EmpezarJuego);
 
 	function EmpezarJuego(){
-		finestraModal3.classList.remove("js-mostrar3");
-		init();
+		finestraModal3.classList.remove("js-mostrar3");			
+		//comenzar();
+		init();			
 
 	}
 
@@ -342,14 +341,14 @@ $(document).on('ready', function() {
 		finestraModal3.classList.remove("js-mostrar3");
 		init();
 	}
-/*
-	var nivel1=$('#nivel1');
-	btnnivel1.click(Nivel1);
 
-	function Nivel1(){
+	var btnmostrarCodigo=$('#finestra-modal-obrir');
+	btnMostrarCodigo.click(MostrarCodigo);
 
-		recyclerPiece1();
-	}*/
+	function MostrarCodigo(){
+		finestraModal.classList.remove("js-mostrar");
+		init();
+	}
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece1);
@@ -377,9 +376,16 @@ $(document).on('ready', function() {
 				console.log(array);
 
 		}
+		setTimeout(mostrarModalsiperdio,i*1000,0);
 
 	}
 
+	function mostrarModalsiperdio(nada){
+		if (score==0) {
+			aDie.play();
+			finestraModal2.classList.add("js-mostrar2");
+		}
+	}	
 
 	function execInstruction(instruction ){
 		if (instruction == "left" && d != "right") {

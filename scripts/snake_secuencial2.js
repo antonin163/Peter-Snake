@@ -360,6 +360,15 @@ $(document).on('ready', function() {
 
 		}
 
+			setTimeout(mostrarModalsiperdio,i*1000,0);
+
+	}
+
+	function mostrarModalsiperdio(nada){
+		if (score==0) {
+			aDie.play();
+			finestraModal2.classList.add("js-mostrar2");
+		}
 	}
 
 

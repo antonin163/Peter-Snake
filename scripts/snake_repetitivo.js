@@ -10,6 +10,10 @@ $(document).on('ready', function() {
 			finestraModalObrir2 = document.getElementById("finestra-modal-obrir2"),
 			finestraModalTancar2 = document.getElementById("finestra-modal-tancar2");
 
+	var finestraModal3 = document.getElementById("finestra-modal3"),
+			finestraModalObrir3 = document.getElementById("finestra-modal-obrir3"),
+			finestraModalTancar3 = document.getElementById("finestra-modal-tancar3");	
+
 
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
@@ -45,6 +49,7 @@ $(document).on('ready', function() {
 	//El juego tiene la dirección "right" por defecto y se ejecuta la función paint
 	//dependiendo el nivel que hayas configurado arriba
 
+	finestraModal3.classList.add("js-mostrar3");
 	function init()
 	{
 
@@ -74,7 +79,7 @@ $(document).on('ready', function() {
 	// gameLoop = setInterval(paint, 1000 / level);
 	}
 
-	init();
+	//init();
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
@@ -285,6 +290,16 @@ $(document).on('ready', function() {
 		init();
 	}
 
+	var btn_empezar=$('#empezar');
+	btn_empezar.click(EmpezarJuego);
+
+	function EmpezarJuego(){
+		finestraModal3.classList.remove("js-mostrar3");			
+		//comenzar();
+		init();			
+
+	}		
+
 	var btnaspa=$('#finestra-modal-tancar');
 	btnaspa.click(Aspa);
 
@@ -300,6 +315,14 @@ $(document).on('ready', function() {
 		finestraModal2.classList.remove("js-mostrar2");
 		init();
 	}
+
+	var btnaspa3=$('#finestra-modal-tancar3');
+	btnaspa3.click(Aspa3);
+
+	function Aspa3(){
+		finestraModal3.classList.remove("js-mostrar3");			
+		init();			
+	}	
 
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
@@ -351,49 +374,15 @@ $(document).on('ready', function() {
 						console.log(array);
 				i++;
 		}
-		/*{
-				var piece=pieces[i];
-				var pieceSiguiente=pieces[i+1]
-				var piecesInfor;
-				if(typeof pieceSiguiente != 'undefined')
-	      {
+		setTimeout(mostrarModalsiperdio,i*1000,0);
 
-					instructionSig=pieceSiguiente.dataset.instruction;
+	}
 
-				}
-
-					instruction=piece.dataset.instruction;
-
-					if(instruction=='for')
-					{
-						//setTimeout(paint,i*1000,instructionSig);
-						piecesInfor=recogerPiezasInfor(pieces,piece);
-						console.log(piecesInfor);
-						ejecutarPiezasInfor(piecesInfor,i);
-						// setTimeout(function(){},i*2000);
-						// execInstruction(instructionSig);
-					}else if(piece.className.search('in-for') == -1){
-						console.log(piece.className);
-						setTimeout(paint,i*1000,instruction);
-					}
-					console.log(piece.className);
-						array[i]=instruction;
-						console.log(array);
-				i++;
-		}*/
-		console.log(array);
-
-		// for(i in pieces){
-    //   var piece=pieces[i];
-    //   if(typeof piece.style != 'undefined')
-    //   {
-		// 		instruction=piece.dataset.instruction;
-		// 		setTimeout(function(){execInstruction(instruction)},2000);
-		// 		console.log(instruction);
-		// 	}
-
-    //}
-
+	function mostrarModalsiperdio(nada){
+		if (score==0) {
+			aDie.play();
+			finestraModal2.classList.add("js-mostrar2");
+		}
 	}
 
 	function recogerPiezasInfor(pieces,pieceFor){
