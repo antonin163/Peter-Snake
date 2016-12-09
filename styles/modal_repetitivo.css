@@ -113,3 +113,13 @@
     font-size: 20px;
     /*border: solid;*/
 }
+.boto3{
+    position: absolute;
+    z-index: 15;
+    top: .75em;
+    right: .75em;
+    padding: 0;
+    background-color: red;
+    border-radius: 50%;
+
+}

@@ -106,15 +106,35 @@
   color: mediumblue;
 }
 .codigo_snake{
-    width: 50%;
+    /*width: 50%;*/
     margin: auto;
     background: #FDFFAE;
     color: #000000;
     font-size: 20px;
-    border: solid;
+    /*border: solid;*/
 }
-.instruction{
-    width: 30%;
+.instruction{    
     margin: auto;
-
+    border: 2px solid #138000;
+    padding: 5px;
+    font-size: 20px;
+    color: black;
+    margin-bottom: 18px;
+    text-align: left;
 }
+.tamaño_snake {
+    align-items: center;
+    display: flex;
+    /* flex-direction: column; */
+}
+.CodeInstruccion {
+    display: flex;
+    width: 50%;
+    margin: auto;
+    justify-content: space-around;
+}
+.tamaño_snake {
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+

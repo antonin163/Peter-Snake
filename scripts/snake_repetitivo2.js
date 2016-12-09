@@ -14,8 +14,10 @@ $(document).on('ready', function() {
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
-	var arrayWall=[{x:2,y:0},{x:3,y:0},{x:4,y:0},{x:5,y:0},{x:6,y:0},
-	{x:7,y:1},{x:5,y:2},{x:4,y:2},{x:3,y:2},{x:2,y:2}];
+	document.getElementById('color').style.background='#000000';
+	/*var arrayWall=[{x:5,y:0},{x:4,y:0},{x:3,y:1},{x:2,y:2},{x:1,y:3},
+	{x:0,y:4},{x:2,y:5},{x:3,y:4},{x:4,y:3},{x:5,y:2}];*/
+	
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
@@ -79,10 +81,10 @@ $(document).on('ready', function() {
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
-	setTimeout(paint,1000,"up");
+	setTimeout(paint,1000,"left");
 	setTimeout(paint,2000,"up");
 	setTimeout(paint,3000,"up");
-	setTimeout(paint,4000,"right");
+	setTimeout(paint,4000,"left");
 
 	}
 
@@ -94,7 +96,7 @@ $(document).on('ready', function() {
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ y: 4, x: i-4 });
+			snake.push({ x: 7, y: i-2 });
 		}
 	}
 
@@ -102,8 +104,8 @@ $(document).on('ready', function() {
 	function createFood()
 	{
 		food = {
-			x: Math.round(0.7 * (width - cellWidth) / cellWidth),
-			y: Math.round(0.2 * (height - cellWidth) / cellWidth),
+			x: Math.round(0.1 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.6 * (height - cellWidth) / cellWidth),
 
 
 		};
@@ -137,7 +139,7 @@ $(document).on('ready', function() {
 
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
 
-			ny == height / cellWidth || checkCollision(nx, ny, snake) || checkCollision(nx,ny,arrayWall )) {
+			ny == height / cellWidth || checkCollision(nx, ny, snake)/* || checkCollision(nx,ny,arrayWall )*/) {
 
 			aDie.play();
 			emptyContainer();
@@ -302,6 +304,21 @@ $(document).on('ready', function() {
 		init();
 	}
 
+	var btnaspa3=$('#finestra-modal-tancar3');
+	btnaspa3.click(Aspa3);
+
+	function Aspa3(){
+		finestraModal3.classList.remove("js-mostrar3");
+		init();
+	}
+	
+	var btnmostrarCodigo=$('#finestra-modal-obrir');
+	btnmostrarCodigo.click(MostrarCodigo);
+
+	function MostrarCodigo(){
+		finestraModal.classList.add("js-mostrar");	
+	}
+
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 	function recyclerPiece(){
@@ -356,8 +373,7 @@ $(document).on('ready', function() {
 		
 	}
 	function mostrarModalsiperdio(nada){
-		if (score==0) {
-			aDie.play();
+		if (score==0) {			
 			finestraModal2.classList.add("js-mostrar2");
 		}
 	}
@@ -376,7 +392,7 @@ $(document).on('ready', function() {
 		var piece;
 		var instruction;
 		var j=1;
-		while (j<=2) {
+		while (j<=4) {
 			for (var i = 0; i < piecesInFor.length; i++) {
 				piece=piecesInFor[i];
 				instruction=piece.dataset.instruction;

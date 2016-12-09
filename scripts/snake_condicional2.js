@@ -12,6 +12,8 @@ $(document).on('ready', function() {
 
 	var width = $("#snake").width();
 	var height = $("#snake").height();
+	
+	document.getElementById('color').style.background='#000000';
 
 	var arrayWall=[{x:2,y:5},{x:3,y:5},{x:4,y:4},{x:5,y:4},{x:6,y:4},
 	{x:6,y:3},{x:7,y:2},{x:8,y:3},{x:8,y:4},{x:8,y:5},{x:8,y:6},{x:7,y:7},{x:6,y:7},
@@ -337,6 +339,29 @@ $(document).on('ready', function() {
 	function Aspa2(){
 		finestraModal2.classList.remove("js-mostrar2");
 		init();
+	}
+
+	var btnaspa3=$('#finestra-modal-tancar3');
+	btnaspa3.click(Aspa3);
+
+	function Aspa3(){
+		finestraModal3.classList.remove("js-mostrar3");			
+		init();			
+	}		
+
+	var btnaspa3=$('#finestra-modal-tancar3');
+	btnaspa3.click(Aspa3);
+
+	function Aspa3(){
+		finestraModal3.classList.remove("js-mostrar3");
+		init();
+	}
+
+	var btnmostrarCodigo=$('#finestra-modal-obrir');
+	btnmostrarCodigo.click(MostrarCodigo);
+
+	function MostrarCodigo(){
+		finestraModal.classList.add("js-mostrar");	
 	}
 
 	var btnCompile=$('#compile');

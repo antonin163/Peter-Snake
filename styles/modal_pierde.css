@@ -113,3 +113,29 @@
     font-size: 20px;
     /*border: solid;*/
 }
+.boto2{
+    position: absolute;
+    z-index: 15;
+    top: .75em;
+    right: .75em;
+    padding: 0;
+    background-color: red;
+    border-radius: 50%;
+
+}
+
+.apple {
+    width: 40px;
+    height: 40px;
+}
+.apple2 {
+    margin-left: 15px;
+    margin-top: 13px;
+}
+
+.ayudaPierde {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    /* width: 70%; */
+}

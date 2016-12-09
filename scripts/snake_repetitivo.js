@@ -14,12 +14,12 @@ $(document).on('ready', function() {
 			finestraModalObrir3 = document.getElementById("finestra-modal-obrir3"),
 			finestraModalTancar3 = document.getElementById("finestra-modal-tancar3");	
 
-
+	
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
-	var arrayWall=[{x:5,y:0},{x:4,y:0},{x:3,y:1},{x:2,y:2},{x:1,y:3},
-	{x:3,y:4},{x:4,y:3},{x:5,y:2}];
+	document.getElementById('color').style.background='#000000';	
+	/*var arrayWall=[{x:2,y:0},{x:3,y:0},{x:4,y:1},{x:4,y:3},{x:3,y:3},{x:2,y:2}];*/
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
 	var d;
@@ -56,7 +56,7 @@ $(document).on('ready', function() {
 		d = "down";
 		createSnake();
 		createFood();
-//		score = 0;
+		score = 0;
 
 		/*if(typeof gameLoop != "undefined") {
 			clearInterval(gameLoop);
@@ -83,10 +83,10 @@ $(document).on('ready', function() {
 
 	iBackground.onload = function(){
 	context.drawImage(iBackground,0, 0, width, height );
-	setTimeout(paint,1000,"left");
+	setTimeout(paint,1000,"up");
 	setTimeout(paint,2000,"up");
 	setTimeout(paint,3000,"up");
-	setTimeout(paint,4000,"left");
+	setTimeout(paint,4000,"right");
 
 	}
 
@@ -98,7 +98,7 @@ $(document).on('ready', function() {
 
 		for(var i = length - 1; i >= 0; i--)
 		{
-			snake.push({ x: 7, y: i-2 });
+			snake.push({ y: 4, x: i-4 });
 		}
 	}
 
@@ -106,8 +106,8 @@ $(document).on('ready', function() {
 	function createFood()
 	{
 		food = {
-			x: Math.round(0.2 * (width - cellWidth) / cellWidth),
-			y: Math.round(0.5 * (height - cellWidth) / cellWidth),
+			x: Math.round(0.7 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.1 * (height - cellWidth) / cellWidth),
 
 
 		};
@@ -141,7 +141,7 @@ $(document).on('ready', function() {
 
 		if (nx == -1 || nx == width / cellWidth || ny == -1 ||
 
-			ny == height / cellWidth || checkCollision(nx, ny, snake) || checkCollision(nx,ny,arrayWall )) {
+			ny == height / cellWidth || checkCollision(nx, ny, snake) /*|| checkCollision(nx,ny,arrayWall )*/) {
 
 			aDie.play();
 			emptyContainer();
@@ -160,8 +160,8 @@ $(document).on('ready', function() {
 			aEat.play();
 
 			emptyContainer();
-			finestraModal.classList.add("js-mostrar");
-
+			//finestraModal.classList.add("js-mostrar");
+			//return;
 
 			//createFood();
 		} else {
@@ -324,6 +324,13 @@ $(document).on('ready', function() {
 		init();			
 	}	
 
+	var btnmostrarCodigo=$('#finestra-modal-obrir');
+	btnmostrarCodigo.click(MostrarCodigo);
+
+	function MostrarCodigo(){
+		finestraModal.classList.add("js-mostrar");	
+	}
+	
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 
@@ -374,15 +381,41 @@ $(document).on('ready', function() {
 						console.log(array);
 				i++;
 		}
-		setTimeout(mostrarModalsiperdio,i*1000,0);
+		console.log(i);
+		setTimeout(mostrarModalsiperdio,i*1000,array);
 
 	}
 
-	function mostrarModalsiperdio(nada){
+	function mostrarModalsiperdio(array){
+		var respuesta=['for','right'];
 		if (score==0) {
+			console.log(i);
 			aDie.play();
 			finestraModal2.classList.add("js-mostrar2");
 		}
+		else{
+				for (var i = array.length - 1; i >= 0; i--) {
+					console.log(array[i],respuesta)
+					if (array[i]!=respuesta[i]) {
+						console.log(i);
+						var error=1;
+					}
+				}
+				if (error=1) {
+					aDie.play();
+					finestraModal2.classList.add("js-mostrar2");
+					return;
+				}
+				else{
+				aEat.play();
+				emptyContainer();
+				finestraModal.classList.add("js-mostrar");
+				return;
+
+				}
+				
+		}
+		
 	}
 
 	function recogerPiezasInfor(pieces,pieceFor){
@@ -400,7 +433,7 @@ $(document).on('ready', function() {
 		var piece;
 		var instruction;
 		var j=1;
-		while (j<=2) {
+		while (j<=4) {
 			for (var i = 0; i < piecesInFor.length; i++) {
 				piece=piecesInFor[i];
 				instruction=piece.dataset.instruction;

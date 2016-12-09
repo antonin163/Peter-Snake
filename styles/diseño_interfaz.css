@@ -147,20 +147,17 @@ header nav ul li {
 }
 
 .nivel{
-      border: solid 4px #ddd;
+    border: solid 4px #ddd;
     border-radius: 50%;
     width: 50px;
     height: 45px;
     display: inline-block;
-    background: #A2D60F;
+    background-color: #A2D60F;
     text-decoration: none;
     font-size: 32px;
     margin-right: 5px;
     text-align: center;
     color: white;
-}
-.nivel:hover{
-  background-color: #000000;
 }
 .subtitle {
     margin-top: -28px;

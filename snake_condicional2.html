@@ -40,7 +40,7 @@
 							     <li><a class="nivel" href="./snake_condicional.html">5</a></li>
 									</font>
 									<font color="Olive" face="Comic Sans MS,arial" size= 6>
-								<li><a class="nivel" href="./snake_condicional2.html">6</a></li>
+								<li><a id="color" class="nivel" href="./snake_condicional2.html">6</a></li>
 									</font>
 							</div>
 							<font color="Olive" face="Comic Sans MS,arial" size= 5>
@@ -157,7 +157,7 @@
 													<button class="btn-first" id="compile" type="button" name="compile" >COMPILAR</button>
 													<button class="btn-third" id="reiniciar" type="button" name="compile">REINICIAR</button>
 													<button class="btn-second" id="empty" type="button" name="empty" >VACIAR CONTENEDORA</button>
-													<a title="Si necesitas ayuda aqui la solucion al problema" id="finestra-modal-obrir" ><button class="btn-fourth" id="abrir" type="button" name="abrir" >MOSTRAR CODIGO</button></a>
+													<button class="btn-fourth" id="finestra-modal-obrir" type="button" name="abrir" >MOSTRAR CODIGO</button>
 												</div>
 												<div id="piece-box" class="piece-box">
 
@@ -181,27 +181,29 @@
 															Al colocar los bloques de este rompecabezas, has creado una serie de instrucciones en un lenguaje informático llamado JavaScript. Este código le dice al ordenador lo que debe mostrar en la pantalla.
 														</p>
 													</font>
-														<div class="ins">
-															<div class="codigo_snake">
-																<p class="instruction" id="modal-instructions" style="text-align: left;">
-																	moveRight();
-																 	<br>
-																  moveDown();
-																 	<br>
-																 	for(i=1;i<=2,i++)<br>
-																	 {<br>
-																	 	moveRight();<br>
-																	 }<br>
+														<div class="CodeInstruccion">
+															<div class="ins">
+																<div class="codigo_snake">
+																	<p class="instruction" id="modal-instructions" >
+																		moveRight();
+																	 	<br>
+																	  moveDown();
+																	 	<br>
+																	 	for(i=1;i<=2,i++)<br>
+																		 {<br>
+																		 	moveRight();<br>
+																		 }<br>
 
-																</p>
+																	</p>
+																</div>
 															</div>
-														<div>
-														<div class="tamaño_snake">
-															<img  src="./styles/img/snake.png">
+															<div class="tamaño_snake">
+																<img  src="./styles/img/snake.png">
+															</div>
 														</div>
 														<div class="modal_button">
 														<button class="modal_button1" id="repetir">REPETIR</button>
-														<a href="./snake_nivel3.html"><button class="modal_button1">CONTINUAR</button></a>
+														<a href="./snake_secuencial.html"><button class="modal_button1">CONTINUAR</button></a>
 														</div>
 
 											    <div id="finestra-modal-tancar" class="finestra-modal-tancar boto">×</div>
@@ -218,17 +220,22 @@
 														<h3>¡SIGUE INTENTANDOLO!</h3>
 													</font>
 													<font color="Olive" face="Comic Sans MS,arial" size= 2>
-														<p class="info_gamer2" id="modal-instructions2">
-															Prueba usar más comandos para caminar hasta la comida.
-
+														<div class="ayudaPierde" >
+														<p class="info_gamer2" id="modal-instructions2">														
+															Ayudame a comer mi manzana, por favor
 														</p>
+														<div class="apple2">
+															<img class=apple src="./assets/appleRed.png">
+														</div>
+														</div>
 													</font>
+
 														<div class="ins2">
-															<p class="instruction2" id="modal-instructions2">
+															<p class="instruction2" id="modal-instructions2">															 
 															</p>
 														<div>
 														<div class="tamaño_snake2">
-															<img  src="./styles/img/snake.png">
+															<img  src="./styles/img/pierde.png">
 														</div>
 														<div class="modal_button2">
 														<button class="modal_button12" id="repetir2">REPETIR</button>
