@@ -224,7 +224,7 @@ $(document).on('ready', function() {
 		}
 	}
 
-	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia)
+	//Verificiamos si hubo alguna colisión (si la hubo el juego se reinicia).
 	function checkCollision(x, y, array)
 	{
 		for(var i = 0; i < array.length; i++)
