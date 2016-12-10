@@ -41,9 +41,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.80729466"
-     inkscape:cx="648.86159"
-     inkscape:cy="282.70937"
+     inkscape:zoom="0.5170525"
+     inkscape:cx="516.54895"
+     inkscape:cy="278.86439"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -150,34 +150,6 @@
        preserveAspectRatio="none"
        height="604"
        width="803" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.53116417;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-9"
-       width="68.576874"
-       height="85.810287"
-       x="-699.89703"
-       y="655.43011"
-       transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <g
-       id="g4347"
-       transform="matrix(0,-1,0.96887857,0,57.555151,1277.1803)">
-      <path
-         inkscape:connector-curvature="0"
-         id="path3396-0-9-0-3-3-5-8-5-3-5-5-3-5-0-6"
-         d="m 612.87821,674.12435 0.18962,-19.08505 11.09062,8.9168 z"
-         style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.02136301;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         transform="matrix(0.9999998,6.2667613e-4,0.00993391,-0.99995066,0,0)"
-         y="-664.42029"
-         x="607.73962"
-         height="1.5513471"
-         width="10.929673"
-         id="rect3398-5-6-7-9-9-0-1-2-0-1-5-74-1-6-5"
-         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.44834518;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.93467335" />
-    </g>
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.58742833;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-5"
@@ -297,30 +269,6 @@
        height="1.5513425"
        x="610.88721"
        y="-730.38947"
-       transform="matrix(0.99999979,6.4680564e-4,0.00962478,-0.99995368,0,0)" />
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.53534937;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-2-0"
-       width="68.576874"
-       height="86.013817"
-       x="-765.98901"
-       y="655.14758"
-       transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <path
-       style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.02102796;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-opacity:1"
-       d="m 701.39402,740.16589 0.1837,-19.08505 10.74544,8.9168 z"
-       id="path3396-0-9-0-3-3-5-8-5-3-5-5-3-5-0-46-0"
-       inkscape:connector-curvature="0" />
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.36288691;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.93467335"
-       id="rect3398-5-6-7-9-9-0-1-2-0-1-5-74-1-6-52-2"
-       width="10.589526"
-       height="1.5513425"
-       x="697.05035"
-       y="-730.39313"
        transform="matrix(0.99999979,6.4680564e-4,0.00962478,-0.99995368,0,0)" />
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.58742833;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -491,87 +439,31 @@
        y="-730.53241"
        transform="matrix(0.99999982,6.0663614e-4,0.01026204,-0.99994734,0,0)" />
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.53116417;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-9-6"
-       width="68.576874"
-       height="85.810287"
-       x="-631.26617"
-       y="655.41656"
-       transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <g
-       id="g4347-7"
-       transform="matrix(0,-1,0.96887857,0,57.541639,1208.5494)">
-      <path
-         inkscape:connector-curvature="0"
-         id="path3396-0-9-0-3-3-5-8-5-3-5-5-3-5-0-6-5"
-         d="m 612.87821,674.12435 0.18962,-19.08505 11.09062,8.9168 z"
-         style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.02136301;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         transform="matrix(0.9999998,6.2667613e-4,0.00993391,-0.99995066,0,0)"
-         y="-664.42029"
-         x="607.73962"
-         height="1.5513471"
-         width="10.929673"
-         id="rect3398-5-6-7-9-9-0-1-2-0-1-5-74-1-6-5-5"
-         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.44834518;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.93467335" />
-    </g>
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.53116417;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-9-6-5"
-       width="68.576874"
-       height="85.810287"
-       x="-562.6546"
-       y="655.37189"
-       transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
-       inkscape:export-xdpi="50"
-       inkscape:export-ydpi="50" />
-    <g
-       id="g4347-7-6"
-       transform="matrix(0,-1,0.96887857,0,57.497004,1139.9378)">
-      <path
-         inkscape:connector-curvature="0"
-         id="path3396-0-9-0-3-3-5-8-5-3-5-5-3-5-0-6-5-5"
-         d="m 612.87821,674.12435 0.18962,-19.08505 11.09062,8.9168 z"
-         style="fill:#000000;fill-rule:evenodd;stroke:#000000;stroke-width:0.02136301;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         transform="matrix(0.9999998,6.2667613e-4,0.00993391,-0.99995066,0,0)"
-         y="-664.42029"
-         x="607.73962"
-         height="1.5513471"
-         width="10.929673"
-         id="rect3398-5-6-7-9-9-0-1-2-0-1-5-74-1-6-5-5-5"
-         style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:5.44834518;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.93467335" />
-    </g>
-    <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.70429873;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.64992976;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-4-1"
-       width="68.576874"
+       width="66.578606"
        height="94.431206"
-       x="-697.32086"
+       x="-697.32135"
        y="383.72726"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
        inkscape:export-xdpi="50"
        inkscape:export-ydpi="50" />
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.53116417;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.4793365;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-8-7-1"
-       width="68.576874"
+       width="66.578606"
        height="85.810287"
-       x="-697.27783"
+       x="-697.2796"
        y="569.03912"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
        inkscape:export-xdpi="50"
        inkscape:export-ydpi="50" />
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.64620161;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.59268546;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-4-4-3"
-       width="68.576874"
+       width="66.578606"
        height="91.492371"
        x="-697.33789"
        y="477.64661"
@@ -580,33 +472,33 @@
        inkscape:export-xdpi="50"
        inkscape:export-ydpi="50" />
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.70429873;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.57620049;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-4-1-5"
-       width="68.576874"
+       width="63.915974"
        height="94.431206"
-       x="-834.52924"
+       x="-829.86542"
        y="383.73846"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
        inkscape:export-xdpi="50"
        inkscape:export-ydpi="50" />
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.53116417;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.40905309;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-8-7-1-8"
-       width="68.576874"
+       width="63.915974"
        height="85.810287"
-       x="-834.48621"
+       x="-829.82532"
        y="569.05029"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"
        inkscape:export-xdpi="50"
        inkscape:export-ydpi="50" />
     <rect
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.64620161;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.52011251;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:60.8666687;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect3339-2-4-4-0-5-2-4-1-8-7-9-2-4-5-4-4-3-8"
-       width="68.576874"
+       width="63.915974"
        height="91.492371"
-       x="-834.54626"
+       x="-829.88129"
        y="477.65781"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-filename="/home/edwin/Peter-Snake/assets/flat-texture.png"

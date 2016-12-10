@@ -131,8 +131,8 @@ $(document).on('ready', function() {
 
 
 		food1 = {
-			x: Math.round(0.9 * (width - cellWidth) / cellWidth),
-			y: Math.round(0.4 * (height - cellWidth) / cellWidth),
+			x: Math.round(0.7 * (width - cellWidth) / cellWidth),
+			y: Math.round(0.7 * (height - cellWidth) / cellWidth),
 
 		};
 	}
@@ -185,15 +185,31 @@ $(document).on('ready', function() {
 			};
 
 			score++;
+			aDie.play();
+			emptyContainer();
+			finestraModal2.classList.add("js-mostrar2");
+			return;
+
+
+
+		} 
+		else if(nx == food1.x && ny == food1.y) {
+			var tail = {
+				x: nx,
+				y: ny
+			};
+
+			score++;
 			aEat.play();
-
-
 			emptyContainer();
 			finestraModal.classList.add("js-mostrar");
+			return;
 
 
 
-		} else {
+		}
+
+		else {
 
 			salto.play();
 			var tail = snake.pop();
