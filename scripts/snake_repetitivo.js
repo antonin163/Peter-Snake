@@ -12,13 +12,14 @@ $(document).on('ready', function() {
 
 	var finestraModal3 = document.getElementById("finestra-modal3"),
 			finestraModalObrir3 = document.getElementById("finestra-modal-obrir3"),
-			finestraModalTancar3 = document.getElementById("finestra-modal-tancar3");	
+			finestraModalTancar3 = document.getElementById("finestra-modal-tancar3");
+	var totalinstrucciones=0;
 
-	
+
 	//Obtenemos el ancho y alto de nuestro canvas.
 	var width = $("#snake").width();
 	var height = $("#snake").height();
-	document.getElementById('color').style.background='#000000';	
+	document.getElementById('color').style.background='#000000';
 	/*var arrayWall=[{x:2,y:0},{x:3,y:0},{x:4,y:1},{x:4,y:3},{x:3,y:3},{x:2,y:2}];*/
 	//Definimos algunas variables para configurar nuestro juego
 	var cellWidth = 50;
@@ -117,6 +118,7 @@ $(document).on('ready', function() {
 	//Dibujamos la víbora
 	function paint(direccion)
 	{
+		totalinstrucciones++;
 		var dir=direccion;
 		d=dir;
 		console.log(dir);
@@ -294,11 +296,11 @@ $(document).on('ready', function() {
 	btn_empezar.click(EmpezarJuego);
 
 	function EmpezarJuego(){
-		finestraModal3.classList.remove("js-mostrar3");			
+		finestraModal3.classList.remove("js-mostrar3");
 		//comenzar();
-		init();			
+		init();
 
-	}		
+	}
 
 	var btnaspa=$('#finestra-modal-tancar');
 	btnaspa.click(Aspa);
@@ -320,17 +322,17 @@ $(document).on('ready', function() {
 	btnaspa3.click(Aspa3);
 
 	function Aspa3(){
-		finestraModal3.classList.remove("js-mostrar3");			
-		init();			
-	}	
+		finestraModal3.classList.remove("js-mostrar3");
+		init();
+	}
 
 	var btnmostrarCodigo=$('#finestra-modal-obrir');
 	btnmostrarCodigo.click(MostrarCodigo);
 
 	function MostrarCodigo(){
-		finestraModal.classList.add("js-mostrar");	
+		finestraModal.classList.add("js-mostrar");
 	}
-	
+
 	var btnCompile=$('#compile');
 	btnCompile.click(recyclerPiece);
 
@@ -413,9 +415,9 @@ $(document).on('ready', function() {
 				return;
 
 				}
-				
+
 		}
-		
+
 	}
 
 	function recogerPiezasInfor(pieces,pieceFor){
